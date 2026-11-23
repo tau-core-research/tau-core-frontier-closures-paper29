@@ -1,0 +1,56 @@
+{
+  "cluster": "1E 0657-558 (Bullet Cluster)",
+  "z_lens": 0.296,
+  "z_source_effective": 0.80,
+  "sigma_crit_Msun_kpc2": 3.12e9,
+  "observational_constraints": {
+    "bow_shock_mach_number": {
+      "value": 3.0,
+      "sigma": 0.4,
+      "source": "Markevitch et al. (2004, ApJ 606, 819; Chandra X-ray shock jump)"
+    },
+    "shock_velocity_km_s": {
+      "value": 4700.0,
+      "sigma": 630.0,
+      "source": "Markevitch (2006, ESA SP-604, 723) & Clowe et al. (2006, ApJL 648, L109)"
+    },
+    "bcg_separation_projected_kpc": {
+      "value": 720.0,
+      "sigma": 15.0,
+      "source": "Clowe et al. (2006, ApJL 648, L109) & Bradac et al. (2006, ApJ 652, 937)"
+    },
+    "gas_to_lensing_offset_main_kpc": {
+      "value": 185.0,
+      "sigma": 25.0,
+      "source": "Clowe et al. (2006, ApJL 648, L109; Table 1 / Fig. 1b)"
+    },
+    "gas_to_lensing_offset_sub_kpc": {
+      "value": 220.0,
+      "sigma": 25.0,
+      "source": "Clowe et al. (2006, ApJL 648, L109; Table 1 / Fig. 1b)"
+    },
+    "aperture_mass_250kpc_main_1e14Msun": {
+      "value": 2.80,
+      "sigma": 0.30,
+      "source": "Bradac et al. (2006, ApJ 652, 937; strong+weak lensing R < 250 kpc)"
+    },
+    "aperture_mass_250kpc_sub_1e14Msun": {
+      "value": 1.15,
+      "sigma": 0.20,
+      "source": "Bradac et al. (2006, ApJ 652, 937; strong+weak lensing R < 250 kpc)"
+    },
+    "baryon_census_250kpc_1e14Msun": {
+      "m_gas_main": 0.65,
+      "m_gal_main": 0.14,
+      "m_gas_sub": 0.21,
+      "m_gal_sub": 0.058,
+      "source": "Bradac et al. (2006, ApJ 652, 937, Sec. 4.1) & Clowe et al. (2006)"
+    },
+    "bcg_to_lensing_centroid_lag_sub_kpc": {
+      "value": 12.0,
+      "sigma": 18.0,
+      "sidm_cross_section_upper_cm2_g": 1.25,
+      "source": "Randall et al. (2008, ApJ 679, 1173) & Cha et al. (2024, ApJ 961, 186, JWST NIRCam)"
+    }
+  }
+}
