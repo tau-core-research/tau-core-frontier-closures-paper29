@@ -23,7 +23,7 @@
 
 \author{Jozsef Olcsak\\[0.25em]
 \small Independent Researcher $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
-\small Tau Core Research Program --- Paper 29 (\texttt{v2.2.0})}
+\small Tau Core Research Program --- Paper 29 (\texttt{v2.3.0})}
 \date{24 November 2026}
 
 \begin{document}
@@ -42,11 +42,15 @@ Newtonian gauge. If $N=\bar N+\delta N$, the time component also acquires
 $-2\bar N\delta N$. The tested time-component identity sets both extra
 terms to zero; it does not derive the general Weyl-lensing kernel (now derived
 for both curl-free scalar $V_u$ and transverse vector $u_i^T$ perturbations,
-verified in 3+1D expanding FLRW, and integrated through the live coupled
-\texttt{AeST} + \texttt{ACT DR6} / \texttt{Planck PR4} Boltzmann pipeline in
+verified in 3+1D expanding FLRW, and tested via a one-way test-field Einstein--\ae{}ther
+disformal-lensing Boltzmann audit on frozen \texttt{vc\_A} potentials in
 Section~\ref{sec:v21-bridge2}, which keeps both extra terms, proves a strict
-\texttt{NO-GO} bound against sub-horizon $\delta N(\mathbf{x})$, closes the
-$u_i^T$ vector-mode caveat, and demonstrates survival across $c_S \in [0, 1]$).
+\texttt{NO-GO} bound against sub-horizon $\delta N(\mathbf{x})$, establishes a
+conditional vector-mode closure for curl-free matter / $B_i^T = 0$ on the
+Cherenkov-safe luminal slice $c_4 = 0, c_V = 1$, and quantifies both CMB
+lensing and a low-$z$ weak-lensing Weyl dip across $c_S \in [0, 1]$, while
+noting that full Skordis--Z{\l}o\'snik \texttt{AeST} scalar-field backreaction
+and late-time ISW coupling remain open).
 The fitted ACT calibration and acoustic-angle anchor are not independent
 predictions. The reported $\chi^2$ per bin is descriptive, not a likelihood
 ratio or a calibrated significance. All cluster and LTB runs are finite
@@ -387,7 +391,7 @@ Testing this algebra numerically on a $64^3 = 262{,}144$-cell 3D log-normal cosm
 
 \section{Unified Three-Pillar Synthesis and Irreducible Epistemic Boundary}
 \label{sec:step3-synthesis}
-The twelve archived computations are separate tests of their stated implementations. A successful script run does not certify every physics claim attached to its label. Zero added dark-sector parameters does not mean calibrations, modeling choices or externally inferred inputs were absent. The central unresolved items are the optical perturbation operator, resolution and model dependence of the cluster tests, and an interacting continuum construction.
+The twelve archived computations are separate tests of their stated implementations. A successful script run does not certify every physics claim attached to its label. Zero added dark-sector parameters does not mean calibrations, modeling choices or externally inferred inputs were absent. The central unresolved items (beyond the linearized test-field optical perturbation audit in Section~\ref{sec:v21-bridge2}) are full dynamical \texttt{AeST} scalar-field backreaction and nonlinear vorticity in the optical perturbation operator, resolution and model dependence of the cluster tests, and an interacting continuum construction.
 \begin{itemize}\sloppy
     \item \textbf{\texttt{AXIOM-OCC} (candidate assumption):} Occupation of the substrate and the existence, positivity and scaling limit of a nonperturbative measure are not established. The finite invariant identity does not substitute for them.
     \item \textbf{\texttt{AXIOM-KMS} (\texttt{PROPOSED FOUNDATIONAL LAW}):} Apparent-horizon Kodama--Hayward KMS thermal state fixing $a_0^{\mathrm{KH}}(z) = \frac{5\sqrt{3}}{96}c H(z)|1 - q(z)|$ and cosmic void/wall clock calibration.
@@ -417,54 +421,63 @@ Gate / Axiom & Physical Test, Theorem, or Irreducible Boundary & Epistemic Tag &
 \label{tab:step3-ledger}
 \end{table}
 
-\section{Addendum (\texttt{v2.2.0}): Perturbed Disformal Weyl-Lensing Kernel, Exact Covariant \texttt{AeST} Director EOMs, Live \texttt{ACT DR6} Boltzmann Audit, and 24-Cell Rank-4 Isotropy}
+\section{Addendum (\texttt{v2.3.0}): Perturbed Disformal Weyl-Lensing Kernel, Exact \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} Covariant Einstein--\texorpdfstring{\ae{}}{ae}ther Director EOMs, Test-Field \texttt{ACT DR6} / Low-\texorpdfstring{$z$}{z} Lensing Audit, and 24-Cell Rank-4 Isotropy}
 \label{sec:v21-bridge2}
-To close the general optical perturbation gap highlighted in the 2026-11-23 publication audit, we retain \emph{both} omitted first-order terms in the disformal optical metric $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ in conformal Newtonian gauge $g_{00} = -a(\tau)^2(1 + 2\Psi)$, $g_{ij} = a(\tau)^2(1 - 2\Phi)\delta_{ij}$, decompose the spatial director perturbation into its curl-free scalar ($u_i^S = a\,\partial_i V_u$) and divergence-free transverse vector ($u_i^T$, $\partial^i u_i^T = 0$) components with $u_0 = -a(1 + \Psi)$ and perturbed lapse $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$, and evaluate the complete coupled dynamics via \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} and \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} (\texttt{python3 -W error}, \texttt{rc = 0}):
+To address the general optical perturbation gap highlighted in the 2026-11-23 publication audit, we retain \emph{both} omitted first-order terms in the disformal optical metric $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ in conformal Newtonian/Poisson gauge $g_{00} = -a(\tau)^2(1 + 2\Psi)$, $g_{0i} = -a(\tau)^2 B_i^T$, $g_{ij} = a(\tau)^2(1 - 2\Phi)\delta_{ij}$, decompose the spatial covariant director perturbation as $u_i = a\,\partial_i V_u + a\,u_i^T$ ($\partial^i u_i^T = 0$) with exact $\mathcal{O}(\varepsilon^2)$ unit norm $g^{\mu\nu} u_\mu u_\nu = -1$ and perturbed lapse $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$, and audit the linearized dynamics via \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} and \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} (\texttt{python3 -W error}, \texttt{rc = 0}):
 \begin{enumerate}
     \item \textbf{Exact linearized disformal metric and 3+1D expanding-FLRW verification (\texttt{PROVEN}):}
-    Exact \texttt{SymPy} expansion yields $\tilde{g}_{00} = -a^2\bar{N}^2[1 + 2\Psi + 2\delta N/\bar{N}]$, $\tilde{g}_{0i} = -a^2(1 - \bar{N}^2)\partial_i V_u - a(1-\bar{N}^2)u_i^T$, and $\tilde{g}_{ij} = a^2(1 - 2\Phi)\delta_{ij}$. Passing to optical conformal time $\mathrm{d}\tilde{\tau} = \bar{N}\mathrm{d}\tau$ and applying the spatial-angle-preserving time diffeomorphism $\tilde{\tau} = \tilde{\tau}' - \xi^0$ with $\xi^0 \equiv \frac{1 - \bar{N}^2}{\bar{N}} V_u$ eliminates the scalar $\tilde{g}_{0i}$ identically; the Hubble-shift terms $\pm\tilde{\mathcal{H}}\xi^0$ cancel identically in the gauge-invariant optical Weyl-lensing potential:
+    Exact \texttt{SymPy} expansion yields $\tilde{g}_{00} = -a^2\bar{N}^2[1 + 2\Psi + 2\delta N/\bar{N}]$, $\tilde{g}_{0i} = -a^2 B_i^T - a^2(1 - \bar{N}^2)\partial_i V_u - a^2(1-\bar{N}^2)u_i^T$, and $\tilde{g}_{ij} = a^2(1 - 2\Phi)\delta_{ij}$. Passing to optical conformal time $\mathrm{d}\tilde{\tau} = \bar{N}\mathrm{d}\tau$ and applying the spatial-angle-preserving time diffeomorphism $\tilde{\tau} = \tilde{\tau}' - \xi^0$ with $\xi^0 \equiv \frac{1 - \bar{N}^2}{\bar{N}} V_u$ eliminates the scalar $\tilde{g}_{0i}$ identically; the Hubble-shift terms $\pm\tilde{\mathcal{H}}\xi^0$ cancel identically in the gauge-invariant scalar optical Weyl-lensing potential:
     \begin{equation}
         \tilde{\Phi}_W \equiv \frac{1}{2}\bigl(\tilde{\Phi}_{\mathrm{eff}} + \tilde{\Psi}_{\mathrm{eff}}\bigr) = \frac{1}{2}(\Phi + \Psi) + \frac{\delta N}{2\bar{N}} - \frac{1 - \bar{N}^2}{2\bar{N}^2}\partial_\tau V_u + \frac{1 + \bar{N}^2}{2\bar{N}^3}(\partial_\tau\bar{N})\,V_u.
         \label{eq:exact-disformal-weyl}
     \end{equation}
     Direct numerical integration of the un-transformed 3+1D ($4\times 4$ metric) null geodesic equation $\mathrm{d}^2 x^\mu/\mathrm{d}\lambda^2 + \tilde{\Gamma}^\mu_{\alpha\beta} k^\alpha k^\beta = 0$ through a localized 3D Gaussian lens in an \emph{expanding} FLRW background ($a(\tau) = 1 + 0.015\tau$) with \emph{time-varying} lapse ($\bar{N}(\tau) = 0.90 + 0.005\tau$) confirms Eq.~\eqref{eq:exact-disformal-weyl} across three live tests: (i)~full dynamical test ($\Phi=\Psi$, $\delta N\ne 0$, oscillating $V_u$): relative error $9.84\times 10^{-6}$ in both transverse angles (null-norm error $1.74\times 10^{-13}$); (ii)~static $V_u$ ($\omega = 0$) at constant $\bar{N}$ ($\partial_\tau\bar{N} = 0$): $|\alpha_y| = 1.50\times 10^{-12}$ ($\mathcal{O}(\varepsilon^2)$ zero); (iii)~static $V_u$ ($\omega = 0$) at $\partial_\tau\bar{N} = 0.005$: non-zero deflection $\alpha_y = 1.6039\times 10^{-7}$ matching the $(\partial_\tau\bar{N})V_u$ term to $9.40\times 10^{-6}$. Moreover, Eq.~\eqref{eq:exact-disformal-weyl} imposes a strict \texttt{PROVEN NO-GO} on local sub-horizon $\delta N/\bar{N} = -\alpha_{\mathrm{loc}}\delta_m$ ($|\alpha_{\mathrm{loc}}| < 2.83\times 10^{-7}$ CMB, $< 6.0\times 10^{-9}$ \texttt{X-COP}), forcing $\delta N = 0$ on $k \gg aH$, and shows that zero extra cluster lensing under $\partial_\tau\bar{N}\ne 0$ requires $V_u \equiv 0$.
-    \item \textbf{Exact \texttt{SymPy} covariant linearized \texttt{AeST} director EOMs for scalar $V_u$ and transverse vector $u_i^T$ (\texttt{v2.2.0}, \texttt{PROVEN}):}
-    Varying the covariant quadratic Einstein--\ae{}ther/\texttt{AeST} director action $\mathcal{L}_u = -\frac{1}{2} c_4 a_\mu a^\mu - \frac{1}{2} c_2 (\nabla_\mu u^\mu)^2 - \frac{1}{4} c_V F_{\mu\nu} F^{\mu\nu}$ (with $a_\mu = u^\nu\nabla_\nu u_\mu$, $F_{\mu\nu} = \nabla_\mu u_\nu - \nabla_\nu u_\mu$, and exact unit-norm constraint $g^{\mu\nu}u_\mu u_\nu = -1$) around flat FLRW yields two exact decoupled wave equations (verified symbolically in \texttt{SymPy}):
+    \item \textbf{Exact $\mathcal{O}(\varepsilon^2)$ \texttt{SymPy} covariant linearized Einstein--\ae{}ther director EOMs and conditional vector closure (\texttt{v2.3.0}, \texttt{PROVEN / CONDITIONAL}):}
+    Expanding the full covariant Einstein--\ae{}ther / Stueckelberg--Lorenz action density in signature $(-,+,+,+)$,
     \begin{equation}
-        (a V_u)'' + c_S^2 k^2 (a V_u) = -(a\Psi)' - 3 c_S^2 a(\Phi' + \mathcal{H}\Psi), \qquad (a u_i^T)'' + c_V^2 k^2 (a u_i^T) = 0,
+        \sqrt{-g}\,\mathcal{L}_u = \sqrt{-g}\!\left(+\frac{1}{2} c_4 a_\mu a^\mu - \frac{1}{2} c_2 (\nabla_\mu u^\mu)^2 - \frac{1}{4} K_B F_{\mu\nu} F^{\mu\nu}\right)
+        \label{eq:ea-action}
+    \end{equation}
+    (note the ghost-free $+c_4 a_\mu a^\mu$ sign for spacelike $a_\mu = u^\nu\nabla_\nu u_\mu$, and $F_{\mu\nu} = \nabla_\mu u_\nu - \nabla_\nu u_\mu$), to exact $\mathcal{O}(\varepsilon^2)$ in \texttt{SymPy} while solving the unit-norm constraint $g^{\mu\nu}u_\mu u_\nu = -1$ through $\mathcal{O}(\varepsilon^2)$ (which retains the background-expansion cross-term $-c_2\sqrt{-g}\,\bar\theta\,\delta^{(2)}\theta$ and the scalar electric kinetic term $+\frac{1}{2} K_B F_{0i}^2$) yields the exact linearized equations of motion:
+    \begin{equation}
+    \begin{aligned}
+        (a V_u)'' + \bigl[c_S^2 k^2 - 3 c_S^2 (\mathcal{H}' - \mathcal{H}^2)\bigr](a V_u) &= -(a\Psi)' - 3 c_S^2 a(\Phi' + \mathcal{H}\Psi), \\
+        (a u_i^T)'' + \bigl[c_V^2 k^2 - 3 c_S^2 (\mathcal{H}' - \mathcal{H}^2)\bigr](a u_i^T) &= 0,
+    \end{aligned}
         \label{eq:aest-director-eoms}
     \end{equation}
-    where $c_S^2 \equiv c_2/c_4$ and $\delta(\nabla_\mu u^\mu) \equiv 0$ identically for $u_i^T$. Thus transverse vector modes $u_i^T$ have \emph{zero} linear scalar-matter source, decay adiabatically as $\sim 1/a$, and induce zero linear $B$-mode lensing---closing the open $u_i^T$ caveat of \texttt{v2.1.1}. In the dust/khronon limit $c_S \to 0$, the exact scalar EOM reproduces the live Boltzmann CDM velocity potential $V_m = -v_d/k$ to relative error $3.21\times 10^{-3}$.
-    \item \textbf{Live coupled \texttt{AeST} + disformal lensing \texttt{ACT DR6} / \texttt{Planck PR4} Boltzmann audit (\texttt{v2.2.0}, \texttt{PROVEN}):}
-    Hooking Step~1's exact untruncated $\ell \le 3000$ Boltzmann + Challinor--Lewis curved-sky lensing pipeline on the locked \texttt{vc\_A} void-clock branch ($H_0 = 67.0708\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $100\theta_* = 1.04090$, where $\bar{N}(z)$ crosses $1.000$ near $z \approx 1.4$: $\bar{N}(0.5) = 0.9841$, $\bar{N}(3.0) = 1.0086$) and replacing the standard Weyl source $\frac{1}{2}(\Phi+\Psi)$ directly with the full Eq.~\eqref{eq:exact-disformal-weyl} kernel integrated from Eq.~\eqref{eq:aest-director-eoms} resolves \texttt{v2.1.1}'s order-of-magnitude tension completely (Table~\ref{tab:v22-boltzmann}):
-    (a)~on Tau Core's physical covariant Stueckelberg--Lorenz branch ($c_S = c = 1.0$, Paper~27/28), sub-horizon acoustic oscillation damps $V_u$ so $\Delta C_L^{\kappa\kappa}/C_L^{\kappa\kappa} \le +0.042\%$ ($L=10$) and $+0.0005\%$ ($L=100$), giving \textbf{$\Delta\chi^2_{\mathrm{ACT108}} = 0.000$ and $\Delta\chi^2_{\mathrm{KK22}} = +0.010$ (\texttt{Presc.~I}) / $0.000$ (\texttt{2-Field})};
-    (b)~even in the maximally shifted comoving-dust limit ($c_S = 0.0$ / exact Boltzmann $V_m = -v_d/k$), $\bar{N}(z)$'s sign flip around $z \approx 1.4$ softens the shift to a distinctive $+1.85\%$ peak at $L \sim 100$ ($\Delta\chi^2_{\mathrm{ACT108}} = +0.120$, $\Delta\chi^2_{\mathrm{KK22}} = +1.410$ on \texttt{Presc.~I}, $+0.800$ on \texttt{2-Field}---cleanly surviving \texttt{ACT DR6 + Planck PR4} at $<1.2\sigma$ while providing a sharp $L \sim 100$ target for Simons Observatory / CMB-S4 to distinguish $c_S = 1$ from $c_S \to 0$);
-    (c)~an adversarial monotone-lapse test ($\bar{N}(a) = 1 - 0.015 a^{3/2}$) likewise yields $\Delta\chi^2 = 0.000$ at $c_S = 1.0$ and $+1.130$ (\texttt{Presc.~I}) / $+0.660$ (\texttt{2-Field}) at $c_S = 0.0$.
-    \item \textbf{24-Cell rank-4 $W(F_4)$ Euclidean $O(4)$ director-operator isotropy (bridge to Paper~30 \texttt{v1.3.0}, \texttt{PROVEN}):}
+    where $c_S^2 \equiv c_2/(c_4 + K_B)$ and $c_V^2 \equiv K_B/(c_4 + K_B)$. Two physical consequences follow immediately: (i)~the UHECR vacuum gravitational Cherenkov bound ($1 - c_V^2 < 10^{-15}$) selects the luminal slice $c_4 = 0, K_B > 0, c_2 \ge 0$, where $c_V^2 = 1$ identically while $c_S^2 = c_2/K_B$ remains finite and well-defined; (ii)~in matter domination ($a \propto \tau^2$), $-3 c_S^2 (\mathcal{H}' - \mathcal{H}^2) = +\frac{9}{2} c_S^2 \mathcal{H}^2 > 0$ is a positive stabilizing mass term on super-horizon scales ($k \lesssim 2.1\mathcal{H}$). Although $B_i^T$ cancels identically out of $\delta S_u/\delta u_i^T$ in the $c_1+c_3 = 0$ ($K_B F^2$) action so $u_i^T$ has zero linear scalar source and decays $\sim 1/a$ sub-horizon, the vector closure is explicitly \textbf{\texttt{CONDITIONAL}}: $B_i^T$ enters $\tilde{g}_{0i}$ directly and is sourced by nonlinear matter vorticity via the vector momentum constraint, and Eq.~\eqref{eq:ea-action} does not yet include the full Skordis--Z{\l}o\'snik \texttt{AeST} scalar field ($\phi, \mathcal{Q}, \mathcal{Y}$) coupling $\bar\lambda u_i^T$. In gravitational conformal time $\tau$ ($\mathrm{d}\tau = \mathrm{d}\eta_{\mathrm{opt}}/\bar{N}$, verified against $\mathcal{H} = a'/a$ to $4.11\times 10^{-4}$), the $c_S = 0$ scalar EOM reproduces the live Boltzmann CDM velocity potential $V_m = -v_d/k$ to $6.6\times 10^{-5}$.
+    \item \textbf{High-resolution test-field disformal lensing \& low-$z$ weak-lensing audit on \texttt{ACT DR6} / \texttt{Planck PR4} (\texttt{v2.3.0}, \texttt{SCOPED / CONDITIONAL}):}
+    Integrating Eq.~\eqref{eq:aest-director-eoms} in gravitational conformal time $\tau$ with $40\times$ Crank--Nicolson substepping on the frozen \texttt{vc\_A} Boltzmann potentials ($H_0 = 67.0708\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $100\theta_* = 1.04090$) and propagating Eq.~\eqref{eq:exact-disformal-weyl} into Step~1's $\ell \le 3000$ Challinor--Lewis curved-sky lensing pipeline yields a one-way \emph{test-field} diagnostic (frozen background potentials, zero director backreaction on Einstein/Poisson equations, unlensed TT/TE/EE and late-time ISW frozen; Table~\ref{tab:v22-boltzmann}):
+    (a)~on a decoupled covariant Stueckelberg--Lorenz vector ($c_S = 1.0$, initialized on the $z=1100$ quasi-static attractor), sub-horizon acoustic oscillation suppresses $|\Delta\tilde{\Phi}_W/\Phi_W| \le 0.001\%$ and $\Delta C_L^{\kappa\kappa}/C_L^{\kappa\kappa} \le +0.039\%$ ($L=10$) / $+0.0004\%$ ($L=100$), giving descriptive shifts \textbf{$\Delta\chi^2_{\mathrm{ACT108}} = 0.00$ and $\Delta\chi^2_{\mathrm{KK22}} = +0.01$ (\texttt{P1}) / $0.00$ (\texttt{2F})};
+    (b)~however, Skordis--Z{\l}o\'snik \texttt{AeST} dark-matter clustering requires $c_s^2 \ll 10^{-5}$, corresponding physically to the \emph{comoving} branch ($c_S = 0.0$ / exact Boltzmann $V_m = -v_d/k$). On that comoving branch, the $(\partial_\tau\bar{N}) V_u$ term dominates ($10\times$ larger than the $\partial_\tau V_u$ term): it peaks at $\Delta\tilde{\Phi}_W/\Phi_W = +3.17\%$ near $z \approx 1.0$ (where $\partial_\tau\bar{N} < 0$), flips sign where $\partial_\tau\bar{N} = 0$ ($z \approx 0.45$ and $z \approx 3.0$), and drops sharply to \textbf{$-4.38\%$ at $z = 0.2$, $-7.79\%$ at $z = 0.1$, and $-9.71\%$ at $z = 0.05$}. In CMB lensing, the negative $z < 0.45$ dip partially cancels the $z \sim 1$ peak, yielding $\Delta C_{10}^{\kappa\kappa} = -0.46\%$, a $+1.84\%$ peak at $L \sim 100$, and descriptive $\Delta\chi^2_{\mathrm{ACT108}} = +0.12$, $\Delta\chi^2_{\mathrm{KK22}} = +1.40$ (\texttt{P1}) / $+0.79$ (\texttt{2F}) (shifting to $+2.02$ / $+1.33$ when a virialized nonlinear cutoff $k > 0.15\;\mathrm{Mpc}^{-1}$ zeroes $V_u$ inside halos). Crucially, the $-7.8\%$ to $-9.7\%$ low-$z$ Weyl dip predicts a \textbf{$-15\%$ to $-19\%$ suppression of low-$z$ ($z \lesssim 0.2$) cosmic-shear power} on the comoving $c_S = 0$ branch---a sharp, falsifiable weak-lensing discriminator for DES/KiDS/Euclid/Rubin LSST (absent if $c_S \simeq 1$);
+    (c)~an adversarial monotone-lapse control ($\bar{N}(a) = 1 - 0.015 a^{3/2}$) gives $\Delta\chi^2_{\mathrm{KK22}} = 0.00$ ($c_S = 1.0$) and $+1.12$ (\texttt{P1}) / $+0.65$ (\texttt{2F}) at $c_S = 0.0$ ($\Delta\chi^2_{\mathrm{ACT108}} = +0.05$, $\Delta\chi^2_{\mathrm{KK13}} = -0.02$).
+    \item \textbf{24-Cell rank-4 $W(F_4)$ Euclidean $O(4)$ director-operator isotropy (bridge to Paper~30 \texttt{v1.4.0}, \texttt{PROVEN}):}
     Complementing the sixth-moment rank boundary above, exact Reynolds character averaging over all $|W(F_4)| = 1{,}152$ symmetry matrices proves $\dim\bigl(((\mathbb{R}^4)^{\otimes 4})^{W(F_4)}\bigr) = 3$ (matching continuous 4D Euclidean $O(4)$ for all non-symmetric rank-4 director kinetic tensors $C^{\mu\nu\rho\sigma}(\nabla_\mu u_\nu)(\nabla_\rho u_\sigma)$ across independent $c_1, c_2, c_3$, forbidding hypercubic $\sum_a(\nabla_a u_a)^2$ counterterms; exact root-moment error $4.44\times 10^{-16}$), whereas at rank~6 $\dim\bigl(((\mathbb{R}^4)^{\otimes 6})^{W(F_4)}\bigr) = 16 > 15$ introduces the first $W(F_4)$ lattice anisotropy ($c_4$-type acceleration operators).
 \end{enumerate}
 
 \begin{table}[!ht]
 \centering
 \scriptsize
-\setlength{\tabcolsep}{4.0pt}
+\setlength{\tabcolsep}{3.4pt}
 \renewcommand{\arraystretch}{1.12}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccccc}
 \toprule
-Director Branch (\texttt{vc\_A} $H_0=67.0708$) & $\Delta C_{40}^{\kappa\kappa}$ & $\Delta C_{100}^{\kappa\kappa}$ & $\Delta C_{1000}^{\kappa\kappa}$ & \texttt{ACT108} (\texttt{P1}) & \texttt{KK13} (\texttt{P1}) & \texttt{KK22} (\texttt{P1}) & \texttt{KK22} (\texttt{2F}) \\
+Test-Field Director Branch (\texttt{vc\_A} $H_0=67.0708$) & $\Delta C_{10}^{\kappa\kappa}$ & $\Delta C_{40}^{\kappa\kappa}$ & $\Delta C_{100}^{\kappa\kappa}$ & $\Delta C_{1000}^{\kappa\kappa}$ & \texttt{ACT108} (\texttt{P1}) & \texttt{KK13} (\texttt{P1}) & \texttt{KK22} (\texttt{P1}) & \texttt{KK22} (\texttt{2F}) \\
 \midrule
-Baseline ($V_u = 0$, Paper 29 Step 1) & $0.00\%$ & $0.00\%$ & $0.00\%$ & $110.25$ & $15.96$ & $22.86$ & $21.67$ \\
-\textbf{Covariant SL ($c_S = 1.0$, Paper 27/28)} & $+0.004\%$ & $+0.0005\%$ & $0.00\%$ & $110.25\,(+0.00)$ & $15.96\,(+0.00)$ & $22.87\,(+0.01)$ & $21.67\,(+0.00)$ \\
-Intermediate ($c_S = 0.1$) & $+0.085\%$ & $+0.012\%$ & $0.00\%$ & $110.25\,(+0.00)$ & $15.96\,(+0.00)$ & $22.95\,(+0.09)$ & $21.74\,(+0.07)$ \\
-Low sound speed ($c_S = 0.01$) & $+1.88\%$ & $+1.05\%$ & $-0.007\%$ & $110.26\,(+0.01)$ & $16.21\,(+0.25)$ & $24.18\,(+1.32)$ & $22.49\,(+0.82)$ \\
-Comoving dust ($c_S = 0.0$) & $+1.19\%$ & $+1.86\%$ & $+0.91\%$ & $110.38\,(+0.13)$ & $16.28\,(+0.32)$ & $24.29\,(+1.43)$ & $22.48\,(+0.81)$ \\
-Exact Boltzmann $V_m = -v_d/k$ & $+1.18\%$ & $+1.85\%$ & $+0.90\%$ & $110.37\,(+0.12)$ & $16.27\,(+0.31)$ & $24.27\,(+1.41)$ & $22.47\,(+0.80)$ \\
-Adversarial monotone $\bar{N}$ ($c_S = 1.0 / 0.0$) & $+0.001 / +1.64\%$ & $+0.0003 / +1.04\%$ & $0 / +0.83\%$ & $110.25 / 110.31$ & $15.96 / 15.94$ & $22.86 / 23.99$ & $21.67 / 22.33$ \\
+Baseline ($V_u = 0$, Paper 29 Step 1) & $0.00\%$ & $0.00\%$ & $0.00\%$ & $0.00\%$ & $110.25$ & $15.96$ & $22.86$ & $21.67$ \\
+\textbf{Decoupled SL ($c_S = 1.0$, $c_4=0$)} & $+0.039\%$ & $+0.004\%$ & $+0.0004\%$ & $0.00\%$ & $110.25\,(+0.00)$ & $15.96\,(+0.00)$ & $22.87\,(+0.01)$ & $21.67\,(+0.00)$ \\
+Intermediate ($c_S = 0.1$) & $+0.81\%$ & $+0.084\%$ & $+0.012\%$ & $0.00\%$ & $110.25\,(+0.00)$ & $15.96\,(+0.00)$ & $22.95\,(+0.09)$ & $21.74\,(+0.07)$ \\
+Low sound speed ($c_S = 0.01$) & $+0.34\%$ & $+1.86\%$ & $+1.04\%$ & $-0.007\%$ & $110.26\,(+0.01)$ & $16.20\,(+0.24)$ & $24.17\,(+1.31)$ & $22.48\,(+0.81)$ \\
+Comoving dust ODE ($c_S = 0.0$) & $-0.46\%$ & $+1.18\%$ & $+1.84\%$ & $+0.90\%$ & $110.37\,(+0.12)$ & $16.27\,(+0.31)$ & $24.26\,(+1.40)$ & $22.46\,(+0.79)$ \\
+Exact Boltzmann $V_m = -v_d/k$ & $-0.46\%$ & $+1.18\%$ & $+1.84\%$ & $+0.90\%$ & $110.37\,(+0.12)$ & $16.27\,(+0.31)$ & $24.26\,(+1.40)$ & $22.46\,(+0.79)$ \\
+Comoving $V_m$ + virial cut ($k>0.15$) & $-0.46\%$ & $+1.29\%$ & $+1.94\%$ & $-0.42\%$ & $110.33\,(+0.08)$ & $16.78\,(+0.82)$ & $24.88\,(+2.02)$ & $23.00\,(+1.33)$ \\
+Adversarial monotone $\bar{N}$ ($1.0 / 0.0$) & $+0.01 / +2.14\%$ & $+0.001 / +1.63\%$ & $+0.0003 / +1.03\%$ & $0 / +0.83\%$ & $110.25 / 110.30$ & $15.96 / 15.94$ & $22.86 / 23.98$ & $21.67 / 22.32$ \\
 \bottomrule
 \end{tabular}%
 }
-\caption{Live coupled \texttt{AeST} director + disformal Weyl-lensing Boltzmann audit on \texttt{ACT DR6} (108 bins) and \texttt{ACT DR6 + Planck PR4} lensing (13 and 22 bins; \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py}).}
+\caption{High-resolution ($40\times$ substepped, gravitational $\tau$) one-way test-field disformal Weyl-lensing audit on frozen \texttt{vc\_A} potentials across \texttt{ACT DR6} (108 bins) and \texttt{ACT DR6 + Planck PR4} lensing (13 and 22 bins; descriptive $\chi^2$, \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py}).}
 \label{tab:v22-boltzmann}
 \end{table}
 

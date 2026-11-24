@@ -1,43 +1,64 @@
 {
-  "version": "v2.2.0",
+  "version": "v2.3.0",
+  "scope_disclaimer": "One-way test-field perturbation audit on frozen vc_A Boltzmann potentials (zero director backreaction on Einstein/Poisson equations; unlensed CMB & ISW frozen; c_S=1 tests a decoupled Stueckelberg-Lorenz vector whereas Skordis-Zlosnik AeST dark matter requires c_s^2 << 10^-5, i.e., the comoving c_S=0 / V_m branch).",
   "sympy_eom": {
-    "unit_norm_check": "-1",
-    "d_theta_independent_of_uT": true,
-    "scalar_EOM": "(a V_u)'' + c_S^2 k^2 (a V_u) = -(a Psi)' - 3 c_S^2 a (Phi' + H Psi)",
-    "vector_EOM": "(a u_T)'' + c_V^2 k^2 (a u_T) = 0 [zero scalar source, decays ~ 1/a, zero linear B-mode lensing]",
-    "sympy_exact_pass": true
+    "action_signature": "(-,+,+,+)",
+    "action_L_u": "+(1/2) c_4 a_mu a^mu - (1/2) c_2 theta^2 - (1/4) K_B F_{mu nu} F^{mu nu}",
+    "unit_norm_O_eps2_check": "-1",
+    "d1_theta_independent_of_uT": true,
+    "d2_theta_vec_nonzero": true,
+    "sound_speed_sq": "c_S^2 = c_2 / (c_4 + K_B)",
+    "vector_speed_sq": "c_V^2 = K_B / (c_4 + K_B)",
+    "cherenkov_safe_luminal_slice": "c_4 = 0, K_B > 0, c_2 >= 0 => c_V^2 = 1 identically, c_S^2 = c_2 / K_B finite",
+    "scalar_EOM": "(a V_u)'' + [c_S^2 k^2 - 3 c_S^2 (H' - H^2)] (a V_u) = -(a Psi)' - 3 c_S^2 a (Phi' + H Psi)",
+    "vector_EOM": "(a u_i^T)'' + [c_V^2 k^2 - 3 c_S^2 (H' - H^2)] (a u_i^T) = 0  [ByT cancels in c1+c3=0 action; conditional on B_i^T=0 / curl-free matter]",
+    "sympy_exact_O_eps2_pass": true
   },
   "H0_vc_A": 67.0708,
   "theta_100": 1.0409,
-  "sanity_cs0_vs_boltzmann_Vm_rel_err": 0.003212,
+  "grav_tau_vs_aH_z0p5_rel_err": 0.000411,
+  "ode_substeps": 40,
+  "sanity_cs0_vs_boltzmann_Vm_rel_err": 6.6e-05,
   "N_bar_profile": {
     "z0.0": {
       "N_bar": 1.0,
-      "dN_dtau_over_H": 0.094523
+      "dN_dtau_over_H": 0.094357
+    },
+    "z0.1": {
+      "N_bar": 0.992749,
+      "dN_dtau_over_H": 0.073733
+    },
+    "z0.2": {
+      "N_bar": 0.987342,
+      "dN_dtau_over_H": 0.044666
+    },
+    "z0.45": {
+      "N_bar": 0.983773,
+      "dN_dtau_over_H": -0.002608
     },
     "z0.5": {
       "N_bar": 0.984114,
-      "dN_dtau_over_H": -0.011781
+      "dN_dtau_over_H": -0.011597
     },
     "z1.0": {
       "N_bar": 0.992101,
-      "dN_dtau_over_H": -0.039379
+      "dN_dtau_over_H": -0.03907
     },
-    "z1.5": {
-      "N_bar": 1.000574,
-      "dN_dtau_over_H": -0.033716
+    "z1.4": {
+      "N_bar": 0.999034,
+      "dN_dtau_over_H": -0.036128
     },
     "z2.0": {
       "N_bar": 1.006174,
-      "dN_dtau_over_H": -0.018042
+      "dN_dtau_over_H": -0.018152
     },
     "z3.0": {
       "N_bar": 1.008552,
-      "dN_dtau_over_H": -0.000747
+      "dN_dtau_over_H": -0.000753
     },
     "z5.0": {
       "N_bar": 1.006728,
-      "dN_dtau_over_H": 0.00672
+      "dN_dtau_over_H": 0.006765
     }
   },
   "baseline_P1": {
@@ -66,12 +87,23 @@
     "Covariant_SL_cS_1.0": {
       "c_S": 1.0,
       "monotone_N": false,
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 2.4381,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": -0.001,
+        "z0.1": -0.001,
+        "z0.2": -0.001,
+        "z0.45": -0.001,
+        "z1.0": 0.001,
+        "z1.4": 0.001,
+        "z3.0": 0.001
+      },
       "dCl_kk_pct": {
-        "10": 0.0421,
-        "40": 0.0036,
-        "100": 0.0005,
-        "300": 0.0001,
-        "1000": -0.0
+        "10": 0.0386,
+        "40": 0.0035,
+        "100": 0.0004,
+        "300": 0.0,
+        "1000": 0.0
       },
       "P1_ACT108": 110.25,
       "P1_dACT108": 0.0,
@@ -85,12 +117,23 @@
     "Intermediate_cS_0.1": {
       "c_S": 0.1,
       "monotone_N": false,
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 0.2438,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": -0.029,
+        "z0.1": -0.025,
+        "z0.2": -0.017,
+        "z0.45": -0.006,
+        "z1.0": 0.013,
+        "z1.4": 0.017,
+        "z3.0": 0.003
+      },
       "dCl_kk_pct": {
-        "10": 0.8332,
-        "40": 0.085,
-        "100": 0.0124,
-        "300": 0.0006,
-        "1000": -0.0
+        "10": 0.8064,
+        "40": 0.0839,
+        "100": 0.012,
+        "300": 0.0005,
+        "1000": -0.0001
       },
       "P1_ACT108": 110.25,
       "P1_dACT108": 0.0,
@@ -104,65 +147,139 @@
     "Low_cS_0.01": {
       "c_S": 0.01,
       "monotone_N": false,
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 0.0244,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": -3.87,
+        "z0.1": -3.313,
+        "z0.2": -2.194,
+        "z0.45": -0.187,
+        "z1.0": 1.63,
+        "z1.4": 1.606,
+        "z3.0": -0.046
+      },
       "dCl_kk_pct": {
-        "10": 0.3511,
-        "40": 1.8825,
-        "100": 1.0494,
-        "300": 0.0481,
-        "1000": -0.0067
+        "10": 0.3379,
+        "40": 1.8619,
+        "100": 1.0405,
+        "300": 0.0461,
+        "1000": -0.0071
       },
       "P1_ACT108": 110.26,
       "P1_dACT108": 0.01,
-      "P1_KK13": 16.21,
-      "P1_dKK13": 0.25,
-      "P1_KK22": 24.18,
-      "P1_dKK22": 1.32,
-      "F2_KK22": 22.49,
-      "F2_dKK22": 0.82
+      "P1_KK13": 16.2,
+      "P1_dKK13": 0.24,
+      "P1_KK22": 24.17,
+      "P1_dKK22": 1.31,
+      "F2_KK22": 22.48,
+      "F2_dKK22": 0.81
     },
     "Comoving_Dust_cS_0.0": {
       "c_S": 0.0,
       "monotone_N": false,
-      "dCl_kk_pct": {
-        "10": -0.4502,
-        "40": 1.1945,
-        "100": 1.8642,
-        "300": 1.2977,
-        "1000": 0.9134
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 0.0,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": -9.713,
+        "z0.1": -7.79,
+        "z0.2": -4.377,
+        "z0.45": 0.471,
+        "z1.0": 3.167,
+        "z1.4": 2.616,
+        "z3.0": -0.222
       },
-      "P1_ACT108": 110.38,
-      "P1_dACT108": 0.13,
-      "P1_KK13": 16.28,
-      "P1_dKK13": 0.32,
-      "P1_KK22": 24.29,
-      "P1_dKK22": 1.43,
-      "F2_KK22": 22.48,
-      "F2_dKK22": 0.81
-    },
-    "Comoving_Boltz_Vm_exact": {
-      "c_S": null,
-      "monotone_N": false,
       "dCl_kk_pct": {
-        "10": -0.473,
-        "40": 1.1778,
-        "100": 1.8524,
-        "300": 1.289,
-        "1000": 0.9022
+        "10": -0.4616,
+        "40": 1.1754,
+        "100": 1.844,
+        "300": 1.2819,
+        "1000": 0.8997
       },
       "P1_ACT108": 110.37,
       "P1_dACT108": 0.12,
       "P1_KK13": 16.27,
       "P1_dKK13": 0.31,
-      "P1_KK22": 24.27,
-      "P1_dKK22": 1.41,
-      "F2_KK22": 22.47,
-      "F2_dKK22": 0.8
+      "P1_KK22": 24.26,
+      "P1_dKK22": 1.4,
+      "F2_KK22": 22.46,
+      "F2_dKK22": 0.79
+    },
+    "Comoving_Boltz_Vm_exact": {
+      "c_S": null,
+      "monotone_N": false,
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 0.0,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": -9.713,
+        "z0.1": -7.789,
+        "z0.2": -4.377,
+        "z0.45": 0.471,
+        "z1.0": 3.167,
+        "z1.4": 2.616,
+        "z3.0": -0.222
+      },
+      "dCl_kk_pct": {
+        "10": -0.4616,
+        "40": 1.1763,
+        "100": 1.8445,
+        "300": 1.2841,
+        "1000": 0.8983
+      },
+      "P1_ACT108": 110.37,
+      "P1_dACT108": 0.12,
+      "P1_KK13": 16.27,
+      "P1_dKK13": 0.31,
+      "P1_KK22": 24.26,
+      "P1_dKK22": 1.4,
+      "F2_KK22": 22.46,
+      "F2_dKK22": 0.79
+    },
+    "Comoving_Boltz_Vm_virial_cut_k0p15": {
+      "c_S": null,
+      "monotone_N": false,
+      "k_virial_cut_Mpc_inv": 0.15,
+      "max_omega_dtau": 0.0,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": -9.713,
+        "z0.1": -7.789,
+        "z0.2": -4.377,
+        "z0.45": 0.471,
+        "z1.0": 3.167,
+        "z1.4": 2.616,
+        "z3.0": -0.222
+      },
+      "dCl_kk_pct": {
+        "10": -0.4597,
+        "40": 1.2933,
+        "100": 1.9373,
+        "300": 1.4313,
+        "1000": -0.4164
+      },
+      "P1_ACT108": 110.33,
+      "P1_dACT108": 0.08,
+      "P1_KK13": 16.78,
+      "P1_dKK13": 0.82,
+      "P1_KK22": 24.88,
+      "P1_dKK22": 2.02,
+      "F2_KK22": 23.0,
+      "F2_dKK22": 1.33
     },
     "Monotone_N0p985_cS_1.0": {
       "c_S": 1.0,
       "monotone_N": true,
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 2.4381,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": 0.0,
+        "z0.1": 0.0,
+        "z0.2": 0.0,
+        "z0.45": -0.0,
+        "z1.0": 0.0,
+        "z1.4": -0.0,
+        "z3.0": -0.0
+      },
       "dCl_kk_pct": {
-        "10": 0.0122,
+        "10": 0.0119,
         "40": 0.0012,
         "100": 0.0003,
         "300": 0.0,
@@ -180,21 +297,32 @@
     "Monotone_N0p985_cS_0.0": {
       "c_S": 0.0,
       "monotone_N": true,
-      "dCl_kk_pct": {
-        "10": 2.1637,
-        "40": 1.6393,
-        "100": 1.0355,
-        "300": 0.8216,
-        "1000": 0.8317
+      "k_virial_cut_Mpc_inv": null,
+      "max_omega_dtau": 0.0,
+      "dWeyl_over_Weyl_pct_k0p03": {
+        "z0.05": 2.253,
+        "z0.1": 2.071,
+        "z0.2": 1.753,
+        "z0.45": 1.273,
+        "z1.0": 0.753,
+        "z1.4": 0.568,
+        "z3.0": 0.251
       },
-      "P1_ACT108": 110.31,
-      "P1_dACT108": 0.06,
+      "dCl_kk_pct": {
+        "10": 2.143,
+        "40": 1.6253,
+        "100": 1.0294,
+        "300": 0.8181,
+        "1000": 0.8273
+      },
+      "P1_ACT108": 110.3,
+      "P1_dACT108": 0.05,
       "P1_KK13": 15.94,
       "P1_dKK13": -0.02,
-      "P1_KK22": 23.99,
-      "P1_dKK22": 1.13,
-      "F2_KK22": 22.33,
-      "F2_dKK22": 0.66
+      "P1_KK22": 23.98,
+      "P1_dKK22": 1.12,
+      "F2_KK22": 22.32,
+      "F2_dKK22": 0.65
     }
   }
 }
