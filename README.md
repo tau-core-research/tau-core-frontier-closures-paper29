@@ -5,7 +5,7 @@
 > **Publication review, 2026-11-23 — major revision.** The older `ACCEPT AS IS` labels below are historical internal labels, not journal acceptance or this review's verdict. The optical identity is conditional, the unit slope is a matching input, the mesh evidence is finite and the archival scores are calibrated diagnostics. See the revised manuscripts.
 
 **Author:** Jozsef Olcsak (ORCID: [0009-0003-7311-6522](https://orcid.org/0009-0003-7311-6522))  
-**Date:** 23 November 2026  
+**Date:** 24 November 2026  
 **Repository Visibility Policy:** Strictly `PRIVATE` until Zenodo DOI minting.
 
 ## Scope and Three-Pillar Architecture
