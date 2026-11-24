@@ -1,0 +1,53 @@
+{
+  "bridge2A_symbolic_exact_weyl_kernel": {
+    "unit_director_norm_verified": true,
+    "offdiag_removed_by_xi0_exact": true,
+    "H_tilde_cancels_identically": true,
+    "Phi_W_tilde_exact": "((N_bar(tau)**2 - 1)*N_bar(tau)*Derivative(V_u(tau, x), tau) + (N_bar(tau)**2 + 1)*V_u(tau, x)*Derivative(N_bar(tau), tau) + (Phi(tau, x) + Psi(tau, x))*N_bar(tau)**3 + N_bar(tau)**2*delta_N(tau, x))/(2*N_bar(tau)**3)",
+    "static_Vu_residual_when_dNb_nonzero": "+(1 + N_bar^2)/(2 N_bar^3) * (d_tau N_bar) * V_u (vanishes iff V_u == 0 OR d_tau N_bar == 0!)"
+  },
+  "bridge2B_3plus1D_FLRW_geodesic_tests": {
+    "Test1_full_expanding_FLRW_varNb_oscVu": {
+      "alpha_y_3plus1D_geodesic": 3.356767600897336e-05,
+      "alpha_y_analytic_theorem": 3.356800620388466e-05,
+      "alpha_z_3plus1D_geodesic": 1.678383800448668e-05,
+      "alpha_z_analytic_theorem": 1.678400310194233e-05,
+      "rel_or_abs_err_y": 9.837e-06,
+      "rel_or_abs_err_z": 9.837e-06,
+      "null_norm_err": 1.736e-13
+    },
+    "Test2_expanding_FLRW_constNb_staticVu_zero_check": {
+      "alpha_y_3plus1D_geodesic": -1.4985105094313156e-12,
+      "alpha_y_analytic_theorem": -0.0,
+      "alpha_z_3plus1D_geodesic": -7.492552546986004e-13,
+      "alpha_z_analytic_theorem": -0.0,
+      "rel_or_abs_err_y": 1.499e-12,
+      "rel_or_abs_err_z": 7.493e-13,
+      "null_norm_err": 1.665e-16
+    },
+    "Test3_expanding_FLRW_varNb_staticVu_nonzero_check": {
+      "alpha_y_3plus1D_geodesic": 1.6039173096662563e-07,
+      "alpha_y_analytic_theorem": 1.6039323854312223e-07,
+      "alpha_z_3plus1D_geodesic": 8.019586548331286e-08,
+      "alpha_z_analytic_theorem": 8.019661927156111e-08,
+      "rel_or_abs_err_y": 9.399e-06,
+      "rel_or_abs_err_z": 9.399e-06,
+      "null_norm_err": 7.455e-14
+    }
+  },
+  "bridge2C_programmatic_cosmology_bounds": {
+    "CMB_delta_over_Phi": 70588.2,
+    "local_deltaN_CMB_alpha_loc_max": 2.83e-07,
+    "local_deltaN_XCOP_alpha_loc_max": 6e-09,
+    "linear_CMB_dPhiW_frac_range": [
+      0.005,
+      0.0149
+    ],
+    "linear_CMB_dCkk_frac_range": [
+      0.01,
+      0.0298
+    ],
+    "ACT_DR6_Ckk_1sigma_frac": 0.02,
+    "caveats": "Restricted to curl-free scalar director perturbations u_i = a d_i V_u (transverse vector modes u_i^T open) and assumes u_i tracks the linear matter peculiar-velocity potential V_u = 2 f Phi / (3 H_conf Omega_m) rather than solving the full perturbed AeST/Khronon field equation. Note that C_L^{kk} ~ Phi_W^2 gives a 1.0%-3.0% shift in C_L^{kk} for 1-N_bar in [0.005, 0.015], creating mild tension with ACT DR6 (2%) at the upper end 1-N_bar = 0.015."
+  }
+}
