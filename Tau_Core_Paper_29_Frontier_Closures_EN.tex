@@ -23,7 +23,7 @@
 
 \author{Jozsef Olcsak\\[0.25em]
 \small Independent Researcher $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
-\small Tau Core Research Program --- Paper 29 (\texttt{v2.3.0})}
+\small Tau Core Research Program --- Paper 29 (\texttt{v2.4.0})}
 \date{24 November 2026}
 
 \begin{document}
@@ -421,7 +421,7 @@ Gate / Axiom & Physical Test, Theorem, or Irreducible Boundary & Epistemic Tag &
 \label{tab:step3-ledger}
 \end{table}
 
-\section{Addendum (\texttt{v2.3.0}): Perturbed Disformal Weyl-Lensing Kernel, Exact \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} Covariant Einstein--\texorpdfstring{\ae{}}{ae}ther Director EOMs, Test-Field \texttt{ACT DR6} / Low-\texorpdfstring{$z$}{z} Lensing Audit, and 24-Cell Rank-4 Isotropy}
+\section{Addendum (v2.4.0): Perturbed Disformal Weyl-Lensing Kernel, Exact \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} Covariant Einstein--\texorpdfstring{\ae{}}{ae}ther Director EOMs, ACT DR6 / Tomographic Low-\texorpdfstring{$z$}{z} Weak-Lensing (DES Y3, KiDS, Euclid), and 24-Cell Isotropy}
 \label{sec:v21-bridge2}
 To address the general optical perturbation gap highlighted in the 2026-11-23 publication audit, we retain \emph{both} omitted first-order terms in the disformal optical metric $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ in conformal Newtonian/Poisson gauge $g_{00} = -a(\tau)^2(1 + 2\Psi)$, $g_{0i} = -a(\tau)^2 B_i^T$, $g_{ij} = a(\tau)^2(1 - 2\Phi)\delta_{ij}$, decompose the spatial covariant director perturbation as $u_i = a\,\partial_i V_u + a\,u_i^T$ ($\partial^i u_i^T = 0$) with exact $\mathcal{O}(\varepsilon^2)$ unit norm $g^{\mu\nu} u_\mu u_\nu = -1$ and perturbed lapse $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$, and audit the linearized dynamics via \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} and \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} (\texttt{python3 -W error}, \texttt{rc = 0}):
 \begin{enumerate}
@@ -452,7 +452,12 @@ To address the general optical perturbation gap highlighted in the 2026-11-23 pu
     (a)~on a decoupled covariant Stueckelberg--Lorenz vector ($c_S = 1.0$, initialized on the $z=1100$ quasi-static attractor), sub-horizon acoustic oscillation suppresses $|\Delta\tilde{\Phi}_W/\Phi_W| \le 0.001\%$ and $\Delta C_L^{\kappa\kappa}/C_L^{\kappa\kappa} \le +0.039\%$ ($L=10$) / $+0.0004\%$ ($L=100$), giving descriptive shifts \textbf{$\Delta\chi^2_{\mathrm{ACT108}} = 0.00$ and $\Delta\chi^2_{\mathrm{KK22}} = +0.01$ (\texttt{P1}) / $0.00$ (\texttt{2F})};
     (b)~however, Skordis--Z{\l}o\'snik \texttt{AeST} dark-matter clustering requires $c_s^2 \ll 10^{-5}$, corresponding physically to the \emph{comoving} branch ($c_S = 0.0$ / exact Boltzmann $V_m = -v_d/k$). On that comoving branch, the $(\partial_\tau\bar{N}) V_u$ term dominates ($10\times$ larger than the $\partial_\tau V_u$ term): it peaks at $\Delta\tilde{\Phi}_W/\Phi_W = +3.17\%$ near $z \approx 1.0$ (where $\partial_\tau\bar{N} < 0$), flips sign where $\partial_\tau\bar{N} = 0$ ($z \approx 0.45$ and $z \approx 3.0$), and drops sharply to \textbf{$-4.38\%$ at $z = 0.2$, $-7.79\%$ at $z = 0.1$, and $-9.71\%$ at $z = 0.05$}. In CMB lensing, the negative $z < 0.45$ dip partially cancels the $z \sim 1$ peak, yielding $\Delta C_{10}^{\kappa\kappa} = -0.46\%$, a $+1.84\%$ peak at $L \sim 100$, and descriptive $\Delta\chi^2_{\mathrm{ACT108}} = +0.12$, $\Delta\chi^2_{\mathrm{KK22}} = +1.40$ (\texttt{P1}) / $+0.79$ (\texttt{2F}) (shifting to $+2.02$ / $+1.33$ when a virialized nonlinear cutoff $k > 0.15\;\mathrm{Mpc}^{-1}$ zeroes $V_u$ inside halos). Crucially, the $-7.8\%$ to $-9.7\%$ low-$z$ Weyl dip predicts a \textbf{$-15\%$ to $-19\%$ suppression of low-$z$ ($z \lesssim 0.2$) cosmic-shear power} on the comoving $c_S = 0$ branch---a sharp, falsifiable weak-lensing discriminator for DES/KiDS/Euclid/Rubin LSST (absent if $c_S \simeq 1$);
     (c)~an adversarial monotone-lapse control ($\bar{N}(a) = 1 - 0.015 a^{3/2}$) gives $\Delta\chi^2_{\mathrm{KK22}} = 0.00$ ($c_S = 1.0$) and $+1.12$ (\texttt{P1}) / $+0.65$ (\texttt{2F}) at $c_S = 0.0$ ($\Delta\chi^2_{\mathrm{ACT108}} = +0.05$, $\Delta\chi^2_{\mathrm{KK13}} = -0.02$).
-    \item \textbf{24-Cell rank-4 $W(F_4)$ Euclidean $O(4)$ director-operator isotropy (bridge to Paper~30 \texttt{v1.4.0}, \texttt{PROVEN}):}
+    \item \textbf{Tomographic low-$z$ weak-lensing \& $S_8(z)$ audit against \texttt{DES Y3}, \texttt{KiDS-1000}, \texttt{KiDS-Legacy}, and \texttt{Euclid} (\texttt{v2.4.0}, \texttt{SCOPED / CONDITIONAL}):}
+    Confronting the low-$z$ Weyl dip above directly with galaxy cosmic shear via \texttt{scripts/\allowbreak verify\_\allowbreak bridge2c\_\allowbreak lowz\_\allowbreak weak\_\allowbreak lensing\_\allowbreak des\_\allowbreak kids\_\allowbreak euclid.py} (\texttt{python3 -W error}, \texttt{rc = 0}; fine $N_z = 576$ quadrature from $\chi = 0$, exact $d\bar{N}/d\tau = \mathcal{H}\,d\bar{N}/d\ln a$, GR Weyl-vs.-Poisson Limber agreement $0.23\text{--}0.38\%$, exact integer-$\ell$ Gaussian Fisher covariance over all $i \le j$ auto+cross spectra with survey $(f_{\mathrm{sky}}, n_{\mathrm{eff}}, \sigma_e)$ at fixed cosmology and zero IA/photo-$z$ marginalization, Table~\ref{tab:v24-weaklensing}):
+    (i)~on the baseline \texttt{vc\_A} ($S_8 = 0.8308$, $-0.09\sigma$ vs.\ \texttt{Planck18}), the shorter optical comoving distance $\chi_{\mathrm{opt}}(z)$ already suppresses $C_\ell$ by $-1.75\%$ to $-1.91\%$ relative to $\theta_*$-locked flat $\Lambda$CDM ($H_0 = 67.273$, $S_8 = 0.8288$), shifting flat-$\Lambda$CDM-referenced $S_8$ to $0.8209\text{--}0.8215$ even on the decoupled SL branch ($c_S = 1.0$, zero tomographic tilt);
+    (ii)~contrary to naive expectation, the comoving \texttt{AeST}-DM branch ($c_S = 0.0$ / $V_m$) is \emph{not} excluded by Stage-III weak lensing---rather, its low-$z$ suppression pulls $S_8$ in the direction of the $S_8$ tension. On the unvirialized linear-flow upper bound (\texttt{allk}), \texttt{DES Y3} ($\langle z \rangle = 0.339, 0.519, 0.747, 0.946$~\cite{Amon2022}) drops to $S_8 = 0.8063$ (\texttt{vc\_A}-ref) / $0.7967$ ($\Lambda$CDM-ref, $+0.37\sigma$ vs.\ \texttt{DES Y3+KiDS-1000} joint $0.790^{+0.018}_{-0.014}$~\cite{Abbott2023}, $+1.37\sigma$ vs.\ \texttt{DES Y3} $\Lambda$CDM-opt $0.772^{+0.018}_{-0.017}$), \texttt{KiDS-1000}~\cite{Asgari2021} drops to $0.8068 / 0.7971$, and 6-bin \texttt{KiDS-Legacy}~\cite{Wright2025} gives $0.8150 / 0.8055$ ($0.00\sigma / -0.45\sigma$ vs.\ $0.815^{+0.016}_{-0.021}$), while Stage-III tilt SNRs remain $\le 2.2\sigma$ (both $c_S = 0$ and $c_S = 1$ survive Stage~III);
+    (iii)~halo virialization strongly regulates nonlinear scales (Bin~1 Halofit boost $+47\%$ at $\ell = 100$): imposing $k_{\mathrm{vir}} = 0.30$ or $0.15\;\mathrm{Mpc}^{-1}$ shrinks the global \texttt{DES} shift to $S_8^{\Lambda\mathrm{CDM}} = 0.8184\text{--}0.8203$, yet \textbf{\texttt{Euclid} Stage-IV} still separates the $c_S = 0$ tomographic tilt from flat $c_S = 1$ at optimal matched-filter SNR \textbf{$16.05\sigma / 5.34\sigma / 4.28\sigma$} (\texttt{allk}, full $\ell\in[30,1000]$ / quasi-linear $\ell\le 150$ / strictly linear $k \le 0.15\;\mathrm{Mpc}^{-1}$), \textbf{$5.79\sigma / 3.87\sigma / 3.62\sigma$} ($k_{\mathrm{vir}} = 0.30$), and \textbf{$3.93\sigma / 2.96\sigma / 2.89\sigma$} ($k_{\mathrm{vir}} = 0.15$, fixed-cosmology/zero-IA ceiling), whereas adversarial monotone $\bar{N}$ shifts $S_8$ \emph{upward} to $0.8341$ ($+3.45\sigma$ vs.\ \texttt{DES Y3} $\Lambda$CDM-opt).
+    \item \textbf{24-Cell rank-4 $W(F_4)$ Euclidean $O(4)$ director-operator isotropy (bridge to Paper~30 \texttt{v1.6.0}, \texttt{PROVEN}):}
     Complementing the sixth-moment rank boundary above, exact Reynolds character averaging over all $|W(F_4)| = 1{,}152$ symmetry matrices proves $\dim\bigl(((\mathbb{R}^4)^{\otimes 4})^{W(F_4)}\bigr) = 3$ (matching continuous 4D Euclidean $O(4)$ for all non-symmetric rank-4 director kinetic tensors $C^{\mu\nu\rho\sigma}(\nabla_\mu u_\nu)(\nabla_\rho u_\sigma)$ across independent $c_1, c_2, c_3$, forbidding hypercubic $\sum_a(\nabla_a u_a)^2$ counterterms; exact root-moment error $4.44\times 10^{-16}$), whereas at rank~6 $\dim\bigl(((\mathbb{R}^4)^{\otimes 6})^{W(F_4)}\bigr) = 16 > 15$ introduces the first $W(F_4)$ lattice anisotropy ($c_4$-type acceleration operators).
 \end{enumerate}
 
@@ -481,6 +486,28 @@ Adversarial monotone $\bar{N}$ ($1.0 / 0.0$) & $+0.01 / +2.14\%$ & $+0.001 / +1.
 \label{tab:v22-boltzmann}
 \end{table}
 
+\begin{table}[!ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+Director Branch (\texttt{vc\_A} $S_8=0.8308$) & \texttt{DES Y3} $S_8$ (pert / $\Lambda$CDM) & \texttt{DES} Bin1 $\Delta C_{100}$ & \texttt{KiDS-Leg.} $S_8$ & \texttt{DES+KiDS} $\sigma$ & \texttt{Euclid} Tilt SNR (full) & \texttt{Euclid} ($\ell\le 150$) & \texttt{Euclid} ($k\le 0.15$) \\
+\midrule
+\textbf{Decoupled SL ($c_S = 1.0$, $c_4=0$)} & $0.8308\;/\;0.8209$ & $0.00\%$ & $0.8308\;/\;0.8211$ & $+2.27\;/\;+1.72\sigma$ & $0.00\sigma$ & $0.00\sigma$ & $0.00\sigma$ \\
+Comoving \texttt{AeST} ($c_S = 0$, \texttt{allk} UB) & $0.8063\;/\;0.7967$ & $-11.79\%$ & $0.8150\;/\;0.8055$ & $+0.91\;/\;+0.37\sigma$ & $16.05\sigma$ & $5.34\sigma$ & $4.28\sigma$ \\
+Comoving \texttt{AeST} ($k_{\mathrm{vir}}=0.30$) & $0.8282\;/\;0.8184$ & $-5.76\%$ & $0.8316\;/\;0.8220$ & $+2.12\;/\;+1.58\sigma$ & $5.79\sigma$ & $3.87\sigma$ & $3.62\sigma$ \\
+Comoving \texttt{AeST} ($k_{\mathrm{vir}}=0.15$) & $0.8301\;/\;0.8203$ & $-2.27\%$ & $0.8318\;/\;0.8221$ & $+2.23\;/\;+1.68\sigma$ & $3.93\sigma$ & $2.96\sigma$ & $2.89\sigma$ \\
+Adversarial monotone $\bar{N}$ ($c_S = 0$) & $0.8441\;/\;0.8341$ & $+3.86\%$ & $0.8432\;/\;0.8334$ & $+3.01\;/\;+2.45\sigma$ & $1.91\sigma$ & $0.65\sigma$ & $0.56\sigma$ \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Bridge~2C tomographic weak-lensing Fisher audit (\texttt{v2.4.0}, \texttt{scripts/\allowbreak verify\_\allowbreak bridge2c\_\allowbreak lowz\_\allowbreak weak\_\allowbreak lensing\_\allowbreak des\_\allowbreak kids\_\allowbreak euclid.py}). Reports both pure perturbed $S_8$ (\texttt{vc\_A}-ref) and total flat-$\Lambda$CDM-referenced $S_8$ (vs.\ $\theta_*$-matched $S_8 = 0.8288$, capturing $\Delta S_8^{\mathrm{bg}} \approx -0.008$), one-sided tensions vs.\ \texttt{DES Y3+KiDS-1000} ($0.790^{+0.018}_{-0.014}$), and \texttt{Euclid} optimal matched-filter tomographic tilt SNR across all 21 auto+cross spectra (fixed-cosmology / zero-IA upper bound).}
+\label{tab:v24-weaklensing}
+\end{table}
+
 \begin{thebibliography}{29}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
 \bibitem{Weinberg1976} S.~Weinberg, ``Apparent luminosities in a locally inhomogeneous universe,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{208}, L1 (1976).
 \bibitem{KibbleLieu2005} T.~W.~B.~Kibble and R.~Lieu, ``Average magnification effect of clumping of matter,'' \textit{Astrophys.\ J.}\ \textbf{632}, 718 (2005).
@@ -493,6 +520,10 @@ Adversarial monotone $\bar{N}$ ($1.0 / 0.0$) & $+0.01 / +2.14\%$ & $+0.001 / +1.
 \bibitem{Freedman2025} W.~L.~Freedman \textit{et al.}, ``Status Report on the Chicago-Carnegie Hubble Program (CCHP): Three Independent Astrophysical Determinations of the Hubble Constant Using the James Webb Space Telescope,'' \textit{Astrophys.\ J.}\ \textbf{985}, 203 (2025).
 \bibitem{Markevitch2004} M.~Markevitch \textit{et al.}, ``Direct constraints on the dark matter self-interaction cross-section from the merging galaxy cluster 1E~0657$-$56,'' \textit{Astrophys.\ J.}\ \textbf{606}, 819 (2004).
 \bibitem{Clowe2006} D.~Clowe \textit{et al.}, ``A direct empirical proof of the existence of dark matter,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{648}, L109 (2006).
+\bibitem{Amon2022} A.~Amon \textit{et al.}\ (DES Collaboration), ``Dark Energy Survey Year 3 results: Cosmology from cosmic shear and robustness to data calibration,'' \textit{Phys.\ Rev.\ D} \textbf{105}, 023514 (2022); L.~F.~Secco \textit{et al.}, \textit{Phys.\ Rev.\ D} \textbf{105}, 023515 (2022).
+\bibitem{Asgari2021} M.~Asgari \textit{et al.}\ (KiDS Collaboration), ``KiDS-1000 cosmology: Cosmic shear constraints and comparison between two point statistics,'' \textit{Astron.\ Astrophys.}\ \textbf{645}, A104 (2021).
+\bibitem{Abbott2023} T.~M.~C.~Abbott \textit{et al.}\ (DES and KiDS Collaborations), ``DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys,'' \textit{Open J.\ Astrophys.}\ \textbf{6}, 36 (2023), arXiv:2305.17173.
+\bibitem{Wright2025} A.~H.~Wright \textit{et al.}\ (KiDS Collaboration), ``KiDS-Legacy: Cosmological constraints from cosmic shear with the complete Kilo-Degree Survey,'' \textit{Astron.\ Astrophys.}\ (2025), arXiv:2503.19441.
 \bibitem{Bradac2006} M.~Brada\v{c} \textit{et al.}, ``Strong and weak lensing united.\ III.\ Measuring the mass distribution of the merging galaxy cluster 1ES~0657$-$558,'' \textit{Astrophys.\ J.}\ \textbf{652}, 937 (2006).
 \bibitem{Randall2008} S.~W.~Randall \textit{et al.}, ``Constraints on the self-interaction cross section of dark matter from numerical simulations of the merging galaxy cluster 1E~0657$-$56,'' \textit{Astrophys.\ J.}\ \textbf{679}, 1173 (2008).
 \bibitem{Mistele2024} T.~Mistele, S.~McGaugh, F.~Lelli, J.~Schombert, and P.~Li, ``Indefinitely flat circular velocities and the baryonic Tully--Fisher relation from weak lensing,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{969}, L3 (2024).

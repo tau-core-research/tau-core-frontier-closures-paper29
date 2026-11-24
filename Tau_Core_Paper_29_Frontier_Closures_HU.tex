@@ -30,7 +30,7 @@
 
 \author{Olcsák József\\[0.25em]
 \small Független kutató $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
-\small Tau Core Kutatási Program --- Paper 29 (\texttt{v2.3.0})}
+\small Tau Core Kutatási Program --- Paper 29 (\texttt{v2.4.0})}
 \date{2026.\ november 24.}
 
 \begin{document}
@@ -410,7 +410,7 @@ Kapu / Axióma & Fizikai teszt, tétel vagy irredukálható határ & Episztemiku
 \label{tab:step3-ledger-hu}
 \end{table}
 
-\section{Kiegészítés (\texttt{v2.3.0}): Perturbált diszformális Weyl-lencsézés, egzakt \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} kovariáns Einstein--\texorpdfstring{\ae{}}{ae}ther direktor-egyenletek, tesztmezős \texttt{ACT DR6} / alacsony-\texorpdfstring{$z$}{z} lencsézési audit és 24-cellás rang-4 izotrópia}
+\section{Kiegészítés (v2.4.0): Perturbált diszformális Weyl-lencsézés, egzakt \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} kovariáns Einstein--\texorpdfstring{\ae{}}{ae}ther direktor-egyenletek, ACT DR6 / tomográfiai alacsony-\texorpdfstring{$z$}{z} gyenge lencsézés (DES Y3, KiDS, Euclid) és 24-cellás izotrópia}
 \label{sec:v21-bridge2-hu}
 A 2026.\ november 23-i bírálói audit által jelzett optikai perturbációs hézag vizsgálatához megtartjuk \emph{mindkét} korábban elhagyott elsőrendű tagot a $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ diszformális optikai metrikában Newton-/Poisson-mértékben ($g_{00} = -a(\tau)^2(1+2\Psi)$, $g_{0i} = -a(\tau)^2 B_i^T$, $g_{ij} = a(\tau)^2(1-2\Phi)\delta_{ij}$), a térbeli kovariáns direktor-perturbációt $u_i = a\,\partial_i V_u + a\,u_i^T$ ($\partial^i u_i^T = 0$) alakra bontjuk egzakt $\mathcal{O}(\varepsilon^2)$ egységnorma ($g^{\mu\nu}u_\mu u_\nu = -1$) és $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$ mellett, és a linearizált dinamikát a \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} és \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} szkriptekkel auditáljuk (\texttt{python3 -W error}, \texttt{rc = 0}):
 \begin{enumerate}
@@ -441,7 +441,12 @@ A 2026.\ november 23-i bírálói audit által jelzett optikai perturbációs h�
     (a)~lecsatolt kovariáns Stueckelberg--Lorenz vektor esetén ($c_S = 1{,}0$, $z=1100$ kvázisztatikus indítással) a szubhorizont akusztikus oszcilláció $|\Delta\tilde{\Phi}_W/\Phi_W| \le 0{,}001\%$ és $\Delta C_L^{\kappa\kappa}/C_L^{\kappa\kappa} \le +0{,}039\%$ ($L=10$) / $+0{,}0004\%$ ($L=100$) szintre nyomja a jelet, leíró \textbf{$\Delta\chi^2_{\mathrm{ACT108}} = 0{,}00$ és $\Delta\chi^2_{\mathrm{KK22}} = +0{,}01$ (\texttt{P1}) / $0{,}00$ (\texttt{2F})} eltolással;
     (b)~ugyanakkor a Skordis--Z{\l}o\'snik \texttt{AeST} sötétanyag-csomósodás $c_s^2 \ll 10^{-5}$-t kíván, ami fizikailag az \emph{együttmozgó} ágnak ($c_S = 0{,}0$ / egzakt Boltzmann $V_m = -v_d/k$) felel meg. Ezen az ágon a $(\partial_\tau\bar{N}) V_u$ tag dominál ($10\times$ nagyobb a $\partial_\tau V_u$ tagnál): $z \approx 1{,}0$-nél $\Delta\tilde{\Phi}_W/\Phi_W = +3{,}17\%$ csúcsot ér el ($\partial_\tau\bar{N} < 0$), előjelet vált a $\partial_\tau\bar{N} = 0$ pontoknál ($z \approx 0{,}45$ és $z \approx 3{,}0$), majd alacsony $z$-n meredeken beszakad: \textbf{$-4{,}38\%$ ($z=0{,}2$), $-7{,}79\%$ ($z=0{,}1$) és $-9{,}71\%$ ($z=0{,}05$)}. A CMB-lencsézésben a negatív $z < 0{,}45$ völgy részben kiejti a $z \sim 1$ csúcsot ($\Delta C_{10}^{\kappa\kappa} = -0{,}46\%$, $+1{,}84\%$ csúcs $L \sim 100$-nál, leíró $\Delta\chi^2_{\mathrm{ACT108}} = +0{,}12$, $\Delta\chi^2_{\mathrm{KK22}} = +1{,}40$ [\texttt{P1}] / $+0{,}79$ [\texttt{2F}], illetve $+2{,}02$ / $+1{,}33$ virializált $k > 0{,}15\;\mathrm{Mpc}^{-1}$ levágással). A $-7{,}8\%$ és $-9{,}7\%$ közötti alacsony-$z$ Weyl-esés azonban \textbf{$-15\%$ és $-19\%$ közötti alacsony-$z$ ($z \lesssim 0{,}2$) kozmikus nyírási elnyomást} jósol a $c_S = 0$ ágon --- éles, falszifikálható gyenge lencsézési tesztet adva a DES/KiDS/Euclid/Rubin LSST felméréseknek (amely $c_S \simeq 1$ esetén hiányzik);
     (c)~az adversariális monoton lapse-próba ($\bar{N}(a) = 1 - 0{,}015 a^{3/2}$) $\Delta\chi^2_{\mathrm{KK22}} = 0{,}00$ ($c_S = 1{,}0$) és $+1{,}12$ (\texttt{P1}) / $+0{,}65$ (\texttt{2F}) értéket ad $c_S = 0{,}0$-nál ($\Delta\chi^2_{\mathrm{ACT108}} = +0{,}05$, $\Delta\chi^2_{\mathrm{KK13}} = -0{,}02$).
-    \item \textbf{24-cellás rang-4 $W(F_4)$ euklideszi $O(4)$ direktor-izotrópia (híd a Paper~30 \texttt{v1.4.0}-hoz, \texttt{PROVEN}):}
+    \item \textbf{Tomográfiai alacsony-$z$ gyenge lencsézési és $S_8(z)$ audit a \texttt{DES Y3}, \texttt{KiDS-1000}, \texttt{KiDS-Legacy} és \texttt{Euclid} felmérésekre (\texttt{v2.4.0}, \texttt{SCOPED / CONDITIONAL}):}
+    A fenti alacsony-$z$ Weyl-esést közvetlenül összevetettük a galaxis-alapú kozmikus nyírással (\texttt{scripts/\allowbreak verify\_\allowbreak bridge2c\_\allowbreak lowz\_\allowbreak weak\_\allowbreak lensing\_\allowbreak des\_\allowbreak kids\_\allowbreak euclid.py}, \texttt{python3 -W error}, \texttt{rc = 0}; finom $N_z = 576$ kvadratúra $\chi = 0$-tól, egzakt $d\bar{N}/d\tau = \mathcal{H}\,d\bar{N}/d\ln a$, GR Weyl--Poisson Limber egyezés $0{,}23\text{--}0{,}38\%$, egzakt egész-$\ell$-es Gauss-féle Fisher-kovariancia minden $i \le j$ auto+kereszt-spektrumra felmérés-specifikus $(f_{\mathrm{sky}}, n_{\mathrm{eff}}, \sigma_e)$ paraméterekkel, rögzített kozmológián és IA/photo-$z$ marginalizáció nélkül; \ref{tab:v24-weaklensing-hu}.~táblázat):
+    (i)~a \texttt{vc\_A} alapvonalon ($S_8 = 0{,}8308$, $-0{,}09\sigma$ a \texttt{Planck18}-hoz képest) a rövidebb $\chi_{\mathrm{opt}}(z)$ optikai távolság önmagában $-1{,}75\%$ és $-1{,}91\%$ közötti $C_\ell$-csökkenést okoz a $\theta_*$-illesztett sík $\Lambda$CDM-hez képest ($H_0 = 67{,}273$, $S_8 = 0{,}8288$), így a sík-$\Lambda$CDM referenciájú $S_8$ már a lecsatolt SL ágon ($c_S = 1{,}0$, zérus tomográfiai dőlés) is $0{,}8209\text{--}0{,}8215$;
+    (ii)~a várakozással ellentétben az együttmozgó \texttt{AeST}-DM ágat ($c_S = 0{,}0$ / $V_m$) \emph{nem} zárja ki a III.\ generációs gyenge lencsézés --- éppen az $S_8$-feszültség irányába húzza a spektrumot. A nem-virializált felső korláton (\texttt{allk}) a \texttt{DES Y3} ($\langle z \rangle = 0{,}339;\, 0{,}519;\, 0{,}747;\, 0{,}946$~\cite{Amon2022}) globális $S_8$-a $0{,}8063$-ra (\texttt{vc\_A}-ref) / $0{,}7967$-re ($\Lambda$CDM-ref, $+0{,}37\sigma$ a \texttt{DES Y3+KiDS-1000} közös $0{,}790^{+0{,}018}_{-0{,}014}$ értékhez~\cite{Abbott2023}, $+1{,}37\sigma$ a \texttt{DES Y3} $\Lambda$CDM-opt $0{,}772$-höz), a \texttt{KiDS-1000}~\cite{Asgari2021} $0{,}8068 / 0{,}7971$-re, míg a 6-bines \texttt{KiDS-Legacy}~\cite{Wright2025} $0{,}8150 / 0{,}8055$-re csökken ($0{,}00\sigma / -0{,}45\sigma$ a $0{,}815^{+0{,}016}_{-0{,}021}$ méréshez); a III.\ generációs dőlés-SNR $\le 2{,}2\sigma$, tehát mind a $c_S = 0$, mind a $c_S = 1$ ág túléli a jelenlegi méréseket;
+    (iii)~a haló-virializáció erősen szabályozza a nemlineáris skálákat (1.\ bin Halofit-emelés $+47\%$ $\ell=100$-nál): $k_{\mathrm{vir}} = 0{,}30$ vagy $0{,}15\;\mathrm{Mpc}^{-1}$ levágással a globális \texttt{DES}-eltolás $S_8^{\Lambda\mathrm{CDM}} = 0{,}8184\text{--}0{,}8203$-ra zsugorodik, de a \textbf{IV.\ generációs \texttt{Euclid}} az összes 21 auto+kereszt-spektrumon még így is szétválasztja a $c_S = 0$ tomográfiai dőlést a lapos $c_S = 1$-től: \textbf{$16{,}05\sigma / 5{,}34\sigma / 4{,}28\sigma$} (\texttt{allk}, teljes $\ell\in[30,1000]$ / kvázilineáris $\ell\le 150$ / szigorúan lineáris $k\le 0{,}15\;\mathrm{Mpc}^{-1}$), \textbf{$5{,}79\sigma / 3{,}87\sigma / 3{,}62\sigma$} ($k_{\mathrm{vir}}=0{,}30$) és \textbf{$3{,}93\sigma / 2{,}96\sigma / 2{,}89\sigma$} ($k_{\mathrm{vir}}=0{,}15$, rögzített kozmológiájú felső korlát), míg az adversariális monoton $\bar{N}$ \emph{felfelé} tolja $S_8$-at ($0{,}8341$, $+3{,}45\sigma$ a \texttt{DES Y3} ellen).
+    \item \textbf{24-cellás rang-4 $W(F_4)$ euklideszi $O(4)$ direktor-izotrópia (híd a Paper~30 \texttt{v1.6.0}-hoz, \texttt{PROVEN}):}
     A fenti hatodik-momentumú ranghatárt kiegészítve, mind az $1\,152$ $W(F_4)$-mátrixon vett egzakt Reynolds-karakterátlag igazolja, hogy $\dim(((\mathbb{R}^4)^{\otimes 4})^{W(F_4)}) = 3$ (teljes 4D euklideszi $O(4)$-egyezés minden nem-szimmetrikus rang-4 direktor-tenzorra független $c_1, c_2, c_3$ mellett, kizárva a hiperkockás $\sum_a(\nabla_a u_a)^2$ ellentagokat; gyök-momentum hiba $4{,}44\times 10^{-16}$), míg 6-os rendben $\dim(((\mathbb{R}^4)^{\otimes 6})^{W(F_4)}) = 16 > 15$ hozza be az első $W(F_4)$ rács-anizotrópiát ($c_4$-típusú gyorsulási operátorok).
 \end{enumerate}
 
@@ -470,6 +475,28 @@ Adversariális monoton $\bar{N}$ ($1{,}0 / 0{,}0$) & $+0{,}01 / +2{,}14\%$ & $+0
 \label{tab:v22-boltzmann-hu}
 \end{table}
 
+\begin{table}[!ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+Direktor-ág (\texttt{vc\_A} $S_8=0{,}8308$) & \texttt{DES Y3} $S_8$ (pert / $\Lambda$CDM) & \texttt{DES} Bin1 $\Delta C_{100}$ & \texttt{KiDS-Leg.} $S_8$ & \texttt{DES+KiDS} $\sigma$ & \texttt{Euclid} dőlés SNR (teljes) & \texttt{Euclid} ($\ell\le 150$) & \texttt{Euclid} ($k\le 0{,}15$) \\
+\midrule
+\textbf{Lecsatolt SL ($c_S = 1{,}0$, $c_4=0$)} & $0{,}8308\;/\;0{,}8209$ & $0{,}00\%$ & $0{,}8308\;/\;0{,}8211$ & $+2{,}27\;/\;+1{,}72\sigma$ & $0{,}00\sigma$ & $0{,}00\sigma$ & $0{,}00\sigma$ \\
+Együttmozgó \texttt{AeST} ($c_S = 0$, \texttt{allk} FK) & $0{,}8063\;/\;0{,}7967$ & $-11{,}79\%$ & $0{,}8150\;/\;0{,}8055$ & $+0{,}91\;/\;+0{,}37\sigma$ & $16{,}05\sigma$ & $5{,}34\sigma$ & $4{,}28\sigma$ \\
+Együttmozgó \texttt{AeST} ($k_{\mathrm{vir}}=0{,}30$) & $0{,}8282\;/\;0{,}8184$ & $-5{,}76\%$ & $0{,}8316\;/\;0{,}8220$ & $+2{,}12\;/\;+1{,}58\sigma$ & $5{,}79\sigma$ & $3{,}87\sigma$ & $3{,}62\sigma$ \\
+Együttmozgó \texttt{AeST} ($k_{\mathrm{vir}}=0{,}15$) & $0{,}8301\;/\;0{,}8203$ & $-2{,}27\%$ & $0{,}8318\;/\;0{,}8221$ & $+2{,}23\;/\;+1{,}68\sigma$ & $3{,}93\sigma$ & $2{,}96\sigma$ & $2{,}89\sigma$ \\
+Adversariális monoton $\bar{N}$ ($c_S = 0$) & $0{,}8441\;/\;0{,}8341$ & $+3{,}86\%$ & $0{,}8432\;/\;0{,}8334$ & $+3{,}01\;/\;+2{,}45\sigma$ & $1{,}91\sigma$ & $0{,}65\sigma$ & $0{,}56\sigma$ \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Bridge~2C tomográfiai gyenge lencsézési Fisher-audit (\texttt{v2.4.0}, \texttt{scripts/\allowbreak verify\_\allowbreak bridge2c\_\allowbreak lowz\_\allowbreak weak\_\allowbreak lensing\_\allowbreak des\_\allowbreak kids\_\allowbreak euclid.py}). Feltüntetjük mind a tisztán perturbált $S_8$-at (\texttt{vc\_A}-ref), mind a $\theta_*$-illesztett sík $\Lambda$CDM-re ($S_8 = 0{,}8288$) vonatkoztatott teljes $S_8$-at ($\Delta S_8^{\mathrm{bg}} \approx -0{,}008$), az egyoldali feszültséget a \texttt{DES Y3+KiDS-1000} ($0{,}790^{+0{,}018}_{-0{,}014}$) méréshez, és az \texttt{Euclid} optimális illesztett-szűrős dőlés-SNR-jét mind a 21 auto+kereszt-spektrumon (rögzített kozmológiájú / IA-mentes felső korlát).}
+\label{tab:v24-weaklensing-hu}
+\end{table}
+
 \begin{thebibliography}{29}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
 \bibitem{Weinberg1976} S.~Weinberg, ``Apparent luminosities in a locally inhomogeneous universe,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{208}, L1 (1976).
 \bibitem{KibbleLieu2005} T.~W.~B.~Kibble és R.~Lieu, ``Average magnification effect of clumping of matter,'' \textit{Astrophys.\ J.}\ \textbf{632}, 718 (2005).
@@ -482,6 +509,10 @@ Adversariális monoton $\bar{N}$ ($1{,}0 / 0{,}0$) & $+0{,}01 / +2{,}14\%$ & $+0
 \bibitem{Freedman2025} W.~L.~Freedman \textit{és mtsai.}, ``Status Report on the Chicago-Carnegie Hubble Program (CCHP): Three Independent Astrophysical Determinations of the Hubble Constant Using the James Webb Space Telescope,'' \textit{Astrophys.\ J.}\ \textbf{985}, 203 (2025).
 \bibitem{Markevitch2004} M.~Markevitch \textit{és mtsai.}, ``Direct constraints on the dark matter self-interaction cross-section from the merging galaxy cluster 1E~0657$-$56,'' \textit{Astrophys.\ J.}\ \textbf{606}, 819 (2004).
 \bibitem{Clowe2006} D.~Clowe \textit{és mtsai.}, ``A direct empirical proof of the existence of dark matter,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{648}, L109 (2006).
+\bibitem{Amon2022} A.~Amon \textit{és mtsai.}\ (DES Collaboration), ``Dark Energy Survey Year 3 results: Cosmology from cosmic shear and robustness to data calibration,'' \textit{Phys.\ Rev.\ D} \textbf{105}, 023514 (2022); L.~F.~Secco \textit{és mtsai.}, \textit{Phys.\ Rev.\ D} \textbf{105}, 023515 (2022).
+\bibitem{Asgari2021} M.~Asgari \textit{és mtsai.}\ (KiDS Collaboration), ``KiDS-1000 cosmology: Cosmic shear constraints and comparison between two point statistics,'' \textit{Astron.\ Astrophys.}\ \textbf{645}, A104 (2021).
+\bibitem{Abbott2023} T.~M.~C.~Abbott \textit{és mtsai.}\ (DES és KiDS Collaborations), ``DES Y3 + KiDS-1000: Consistent cosmology combining cosmic shear surveys,'' \textit{Open J.\ Astrophys.}\ \textbf{6}, 36 (2023), arXiv:2305.17173.
+\bibitem{Wright2025} A.~H.~Wright \textit{és mtsai.}\ (KiDS Collaboration), ``KiDS-Legacy: Cosmological constraints from cosmic shear with the complete Kilo-Degree Survey,'' \textit{Astron.\ Astrophys.}\ (2025), arXiv:2503.19441.
 \bibitem{Bradac2006} M.~Brada\v{c} \textit{és mtsai.}, ``Strong and weak lensing united.\ III.\ Measuring the mass distribution of the merging galaxy cluster 1ES~0657$-$558,'' \textit{Astrophys.\ J.}\ \textbf{652}, 937 (2006).
 \bibitem{Randall2008} S.~W.~Randall \textit{és mtsai.}, ``Constraints on the self-interaction cross section of dark matter from numerical simulations of the merging galaxy cluster 1E~0657$-$56,'' \textit{Astrophys.\ J.}\ \textbf{679}, 1173 (2008).
 \bibitem{Mistele2024} T.~Mistele, S.~McGaugh, F.~Lelli, J.~Schombert és P.~Li, ``Indefinitely flat circular velocities and the baryonic Tully--Fisher relation from weak lensing,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{969}, L3 (2024).
