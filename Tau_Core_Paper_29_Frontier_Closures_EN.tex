@@ -23,8 +23,8 @@
 
 \author{Jozsef Olcsak\\[0.25em]
 \small Independent Researcher $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
-\small Tau Core Research Program --- Paper 29 (\texttt{v2.4.0})}
-\date{24 November 2026}
+\small Tau Core Research Program --- Paper 29 (\texttt{v3.0.0})}
+\date{25 November 2026}
 
 \begin{document}
 \maketitle
@@ -47,10 +47,13 @@ disformal-lensing Boltzmann audit on frozen \texttt{vc\_A} potentials in
 Section~\ref{sec:v21-bridge2}, which keeps both extra terms, proves a strict
 \texttt{NO-GO} bound against sub-horizon $\delta N(\mathbf{x})$, establishes a
 conditional vector-mode closure for curl-free matter / $B_i^T = 0$ on the
-Cherenkov-safe luminal slice $c_4 = 0, c_V = 1$, and quantifies both CMB
-lensing and a low-$z$ weak-lensing Weyl dip across $c_S \in [0, 1]$, while
-noting that full Skordis--Z{\l}o\'snik \texttt{AeST} scalar-field backreaction
-and late-time ISW coupling remain open).
+Cherenkov-safe luminal slice $c_4 = 0, c_V = 1$, and quantifies both CMB lensing and a low-$z$ weak-lensing Weyl dip across $c_S \in [0, 1]$,
+and is now extended in \texttt{v3.0.0} (Bridge~2D) to full covariant dynamical
+Skordis--Z{\l}o\'snik \texttt{AeST} $(\phi, A_\mu)$ scalar--aether backreaction,
+three exact stability no-go/squeezing theorems, and first-principles spherical-collapse
+virialization $k_{\mathrm{vir}}(z)$, while keeping late-time ISW coupling, non-separable
+gradient-expelled $\mathcal{F}(\mathcal{Y},\mathcal{Q})$ static-well completion, and
+full IA/cosmology marginalization explicitly open).
 The fitted ACT calibration and acoustic-angle anchor are not independent
 predictions. The reported $\chi^2$ per bin is descriptive, not a likelihood
 ratio or a calibrated significance. All cluster and LTB runs are finite
@@ -421,7 +424,7 @@ Gate / Axiom & Physical Test, Theorem, or Irreducible Boundary & Epistemic Tag &
 \label{tab:step3-ledger}
 \end{table}
 
-\section{Addendum (v2.4.0): Perturbed Disformal Weyl-Lensing Kernel, Exact \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} Covariant Einstein--\texorpdfstring{\ae{}}{ae}ther Director EOMs, ACT DR6 / Tomographic Low-\texorpdfstring{$z$}{z} Weak-Lensing (DES Y3, KiDS, Euclid), and 24-Cell Isotropy}
+\section{Addendum (v3.0.0): Perturbed Disformal Weyl-Lensing Kernel, Exact \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps2)} Covariant Einstein--\texorpdfstring{\ae{}}{ae}ther \& Dynamical Skordis--Z\texorpdfstring{{\l}o\'s}{los}nik \texorpdfstring{\texttt{AeST}}{AeST} \texorpdfstring{$\phi$}{phi}-Backreaction, Triple-Squeeze Stability Theorems, and First-Principles Spherical-Collapse \texorpdfstring{$k_{\mathrm{vir}}(z)$}{k\_vir(z)}}
 \label{sec:v21-bridge2}
 To address the general optical perturbation gap highlighted in the 2026-11-23 publication audit, we retain \emph{both} omitted first-order terms in the disformal optical metric $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ in conformal Newtonian/Poisson gauge $g_{00} = -a(\tau)^2(1 + 2\Psi)$, $g_{0i} = -a(\tau)^2 B_i^T$, $g_{ij} = a(\tau)^2(1 - 2\Phi)\delta_{ij}$, decompose the spatial covariant director perturbation as $u_i = a\,\partial_i V_u + a\,u_i^T$ ($\partial^i u_i^T = 0$) with exact $\mathcal{O}(\varepsilon^2)$ unit norm $g^{\mu\nu} u_\mu u_\nu = -1$ and perturbed lapse $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$, and audit the linearized dynamics via \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} and \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} (\texttt{python3 -W error}, \texttt{rc = 0}):
 \begin{enumerate}
@@ -459,6 +462,15 @@ To address the general optical perturbation gap highlighted in the 2026-11-23 pu
     (iii)~halo virialization strongly regulates nonlinear scales (Bin~1 Halofit boost $+47\%$ at $\ell = 100$): imposing $k_{\mathrm{vir}} = 0.30$ or $0.15\;\mathrm{Mpc}^{-1}$ shrinks the global \texttt{DES} shift to $S_8^{\Lambda\mathrm{CDM}} = 0.8184\text{--}0.8203$, yet \textbf{\texttt{Euclid} Stage-IV} still separates the $c_S = 0$ tomographic tilt from flat $c_S = 1$ at optimal matched-filter SNR \textbf{$16.05\sigma / 5.34\sigma / 4.28\sigma$} (\texttt{allk}, full $\ell\in[30,1000]$ / quasi-linear $\ell\le 150$ / strictly linear $k \le 0.15\;\mathrm{Mpc}^{-1}$), \textbf{$5.79\sigma / 3.87\sigma / 3.62\sigma$} ($k_{\mathrm{vir}} = 0.30$), and \textbf{$3.93\sigma / 2.96\sigma / 2.89\sigma$} ($k_{\mathrm{vir}} = 0.15$, fixed-cosmology/zero-IA ceiling), whereas adversarial monotone $\bar{N}$ shifts $S_8$ \emph{upward} to $0.8341$ ($+3.45\sigma$ vs.\ \texttt{DES Y3} $\Lambda$CDM-opt).
     \item \textbf{24-Cell rank-4 $W(F_4)$ Euclidean $O(4)$ director-operator isotropy (bridge to Paper~30 \texttt{v1.6.0}, \texttt{PROVEN}):}
     Complementing the sixth-moment rank boundary above, exact Reynolds character averaging over all $|W(F_4)| = 1{,}152$ symmetry matrices proves $\dim\bigl(((\mathbb{R}^4)^{\otimes 4})^{W(F_4)}\bigr) = 3$ (matching continuous 4D Euclidean $O(4)$ for all non-symmetric rank-4 director kinetic tensors $C^{\mu\nu\rho\sigma}(\nabla_\mu u_\nu)(\nabla_\rho u_\sigma)$ across independent $c_1, c_2, c_3$, forbidding hypercubic $\sum_a(\nabla_a u_a)^2$ counterterms; exact root-moment error $4.44\times 10^{-16}$), whereas at rank~6 $\dim\bigl(((\mathbb{R}^4)^{\otimes 6})^{W(F_4)}\bigr) = 16 > 15$ introduces the first $W(F_4)$ lattice anisotropy ($c_4$-type acceleration operators).
+    \item \textbf{Bridge~2D: First-principles dynamical Skordis--Z{\l}o\'snik \texttt{AeST} $\phi$-backreaction, Triple-Squeeze stability theorems, and spherical-collapse $k_{\mathrm{vir}}(z)$ (\texttt{v3.0.0}, \texttt{PROVEN / PROVEN NO-GO / CONDITIONAL}):}
+    Removing Bridge~2B/2C's frozen-potential test-field and ad-hoc constant-$k_{\mathrm{vir}}$ assumptions, \texttt{scripts/\allowbreak verify\_\allowbreak bridge2d\_\allowbreak dynamical\_\allowbreak aest\_\allowbreak phi\_\allowbreak backreaction\_\allowbreak kvir.py} (\texttt{python3 -W error}, \texttt{rc = 0}) performs an exact $\mathcal{O}(\varepsilon^2)$ \texttt{SymPy} covariant variation of the full Skordis--Z{\l}o\'snik \texttt{AeST} action $\mathcal{L}_{\mathrm{AeST}} = R - 2\Lambda - \frac{K_B}{2}F^2 + 2(2-K_B)J^\mu\nabla_\mu\phi - (2-K_B)(1+\lambda_s)\mathcal{Y} + 2\mathcal{K}(\mathcal{Q})$ in signature $(-,+,+,+)$ with exact $\mathcal{O}(\varepsilon^2)$ unit-norm constraint $g^{\mu\nu}A_\mu A_\nu = -1$, metric shift $B$, and traceless shear $E$:
+    (a)~\textbf{Exact Literature Benchmarks \& Covariant FRW Bianchi Identity (\texttt{PROVEN}):} reproduces Skordis--Z{\l}o\'snik (2021)~\cite{SkordisZlosnik2021} ($\gamma_{\mathrm{PPN}}=1$, $G_{N,\mathrm{obs}}/\tilde{G} = (1+1/\lambda_s)/(1-K_B/2)$, $\mu_{\mathrm{SZ}}^2 = 2\mathcal{K}_2\mathcal{Q}_0^2/(2-K_B)$, deep-MOND $\sqrt{a_0 g_{N,\mathrm{obs}}}$) and Skordis--Z{\l}o\'snik (2022)~\cite{SkordisZlosnik2022} Minkowski dispersion $\omega^2 = \frac{(2-K_B)(2+K_B\lambda_s)}{2\mathcal{K}_2 K_B}k^2 + \frac{(2-K_B)(1+\lambda_s)\mathcal{Q}_0^2}{K_B}$ (Hamiltonian positivity $0 < K_B < 2$, $\lambda_s > -1$, $\mathcal{K}_2 > 0$; static QUMOND $\lambda_s > 0$), proves zero linear FRW \texttt{AeST} anisotropic stress ($\Phi = \Psi$), and proves the exact coupled FRW $(\Phi, \varphi, V_u)$ EOMs satisfy the covariant Bianchi identity with \textbf{exact zero residual ($0$)} for arbitrary $\mathcal{K}(\mathcal{Q}), K_B, \lambda_s, a(\tau)$;
+    (b)~\textbf{Triple-Squeeze Stability Theorems on Minimal Separable \texttt{AeST} (\texttt{PROVEN NO-GO}):}
+    \emph{Theorem~1 (Quadratic-$\mathcal{K}$ Stiff-vs.-Helmholtz):} $\mu_{\mathrm{SZ}}\,a_{\mathrm{stiff}}^{3/2} = \sqrt{3\Omega_A/[2(2-K_B)]}\,H_0 = 1.014\times 10^{-4}\;\mathrm{Mpc}^{-1}$ forces pure quadratic $\mathcal{K}_2(\mathcal{Q}-\mathcal{Q}_0)^2$ with $\mu_{\mathrm{SZ}}^{-1} \ge 1\;\mathrm{Mpc}$ into a stiff fluid ($w_{\mathrm{CMB}}=0.930$) at $z_{\mathrm{stiff}} \le 459$.
+    \emph{Theorem~2 (Subluminality + Early-Universe Aether Tachyon, constant $\lambda_s, c_2=0$):} in the exact $V_u$ EOM, the restoring stiffness $a\bar{\mathcal{Q}}[(2-K_B)(1+\lambda_s) - 3H_0^2\Omega_A/(\bar{\mathcal{Q}}^2 a^3)]$ turns negative below $a_{\mathrm{tach}}$, generating a physical tachyonic growth mode (confirmed via $9\times 9$ eigenvalues: $\mathrm{Re}\,\lambda = +5.50$ at $z=500$ for bare $\mu_{\mathrm{SZ}}^{-1} = 1\;\mathrm{Mpc}$). Combined with Minkowski subluminality $c_{S,\mathrm{Mink}}^2 \le 1$, this enforces $\mu_{\mathrm{SZ}}^{-1} < 196.2\;\mathrm{kpc}$ ($a_{\mathrm{tach}} < a_{\mathrm{CMB}}$) and $< 35.4\;\mathrm{kpc}$ ($a_{\mathrm{tach}} < a_{\mathrm{eq}}$, exact $N_{\mathrm{eff}}=3.044, z_{\mathrm{eq}}=3409.5$) globally across all ghost-free $(K_B,\lambda_s)$ (fiducial $K_B=0.05, \lambda_s=50$: $145.8 / 26.34\;\mathrm{kpc}$).
+    \emph{Theorem~3 (Static-Well Explosion of Separable $\mathcal{K}_{\cosh}(\mathcal{Q})$):} while strictly convex $\mathcal{K}_{\cosh}(\mathcal{Q}) = 2\mathcal{K}_2\mathcal{Q}_0^2 d_c^2[\cosh(\Delta/d_c)-1]$ keeps cosmological $w_\phi, c_{s,\phi}^2 \le d_c$ back to BBN, inside static astrophysical wells ($\Psi < 0$) $\Delta_{\mathrm{static}} = -\Psi = +|\Psi| > 0$ has the \emph{same positive sign} as cosmic dust, exploding $\mathcal{K}_{\mathcal{Q}\mathcal{Q}}/(2\mathcal{K}_2) = \cosh(|\Psi|/d_c)$ to $10^{21.4}$ in the Milky Way ($|\Psi|=5\times 10^{-7}$) at $d_c = 10^{-8}$. Simultaneous cosmological + static-well closure therefore strictly requires non-separable gradient/director expulsion $\mathcal{F}(\mathcal{Y},\mathcal{Q})$ (Paper~29 Step~2: cosmological $10\;\mathrm{kpc}$ expelled to $1.54\;\mathrm{Mpc}$ in galaxies and $3.3\times 10^5\;\mathrm{Mpc}$ in clusters);
+    (c)~\textbf{Dynamical 9-ODE $\phi$-Backreaction \& Comoving Attractor (\texttt{PROVEN / CONDITIONAL}):} integrating the exact 9-ODE coupled system from $a_{\mathrm{init}}=10^{-4}$ across $k \in [0.005, 15.0]\;\mathrm{Mpc}^{-1}$ (L-stable 2-stage Radau~IIA, step-convergence $2.94\times 10^{-7}$, GR recovery $1.65\times 10^{-4}$) on the radiation-era tachyon-free, BBN-safe slice ($\mu_{\mathrm{inf}}=100\;\mathrm{Mpc}^{-1}, K_2=100, K_B=0.05, \lambda_s=50$; $z_{\mathrm{tach}}=6227 > z_{\mathrm{eq}}$, $G_{\mathrm{cosmo}}/G_N = 0.956$) proves that $V_u$ dynamically locks onto $V_\phi$ ($V_u/V_\phi = 1.00000$, $V_u/V_b = 0.999996$ at $k=0.1\;\mathrm{Mpc}^{-1}$), confirming Bridge~2B/2C's comoving $c_S = 0$ branch as the true dynamical attractor (linear Jeans ceiling $d_c \le 2.41\times 10^{-6}$ for $<5\%$ $P(k=0.2)$ deficit);
+    (d)~\textbf{First-Principles Spherical-Collapse $k_{\mathrm{vir}}(z)$ \& Weak-Lensing Band (\texttt{CONDITIONAL}, Table~\ref{tab:v30-bridge2d}):} solving nonlinear spherical top-hat collapse (exact EdS $\Delta_{\mathrm{vir}}=18\pi^2$ to $1.17\times 10^{-7}$ and Bryan--Norman~\cite{BryanNorman1998} / Lahav~\cite{Lahav1991} $\Lambda$CDM to $0.67\%$) with Paper~29 Step~1's exact $s_e(z)$, $a_0(z)=I_{\mathrm{KH}}cH(z)$, and quartic Helmholtz kernel $S_H^{\mathrm{P29}} = [1 + \nu(m_H/k)^2 + \frac{1}{4}(m_H/k)^4]^{-1}$ yields Lagrangian collapse radius $R_L(z) = 3.638\;\mathrm{Mpc}$ ($z=0$, $\delta_c^{\mathrm{GR\text{-}extrap}} = 1.6086$, dust Eulerian $R_{\mathrm{vir}}^{\mathrm{Eul}} = 0.486\;\mathrm{Mpc}$) shrinking to $1.497\;\mathrm{Mpc}$ ($z=1.0$), i.e.\ $k_{\mathrm{vir}}(z) = \pi/(2 R_L) = 0.432\;\mathrm{Mpc}^{-1}$ ($z=0$) $\to 1.049\;\mathrm{Mpc}^{-1}$ ($z=1.0$). Propagating $T_\Phi^2(k,z)P_{\mathrm{lin}}$ into \texttt{Halofit} exposes an unphysical Takahashi $C_{\mathrm{curv}}$ polynomial overshoot ($+16.9\%$ at $d_c=10^{-6}$), restricting nonlinear \texttt{Halofit} forecasts to the cold branch $d_c = 10^{-10}$ (overshoot $0.027\%$). Across the full $k_{\mathrm{vir}} = c/R_L$ mapping ambiguity $c \in [1, 2\pi]$ (and turnaround $k_{\mathrm{ta}}$), \texttt{Euclid} Stage-IV retains optimal matched-filter tilt SNR \textbf{$6.52\text{--}12.88\sigma$} (full $\ell\in[30,1000]$; $7.90\sigma$ at $c=\pi/2$; $5.70\sigma$ at $k_{\mathrm{ta}}$), while the calibration-independent strictly linear cut ($k \le 0.15\;\mathrm{Mpc}^{-1}$) stays tightly bracketed at \textbf{$3.66\text{--}4.23\sigma$} ($3.83\text{--}3.99\sigma$ on pure linear $P_{\mathrm{lin}}$ across $d_c \in [10^{-10}, 10^{-6}]$; fixed-cosmology / zero-IA ceiling).
 \end{enumerate}
 
 \begin{table}[!ht]
@@ -508,11 +520,39 @@ Adversarial monotone $\bar{N}$ ($c_S = 0$) & $0.8441\;/\;0.8341$ & $+3.86\%$ & $
 \label{tab:v24-weaklensing}
 \end{table}
 
-\begin{thebibliography}{29}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
+\begin{table}[!ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Bridge~2D Dynamical Scenario ($d_c = 10^{-10}$, \texttt{Halofit}-safe) & $k_{\mathrm{cut}}(z=0 \to 1)$ [$\mathrm{Mpc}^{-1}$] & \texttt{DES Y3} $S_8$ (pert / $\Lambda$CDM) & \texttt{KiDS-Leg.} $S_8$ (pert / $\Lambda$CDM) & \texttt{Euclid} full & \texttt{Euclid} ($\ell\le 150$) & \texttt{Euclid} ($k\le 0.15$) \\
+\midrule
+Bridge~2C \texttt{allk} regression (Gate~1D) & $\infty$ & $0.8063\;/\;0.7967$ & $0.8150\;/\;0.8055$ & $16.05\sigma$ & $5.34\sigma$ & $4.28\sigma$ \\
+Full dynamical $\phi$-backreaction (\texttt{allk}) & $\infty$ & $0.8064\;/\;0.7968$ & $0.8151\;/\;0.8056$ & $16.12\sigma$ & $5.34\sigma$ & $4.28\sigma$ \\
+Spherical collapse $k_{\mathrm{vir}} = 1.0/R_L(z)$ & $0.275 \to 0.668$ & $0.8281\;/\;0.8183$ & $0.8321\;/\;0.8225$ & $6.52\sigma$ & $3.90\sigma$ & $3.66\sigma$ \\
+\textbf{Spherical collapse $k_{\mathrm{vir}} = \pi/(2 R_L(z))$ (\texttt{AeST})} & $\mathbf{0.432 \to 1.049}$ & $\mathbf{0.8253\;/\;0.8156}$ & $\mathbf{0.8303\;/\;0.8207}$ & $\mathbf{7.90\sigma}$ & $\mathbf{4.37\sigma}$ & $\mathbf{3.91\sigma}$ \\
+Spherical collapse $k_{\mathrm{vir}} = \pi/R_L(z)$ & $0.864 \to 2.099$ & $0.8190\;/\;0.8093$ & $0.8254\;/\;0.8159$ & $10.38\sigma$ & $4.90\sigma$ & $4.13\sigma$ \\
+Spherical collapse $k_{\mathrm{vir}} = 2\pi/R_L(z)$ & $1.727 \to 4.197$ & $0.8128\;/\;0.8031$ & $0.8204\;/\;0.8108$ & $12.88\sigma$ & $5.17\sigma$ & $4.23\sigma$ \\
+Pure-dust collapse $k_{\mathrm{vir}} = \pi/(2 R_L^{\mathrm{dust}})$ & $0.469 \to 1.471$ & $0.8244\;/\;0.8147$ & $0.8297\;/\;0.8201$ & $8.30\sigma$ & $4.46\sigma$ & $4.01\sigma$ \\
+Turnaround cutoff $k_{\mathrm{ta}} = \pi/(2 R_L^{\mathrm{ta}}(z))$ & $0.217 \to 0.434$ & $0.8293\;/\;0.8194$ & $0.8325\;/\;0.8228$ & $5.70\sigma$ & $3.59\sigma$ & $3.45\sigma$ \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Bridge~2D (\texttt{v3.0.0}) dynamical Skordis--Z{\l}o\'snik \texttt{AeST} $\phi$-backreaction and first-principles spherical-collapse $k_{\mathrm{vir}}(z) = c/R_L(z)$ weak-lensing mapping band (\texttt{scripts/\allowbreak verify\_\allowbreak bridge2d\_\allowbreak dynamical\_\allowbreak aest\_\allowbreak phi\_\allowbreak backreaction\_\allowbreak kvir.py}; radiation-era tachyon-free $\mu_{\mathrm{inf}}=100\;\mathrm{Mpc}^{-1}, K_2=100, K_B=0.05, \lambda_s=50$; \texttt{Halofit} max overshoot $1.00027$; fixed-cosmology / zero-IA ceiling).}
+\label{tab:v30-bridge2d}
+\end{table}
+
+\begin{thebibliography}{32}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
 \bibitem{Weinberg1976} S.~Weinberg, ``Apparent luminosities in a locally inhomogeneous universe,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{208}, L1 (1976).
 \bibitem{KibbleLieu2005} T.~W.~B.~Kibble and R.~Lieu, ``Average magnification effect of clumping of matter,'' \textit{Astrophys.\ J.}\ \textbf{632}, 718 (2005).
 \bibitem{Wiltshire2009} D.~L.~Wiltshire, ``Average observational quantities in the timescape cosmology,'' \textit{Phys.\ Rev.\ D} \textbf{80}, 123512 (2009).
 \bibitem{SkordisZlosnik2021} C.~Skordis and T.~Z{\l}o\'snik, ``New Relativistic Theory for Modified Newtonian Dynamics,'' \textit{Phys.\ Rev.\ Lett.}\ \textbf{127}, 161302 (2021).
+\bibitem{SkordisZlosnik2022} C.~Skordis and T.~Z{\l}o\'snik, ``Aether scalar tensor theory: Linear stability on Minkowski space,'' \textit{Phys.\ Rev.\ D} \textbf{106}, 104041 (2022).
+\bibitem{Lahav1991} O.~Lahav, P.~B.~Lilje, J.~R.~Primack, and M.~J.~Rees, ``Dynamical effects of the cosmological constant,'' \textit{Mon.\ Not.\ R.\ Astron.\ Soc.}\ \textbf{251}, 128 (1991).
+\bibitem{BryanNorman1998} G.~L.~Bryan and M.~L.~Norman, ``Statistical Properties of X-Ray Clusters: Analytic and Numerical Comparisons,'' \textit{Astrophys.\ J.}\ \textbf{495}, 80 (1998).
 \bibitem{ChallinorLewis2005} A.~Challinor and A.~Lewis, ``Lensed CMB power spectra from all-sky correlation functions,'' \textit{Phys.\ Rev.\ D} \textbf{71}, 103010 (2005).
 \bibitem{ACTDR6_2025} T.~Louis \textit{et al.}\ (ACT Collaboration), ``The Atacama Cosmology Telescope: DR6 Power Spectra, Likelihoods and $\Lambda$CDM Parameters,'' arXiv:2503.14452 (2025).
 \bibitem{DESI2025} M.~Abdul-Karim \textit{et al.}\ (DESI Collaboration), ``DESI BAO Cosmological Constraints,'' arXiv:2503.14738 (2025).

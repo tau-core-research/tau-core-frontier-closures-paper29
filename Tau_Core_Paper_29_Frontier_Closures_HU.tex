@@ -30,8 +30,8 @@
 
 \author{Olcsák József\\[0.25em]
 \small Független kutató $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
-\small Tau Core Kutatási Program --- Paper 29 (\texttt{v2.4.0})}
-\date{2026.\ november 24.}
+\small Tau Core Kutatási Program --- Paper 29 (\texttt{v3.0.0})}
+\date{2026.\ november 25.}
 
 \begin{document}
 \maketitle
@@ -40,17 +40,20 @@
 Három feltételes modellpróbát vizsgálunk: előírt háttérmetrika Sachs-optikáját, véges felbontású halmazmodelleket és véges rangú rácsinvariánsokat. A háttér optikai azonossága nem igazolja az általános direktorperturbáció tényleges terjedését. A halmaz- és hálótesztek a megadott beállításokra vonatkoznak. A véges invariánstétel nem ad kölcsönható pozitív mértéket, kontinuumhatárt vagy gravitációs zárást. Megadjuk, mely állítások következnek a modellből, és mely inputokat vettük fel.
 \end{abstract}
 
-\paragraph{Publikációs státusz (2026.\ november 24.).}
+\paragraph{Publikációs státusz (2026.\ november 25.).}
 A Sachs-azonosság a megadott optikai metrikára feltételes. Az általános
 lencsézési maghoz a direktor térbeli perturbációja és a perturbált lapse
 is hozzájárulhat (e két tag egzakt levezetését mind skalár $V_u$, mind
 transzverzális vektor $u_i^T$ módusokra, 3+1D táguló FLRW geodéziás
 ellenőrzését, a lokális $\delta N$ kizárását, a feltételes $u_i^T$ lezárást
-a Cserenkov-biztos $c_4 = 0, c_V = 1$ szeleten, valamint az egyirányú
-tesztmezős \texttt{ACT DR6} / \texttt{Planck PR4} és alacsony-$z$ gyenge
-lencsézési auditot a \ref{sec:v21-bridge2-hu}.~szakasz mutatja be, jelezve,
-hogy a teljes dinamikus \texttt{AeST} skalármező-visszacsatolás és a késői
-ISW-csatolás továbbra is nyitott). A void-óra egységnyi együtthatója külön előírt kezdeti
+a Cserenkov-biztos $c_4 = 0, c_V = 1$ szeleten, az egyirányú tesztmezős
+\texttt{ACT DR6} / \texttt{Planck PR4} és alacsony-$z$ gyenge lencsézési
+auditot, valamint a \texttt{v3.0.0} Bridge~2D teljes dinamikus Skordis--Z{\l}o\'snik
+\texttt{AeST} $\phi$-visszacsatolását, három stabilitási no-go tételét és
+első-elvekbeli gömbszimmetrikus összeomlási $k_{\mathrm{vir}}(z)$ skáláját a
+\ref{sec:v21-bridge2-hu}.~szakasz mutatja be, jelezve, hogy a késői ISW-csatolás,
+a nem-szeparábilis gradiens-kiszorítású $\mathcal{F}(\mathcal{Y},\mathcal{Q})$
+UV-kiegészítés és a teljes IA/kozmológiai marginalizáció továbbra is nyitott). A void-óra egységnyi együtthatója külön előírt kezdeti
 meredekségből következik, nem a szinglet egyszeres multiplicitásából.
 A véges hálós finomítás nem Mosco- vagy $\Gamma$-konvergenciatétel.
 A kalibrált CMB- és halmaztesztek numerikus diagnosztikák, nem független
@@ -410,7 +413,7 @@ Kapu / Axióma & Fizikai teszt, tétel vagy irredukálható határ & Episztemiku
 \label{tab:step3-ledger-hu}
 \end{table}
 
-\section{Kiegészítés (v2.4.0): Perturbált diszformális Weyl-lencsézés, egzakt \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps^2)} kovariáns Einstein--\texorpdfstring{\ae{}}{ae}ther direktor-egyenletek, ACT DR6 / tomográfiai alacsony-\texorpdfstring{$z$}{z} gyenge lencsézés (DES Y3, KiDS, Euclid) és 24-cellás izotrópia}
+\section{Kiegészítés (v3.0.0): Perturbált diszformális Weyl-lencsézés, egzakt \texorpdfstring{$\mathcal{O}(\varepsilon^2)$}{O(eps2)} kovariáns Einstein--\texorpdfstring{\ae{}}{ae}ther és dinamikus Skordis--Z\texorpdfstring{{\l}o\'s}{los}nik \texorpdfstring{\texttt{AeST}}{AeST} \texorpdfstring{$\phi$}{phi}-visszacsatolás, hármas stabilitási tételek és első-elvekbeli \texorpdfstring{$k_{\mathrm{vir}}(z)$}{k\_vir(z)}}
 \label{sec:v21-bridge2-hu}
 A 2026.\ november 23-i bírálói audit által jelzett optikai perturbációs hézag vizsgálatához megtartjuk \emph{mindkét} korábban elhagyott elsőrendű tagot a $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ diszformális optikai metrikában Newton-/Poisson-mértékben ($g_{00} = -a(\tau)^2(1+2\Psi)$, $g_{0i} = -a(\tau)^2 B_i^T$, $g_{ij} = a(\tau)^2(1-2\Phi)\delta_{ij}$), a térbeli kovariáns direktor-perturbációt $u_i = a\,\partial_i V_u + a\,u_i^T$ ($\partial^i u_i^T = 0$) alakra bontjuk egzakt $\mathcal{O}(\varepsilon^2)$ egységnorma ($g^{\mu\nu}u_\mu u_\nu = -1$) és $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$ mellett, és a linearizált dinamikát a \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} és \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} szkriptekkel auditáljuk (\texttt{python3 -W error}, \texttt{rc = 0}):
 \begin{enumerate}
@@ -448,6 +451,15 @@ A 2026.\ november 23-i bírálói audit által jelzett optikai perturbációs h�
     (iii)~a haló-virializáció erősen szabályozza a nemlineáris skálákat (1.\ bin Halofit-emelés $+47\%$ $\ell=100$-nál): $k_{\mathrm{vir}} = 0{,}30$ vagy $0{,}15\;\mathrm{Mpc}^{-1}$ levágással a globális \texttt{DES}-eltolás $S_8^{\Lambda\mathrm{CDM}} = 0{,}8184\text{--}0{,}8203$-ra zsugorodik, de a \textbf{IV.\ generációs \texttt{Euclid}} az összes 21 auto+kereszt-spektrumon még így is szétválasztja a $c_S = 0$ tomográfiai dőlést a lapos $c_S = 1$-től: \textbf{$16{,}05\sigma / 5{,}34\sigma / 4{,}28\sigma$} (\texttt{allk}, teljes $\ell\in[30,1000]$ / kvázilineáris $\ell\le 150$ / szigorúan lineáris $k\le 0{,}15\;\mathrm{Mpc}^{-1}$), \textbf{$5{,}79\sigma / 3{,}87\sigma / 3{,}62\sigma$} ($k_{\mathrm{vir}}=0{,}30$) és \textbf{$3{,}93\sigma / 2{,}96\sigma / 2{,}89\sigma$} ($k_{\mathrm{vir}}=0{,}15$, rögzített kozmológiájú felső korlát), míg az adversariális monoton $\bar{N}$ \emph{felfelé} tolja $S_8$-at ($0{,}8341$, $+3{,}45\sigma$ a \texttt{DES Y3} ellen).
     \item \textbf{24-cellás rang-4 $W(F_4)$ euklideszi $O(4)$ direktor-izotrópia (híd a Paper~30 \texttt{v1.6.0}-hoz, \texttt{PROVEN}):}
     A fenti hatodik-momentumú ranghatárt kiegészítve, mind az $1\,152$ $W(F_4)$-mátrixon vett egzakt Reynolds-karakterátlag igazolja, hogy $\dim(((\mathbb{R}^4)^{\otimes 4})^{W(F_4)}) = 3$ (teljes 4D euklideszi $O(4)$-egyezés minden nem-szimmetrikus rang-4 direktor-tenzorra független $c_1, c_2, c_3$ mellett, kizárva a hiperkockás $\sum_a(\nabla_a u_a)^2$ ellentagokat; gyök-momentum hiba $4{,}44\times 10^{-16}$), míg 6-os rendben $\dim(((\mathbb{R}^4)^{\otimes 6})^{W(F_4)}) = 16 > 15$ hozza be az első $W(F_4)$ rács-anizotrópiát ($c_4$-típusú gyorsulási operátorok).
+    \item \textbf{Bridge~2D: Első-elvekbeli dinamikus Skordis--Z{\l}o\'snik \texttt{AeST} $\phi$-visszacsatolás, hármas stabilitási tételek és gömbszimmetrikus összeomlási $k_{\mathrm{vir}}(z)$ (\texttt{v3.0.0}, \texttt{PROVEN / PROVEN NO-GO / CONDITIONAL}):}
+    A Bridge~2B/2C rögzített potenciálú tesztmezős és ad-hoc állandó-$k_{\mathrm{vir}}$ feltevéseit feloldva a \texttt{scripts/\allowbreak verify\_\allowbreak bridge2d\_\allowbreak dynamical\_\allowbreak aest\_\allowbreak phi\_\allowbreak backreaction\_\allowbreak kvir.py} szkript (\texttt{python3 -W error}, \texttt{rc = 0}) egzakt $\mathcal{O}(\varepsilon^2)$ \texttt{SymPy} kovariáns variációt hajt végre a teljes Skordis--Z{\l}o\'snik \texttt{AeST} hatáson, $\mathcal{L}_{\mathrm{AeST}} = R - 2\Lambda - \frac{K_B}{2}F^2 + 2(2-K_B)J^\mu\nabla_\mu\phi - (2-K_B)(1+\lambda_s)\mathcal{Y} + 2\mathcal{K}(\mathcal{Q})$, $(-,+,+,+)$ szignatúrában, pontos $\mathcal{O}(\varepsilon^2)$ egységnorma-kényszerrel ($g^{\mu\nu}A_\mu A_\nu = -1$), $B$ eltolási és $E$ nyírási metrikamódusokkal:
+    (a)~\textbf{Egzakt irodalmi benchmarkok és kovariáns FRW Bianchi-azonosság (\texttt{PROVEN}):} reprodukálja a Skordis--Z{\l}o\'snik (2021)~\cite{SkordisZlosnik2021} ($\gamma_{\mathrm{PPN}}=1$, $G_{N,\mathrm{obs}}/\tilde{G} = (1+1/\lambda_s)/(1-K_B/2)$, $\mu_{\mathrm{SZ}}^2 = 2\mathcal{K}_2\mathcal{Q}_0^2/(2-K_B)$, mély-MOND $\sqrt{a_0 g_{N,\mathrm{obs}}}$) és Skordis--Z{\l}o\'snik (2022)~\cite{SkordisZlosnik2022} Minkowski diszperziós relációt, $\omega^2 = \frac{(2-K_B)(2+K_B\lambda_s)}{2\mathcal{K}_2 K_B}k^2 + \frac{(2-K_B)(1+\lambda_s)\mathcal{Q}_0^2}{K_B}$ (Hamilton-pozitivitás $0 < K_B < 2$, $\lambda_s > -1$, $\mathcal{K}_2 > 0$; statikus QUMOND $\lambda_s > 0$), bizonyítja a zérus lineáris FRW \texttt{AeST} anizotróp feszültséget ($\Phi = \Psi$), és igazolja, hogy a csatolt FRW $(\Phi, \varphi, V_u)$ mozgásegyenletek \textbf{egzakt zérus maradékkal ($0$)} teljesítik a kovariáns Bianchi-azonosságot tetszőleges $\mathcal{K}(\mathcal{Q}), K_B, \lambda_s, a(\tau)$ mellett;
+    (b)~\textbf{Hármas stabilitási szorító tételek minimális szeparábilis \texttt{AeST}-re (\texttt{PROVEN NO-GO}):}
+    \emph{1.~tétel (Négyzetes $\mathcal{K}$ merev-folyadék vs.\ Helmholtz):} $\mu_{\mathrm{SZ}}\,a_{\mathrm{stiff}}^{3/2} = \sqrt{3\Omega_A/[2(2-K_B)]}\,H_0 = 1{,}014\times 10^{-4}\;\mathrm{Mpc}^{-1}$, ami a $\mu_{\mathrm{SZ}}^{-1} \ge 1\;\mathrm{Mpc}$-es tiszta négyzetes $\mathcal{K}_2(\mathcal{Q}-\mathcal{Q}_0)^2$ modellt már rekombináció után ($z_{\mathrm{stiff}} \le 459$, $w_{\mathrm{CMB}}=0{,}930$) merev folyadékba kényszeríti.
+    \emph{2.~tétel (Szubluminalitás + korai-univerzumi éter-tachion, állandó $\lambda_s, c_2=0$):} a $V_u$ mozgásegyenletben az $a\bar{\mathcal{Q}}[(2-K_B)(1+\lambda_s) - 3H_0^2\Omega_A/(\bar{\mathcal{Q}}^2 a^3)]$ visszaállító merevség $a < a_{\mathrm{tach}}$ esetén előjelet vált, valódi fizikai tachion-instabilitást keltve ($9\times 9$ sajátérték: $\mathrm{Re}\,\lambda = +5{,}50$ $z=500$-nál csupasz $\mu_{\mathrm{SZ}}^{-1} = 1\;\mathrm{Mpc}$-nél). A $c_{S,\mathrm{Mink}}^2 \le 1$ szubluminalitással együtt ez globálisan $\mu_{\mathrm{SZ}}^{-1} < 196{,}2\;\mathrm{kpc}$ ($a_{\mathrm{tach}} < a_{\mathrm{CMB}}$) és $< 35{,}4\;\mathrm{kpc}$ ($a_{\mathrm{tach}} < a_{\mathrm{eq}}$, egzakt $N_{\mathrm{eff}}=3{,}044, z_{\mathrm{eq}}=3409{,}5$) felső korlátot kényszerít ki (referencia $K_B=0{,}05, \lambda_s=50$: $145{,}8 / 26{,}34\;\mathrm{kpc}$).
+    \emph{3.~tétel (Szeparábilis $\mathcal{K}_{\cosh}(\mathcal{Q})$ statikus potenciálgödör-robbanás):} bár a szigorúan konvex $\mathcal{K}_{\cosh}(\mathcal{Q}) = 2\mathcal{K}_2\mathcal{Q}_0^2 d_c^2[\cosh(\Delta/d_c)-1]$ BBN-ig $w_\phi, c_{s,\phi}^2 \le d_c$ alatt tartja a kozmológiai hátteret, statikus asztrofizikai potenciálgödrökben ($\Psi < 0$) $\Delta_{\mathrm{static}} = -\Psi = +|\Psi| > 0$ \emph{ugyanolyan pozitív előjelű}, mint a kozmológiai por, így $\mathcal{K}_{\mathcal{Q}\mathcal{Q}}/(2\mathcal{K}_2) = \cosh(|\Psi|/d_c)$ $10^{21{,}4}$-re robban a Tejútrendszerben ($|\Psi|=5\times 10^{-7}$, $d_c = 10^{-8}$). Az egyidejű kozmológiai és statikus záráshoz tehát elengedhetetlen a nem-szeparábilis gradiens-/direktor-kiszorítás $\mathcal{F}(\mathcal{Y},\mathcal{Q})$ (Paper~29 II.~lépés: a kozmológiai $10\;\mathrm{kpc}$ galaxisokban $1{,}54\;\mathrm{Mpc}$-re, halmazokban $3{,}3\times 10^5\;\mathrm{Mpc}$-re tágul);
+    (c)~\textbf{Dinamikus 9-ODE $\phi$-visszacsatolás és együttmozgó attraktor (\texttt{PROVEN / CONDITIONAL}):} a teljes 9-egyenletes rendszert $a_{\mathrm{init}}=10^{-4}$-től $k \in [0{,}005;\, 15{,}0]\;\mathrm{Mpc}^{-1}$-en integrálva (L-stabil 2-lépcsős Radau~IIA, lépéskonvergencia $2{,}94\times 10^{-7}$, GR-visszaállás $1{,}65\times 10^{-4}$) a sugárzási korban is tachionmentes, BBN-biztos szeleten ($\mu_{\mathrm{inf}}=100\;\mathrm{Mpc}^{-1}, K_2=100, K_B=0{,}05, \lambda_s=50$; $z_{\mathrm{tach}}=6227 > z_{\mathrm{eq}}$, $G_{\mathrm{cosmo}}/G_N = 0{,}956$) a $V_u$ mező dinamikusan rázár $V_\phi$-re ($V_u/V_\phi = 1{,}00000$, $V_u/V_b = 0{,}999996$ $k=0{,}1\;\mathrm{Mpc}^{-1}$-nél), igazolva a Bridge~2B/2C együttmozgó $c_S = 0$ attraktorát (lineáris Jeans-plafon $d_c \le 2{,}41\times 10^{-6}$ a $<5\%$-os $P(k=0{,}2)$ elnyomáshoz);
+    (d)~\textbf{Első-elvekbeli gömbszimmetrikus összeomlási $k_{\mathrm{vir}}(z)$ és gyenge lencsézési sáv (\texttt{CONDITIONAL}, \ref{tab:v30-bridge2d-hu}.~táblázat):} a nemlineáris gömbszimmetrikus top-hat összeomlást (egzakt EdS $\Delta_{\mathrm{vir}}=18\pi^2$ $1{,}17\times 10^{-7}$ hibával és Bryan--Norman~\cite{BryanNorman1998} / Lahav~\cite{Lahav1991} $\Lambda$CDM $0{,}67\%$-on belül) a Paper~29 I.~lépés pontos $s_e(z)$ táblájával, $a_0(z)=I_{\mathrm{KH}}cH(z)$ skálájával és negyedrendű Helmholtz-operátorával ($S_H^{\mathrm{P29}} = [1 + \nu(m_H/k)^2 + \frac{1}{4}(m_H/k)^4]^{-1}$) megoldva a lagrange-i összeomlási sugár $R_L(z) = 3{,}638\;\mathrm{Mpc}$ ($z=0$, $\delta_c^{\mathrm{GR\text{-}extrap}} = 1{,}6086$, por euleri $R_{\mathrm{vir}}^{\mathrm{Eul}} = 0{,}486\;\mathrm{Mpc}$) értékről $1{,}497\;\mathrm{Mpc}$-re ($z=1{,}0$) zsugorodik, azaz $k_{\mathrm{vir}}(z) = \pi/(2 R_L) = 0{,}432\;\mathrm{Mpc}^{-1}$ ($z=0$) $\to 1{,}049\;\mathrm{Mpc}^{-1}$ ($z=1{,}0$). A $T_\Phi^2(k,z)P_{\mathrm{lin}}$ \texttt{Halofit}-ba táplálása feltár egy nem-fizikai Takahashi $C_{\mathrm{curv}}$ polinomiális túllövést ($+16{,}9\%$ $d_c=10^{-6}$-nál), ezért a nemlineáris \texttt{Halofit}-előrejelzés kizárólag a hideg $d_c = 10^{-10}$ ágra korlátozódik ($0{,}027\%$ túllövés). A teljes $k_{\mathrm{vir}} = c/R_L$ leképezési bizonytalanság ($c \in [1, 2\pi]$ és fordulóponti $k_{\mathrm{ta}}$) mentén a IV.\ generációs \texttt{Euclid} dőlés-SNR-je \textbf{$6{,}52\text{--}12{,}88\sigma$} (teljes $\ell\in[30,1000]$; $7{,}90\sigma$ $c=\pi/2$-nél; $5{,}70\sigma$ $k_{\mathrm{ta}}$-nál), míg a kalibráció-független szigorúan lineáris vágás ($k \le 0{,}15\;\mathrm{Mpc}^{-1}$) stabilan \textbf{$3{,}66\text{--}4{,}23\sigma$} között marad ($3{,}83\text{--}3{,}99\sigma$ tisztán lineáris $P_{\mathrm{lin}}$-en $d_c \in [10^{-10}, 10^{-6}]$ mellett; rögzített kozmológiájú / IA-mentes felső korlát).
 \end{enumerate}
 
 \begin{table}[!ht]
@@ -497,11 +509,39 @@ Adversariális monoton $\bar{N}$ ($c_S = 0$) & $0{,}8441\;/\;0{,}8341$ & $+3{,}8
 \label{tab:v24-weaklensing-hu}
 \end{table}
 
-\begin{thebibliography}{29}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
+\begin{table}[!ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Bridge~2D dinamikus ág ($d_c = 10^{-10}$, \texttt{Halofit}-biztos) & $k_{\mathrm{cut}}(z=0 \to 1)$ [$\mathrm{Mpc}^{-1}$] & \texttt{DES Y3} $S_8$ (pert / $\Lambda$CDM) & \texttt{KiDS-Leg.} $S_8$ (pert / $\Lambda$CDM) & \texttt{Euclid} teljes & \texttt{Euclid} ($\ell\le 150$) & \texttt{Euclid} ($k\le 0{,}15$) \\
+\midrule
+Bridge~2C \texttt{allk} regresszió (1D.~kapu) & $\infty$ & $0{,}8063\;/\;0{,}7967$ & $0{,}8150\;/\;0{,}8055$ & $16{,}05\sigma$ & $5{,}34\sigma$ & $4{,}28\sigma$ \\
+Teljes dinamikus $\phi$-visszacsatolás (\texttt{allk}) & $\infty$ & $0{,}8064\;/\;0{,}7968$ & $0{,}8151\;/\;0{,}8056$ & $16{,}12\sigma$ & $5{,}34\sigma$ & $4{,}28\sigma$ \\
+Gömbszimmetrikus $k_{\mathrm{vir}} = 1{,}0/R_L(z)$ & $0{,}275 \to 0{,}668$ & $0{,}8281\;/\;0{,}8183$ & $0{,}8321\;/\;0{,}8225$ & $6{,}52\sigma$ & $3{,}90\sigma$ & $3{,}66\sigma$ \\
+\textbf{Gömbszimmetrikus $k_{\mathrm{vir}} = \pi/(2 R_L(z))$ (\texttt{AeST})} & $\mathbf{0{,}432 \to 1{,}049}$ & $\mathbf{0{,}8253\;/\;0{,}8156}$ & $\mathbf{0{,}8303\;/\;0{,}8207}$ & $\mathbf{7{,}90\sigma}$ & $\mathbf{4{,}37\sigma}$ & $\mathbf{3{,}91\sigma}$ \\
+Gömbszimmetrikus $k_{\mathrm{vir}} = \pi/R_L(z)$ & $0{,}864 \to 2{,}099$ & $0{,}8190\;/\;0{,}8093$ & $0{,}8254\;/\;0{,}8159$ & $10{,}38\sigma$ & $4{,}90\sigma$ & $4{,}13\sigma$ \\
+Gömbszimmetrikus $k_{\mathrm{vir}} = 2\pi/R_L(z)$ & $1{,}727 \to 4{,}197$ & $0{,}8128\;/\;0{,}8031$ & $0{,}8204\;/\;0{,}8108$ & $12{,}88\sigma$ & $5{,}17\sigma$ & $4{,}23\sigma$ \\
+Tiszta por összeomlás $k_{\mathrm{vir}} = \pi/(2 R_L^{\mathrm{dust}})$ & $0{,}469 \to 1{,}471$ & $0{,}8244\;/\;0{,}8147$ & $0{,}8297\;/\;0{,}8201$ & $8{,}30\sigma$ & $4{,}46\sigma$ & $4{,}01\sigma$ \\
+Fordulóponti vágás $k_{\mathrm{ta}} = \pi/(2 R_L^{\mathrm{ta}}(z))$ & $0{,}217 \to 0{,}434$ & $0{,}8293\;/\;0{,}8194$ & $0{,}8325\;/\;0{,}8228$ & $5{,}70\sigma$ & $3{,}59\sigma$ & $3{,}45\sigma$ \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Bridge~2D (\texttt{v3.0.0}) dinamikus Skordis--Z{\l}o\'snik \texttt{AeST} $\phi$-visszacsatolás és első-elvekbeli gömbszimmetrikus összeomlási $k_{\mathrm{vir}}(z) = c/R_L(z)$ gyenge lencsézési sáv (\texttt{scripts/\allowbreak verify\_\allowbreak bridge2d\_\allowbreak dynamical\_\allowbreak aest\_\allowbreak phi\_\allowbreak backreaction\_\allowbreak kvir.py}; sugárzási korban is tachionmentes $\mu_{\mathrm{inf}}=100\;\mathrm{Mpc}^{-1}, K_2=100, K_B=0{,}05, \lambda_s=50$; \texttt{Halofit} max túllövés $1{,}00027$; rögzített kozmológiájú / IA-mentes felső korlát).}
+\label{tab:v30-bridge2d-hu}
+\end{table}
+
+\begin{thebibliography}{32}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
 \bibitem{Weinberg1976} S.~Weinberg, ``Apparent luminosities in a locally inhomogeneous universe,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{208}, L1 (1976).
 \bibitem{KibbleLieu2005} T.~W.~B.~Kibble és R.~Lieu, ``Average magnification effect of clumping of matter,'' \textit{Astrophys.\ J.}\ \textbf{632}, 718 (2005).
 \bibitem{Wiltshire2009} D.~L.~Wiltshire, ``Average observational quantities in the timescape cosmology,'' \textit{Phys.\ Rev.\ D} \textbf{80}, 123512 (2009).
 \bibitem{SkordisZlosnik2021} C.~Skordis és T.~Z{\l}o\'snik, ``New Relativistic Theory for Modified Newtonian Dynamics,'' \textit{Phys.\ Rev.\ Lett.}\ \textbf{127}, 161302 (2021).
+\bibitem{SkordisZlosnik2022} C.~Skordis és T.~Z{\l}o\'snik, ``Aether scalar tensor theory: Linear stability on Minkowski space,'' \textit{Phys.\ Rev.\ D} \textbf{106}, 104041 (2022).
+\bibitem{Lahav1991} O.~Lahav, P.~B.~Lilje, J.~R.~Primack és M.~J.~Rees, ``Dynamical effects of the cosmological constant,'' \textit{Mon.\ Not.\ R.\ Astron.\ Soc.}\ \textbf{251}, 128 (1991).
+\bibitem{BryanNorman1998} G.~L.~Bryan és M.~L.~Norman, ``Statistical Properties of X-Ray Clusters: Analytic and Numerical Comparisons,'' \textit{Astrophys.\ J.}\ \textbf{495}, 80 (1998).
 \bibitem{ChallinorLewis2005} A.~Challinor és A.~Lewis, ``Lensed CMB power spectra from all-sky correlation functions,'' \textit{Phys.\ Rev.\ D} \textbf{71}, 103010 (2005).
 \bibitem{ACTDR6_2025} T.~Louis \textit{és mtsai.}\ (ACT Collaboration), ``The Atacama Cosmology Telescope: DR6 Power Spectra, Likelihoods and $\Lambda$CDM Parameters,'' arXiv:2503.14452 (2025).
 \bibitem{DESI2025} M.~Abdul-Karim \textit{és mtsai.}\ (DESI Collaboration), ``DESI BAO Cosmological Constraints,'' arXiv:2503.14738 (2025).
