@@ -30,7 +30,7 @@
 
 \author{Olcsák József\\[0.25em]
 \small Független kutató $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
-\small Tau Core Kutatási Program --- Paper 29 (\texttt{v2.1.1})}
+\small Tau Core Kutatási Program --- Paper 29 (\texttt{v2.2.0})}
 \date{2026.\ november 24.}
 
 \begin{document}
@@ -43,9 +43,11 @@ Három feltételes modellpróbát vizsgálunk: előírt háttérmetrika Sachs-op
 \paragraph{Publikációs státusz (2026.\ november 24.).}
 A Sachs-azonosság a megadott optikai metrikára feltételes. Az általános
 lencsézési maghoz a direktor térbeli perturbációja és a perturbált lapse
-is hozzájárulhat (e két tag egzakt levezetését örvénymentes skalár módusokra,
-3+1D táguló FLRW geodéziás ellenőrzését, a lokális $\delta N$ kizárását és a
-$V_u \equiv 0$ statikus halmaz-feltételt a \ref{sec:v21-bridge2-hu}.~szakasz zárja le). A void-óra egységnyi együtthatója külön előírt kezdeti
+is hozzájárulhat (e két tag egzakt levezetését mind skalár $V_u$, mind
+transzverzális vektor $u_i^T$ módusokra, 3+1D táguló FLRW geodéziás
+ellenőrzését, a lokális $\delta N$ kizárását, a $u_i^T$ nyitott megkötés
+lezárását és az élő csatolt \texttt{AeST} + \texttt{ACT DR6} / \texttt{Planck PR4}
+Boltzmann-auditot a \ref{sec:v21-bridge2-hu}.~szakasz zárja le). A void-óra egységnyi együtthatója külön előírt kezdeti
 meredekségből következik, nem a szinglet egyszeres multiplicitásából.
 A véges hálós finomítás nem Mosco- vagy $\Gamma$-konvergenciatétel.
 A kalibrált CMB- és halmaztesztek numerikus diagnosztikák, nem független
@@ -405,22 +407,56 @@ Kapu / Axióma & Fizikai teszt, tétel vagy irredukálható határ & Episztemiku
 \label{tab:step3-ledger-hu}
 \end{table}
 
-\section{Kiegészítés (\texttt{v2.1.1}): A perturbált diszformális optika egzakt Weyl-lencsézési magja és a 24-cellás rang-4 direktor-izotrópia}
+\section{Kiegészítés (\texttt{v2.2.0}): Perturbált diszformális Weyl-lencsézés, egzakt kovariáns \texttt{AeST} direktor-egyenletek, élő \texttt{ACT DR6} Boltzmann-audit és 24-cellás rang-4 izotrópia}
 \label{sec:v21-bridge2-hu}
-A 2026.\ november 23-i bírálói audit által jelzett optikai perturbációs hézag lezárására megtartjuk \emph{mindkét} korábban elhagyott elsőrendű tagot a $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ diszformális optikai metrikában Newton-mértékben ($g_{00} = -a(\tau)^2(1+2\Psi)$, $g_{ij} = a(\tau)^2(1-2\Phi)\delta_{ij}$), \emph{örvénymentes skalár} direktor-perturbációra ($u_0 = -a(1+\Psi)$, $u_i = a\,\partial_i V_u$; a $\partial_i u_i^T = 0$ transzverzális vektormódusok nyitva maradnak) és perturbált lapse-re ($N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$; \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py}, \texttt{python3 -W error}, \texttt{rc = 0}):
+A 2026.\ november 23-i bírálói audit által jelzett optikai perturbációs hézag lezárására megtartjuk \emph{mindkét} korábban elhagyott elsőrendű tagot a $\tilde{g}_{\mu\nu} = g_{\mu\nu} + (1 - N^2) u_\mu u_\nu$ diszformális optikai metrikában Newton-mértékben ($g_{00} = -a(\tau)^2(1+2\Psi)$, $g_{ij} = a(\tau)^2(1-2\Phi)\delta_{ij}$), a térbeli direktor-perturbációt felbontjuk örvénymentes skalár ($u_i^S = a\,\partial_i V_u$) és divergenciamentes transzverzális vektor ($u_i^T$, $\partial^i u_i^T = 0$) részre ($u_0 = -a(1+\Psi)$, $N(\tau,\mathbf{x}) = \bar{N}(\tau) + \delta N(\tau,\mathbf{x})$), és a teljes csatolt dinamikát igazoljuk a \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak perturbed\_\allowbreak disformal\_\allowbreak optics\_\allowbreak lensing.py} és \texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py} szkriptekkel (\texttt{python3 -W error}, \texttt{rc = 0}):
 \begin{enumerate}
     \item \textbf{Egzakt linearizált metrika és 3+1D táguló FLRW ellenőrzés (\texttt{PROVEN}):}
-    A \texttt{SymPy} kifejtés egzaktul $\tilde{g}_{00} = -a^2\bar{N}^2[1 + 2\Psi + 2\delta N/\bar{N}]$, $\tilde{g}_{0i} = -a^2(1-\bar{N}^2)\partial_i V_u$ és $\tilde{g}_{ij} = a^2(1-2\Phi)\delta_{ij}$ komponenseket ad. Az optikai konform időre ($\mathrm{d}\tilde{\tau} = \bar{N}\mathrm{d}\tau$) áttérve, majd a $\tilde{\tau} = \tilde{\tau}' - \xi^0$ ($\xi^0 \equiv \frac{1-\bar{N}^2}{\bar{N}}V_u$) idő-diffeomorfizmussal a $\tilde{g}_{0i}$ tag eltűnik, a $\pm\tilde{\mathcal{H}}\xi^0$ Hubble-eltolások pedig azonosan kiejtik egymást az optikai Weyl-lencsézési potenciálban:
+    A \texttt{SymPy} kifejtés egzaktul $\tilde{g}_{00} = -a^2\bar{N}^2[1 + 2\Psi + 2\delta N/\bar{N}]$, $\tilde{g}_{0i} = -a^2(1-\bar{N}^2)\partial_i V_u - a(1-\bar{N}^2)u_i^T$ és $\tilde{g}_{ij} = a^2(1-2\Phi)\delta_{ij}$ komponenseket ad. Az optikai konform időre ($\mathrm{d}\tilde{\tau} = \bar{N}\mathrm{d}\tau$) áttérve, majd a $\tilde{\tau} = \tilde{\tau}' - \xi^0$ ($\xi^0 \equiv \frac{1-\bar{N}^2}{\bar{N}}V_u$) idő-diffeomorfizmussal a skalár $\tilde{g}_{0i}$ tag eltűnik, a $\pm\tilde{\mathcal{H}}\xi^0$ Hubble-eltolások pedig azonosan kiejtik egymást az optikai Weyl-lencsézési potenciálban:
     \begin{equation}
         \tilde{\Phi}_W \equiv \frac{1}{2}\bigl(\tilde{\Phi}_{\mathrm{eff}} + \tilde{\Psi}_{\mathrm{eff}}\bigr) = \frac{1}{2}(\Phi + \Psi) + \frac{\delta N}{2\bar{N}} - \frac{1 - \bar{N}^2}{2\bar{N}^2}\partial_\tau V_u + \frac{1 + \bar{N}^2}{2\bar{N}^3}(\partial_\tau\bar{N})\,V_u.
         \label{eq:exact-disformal-weyl-hu}
     \end{equation}
-    A transzformálatlan 3+1D ($4\times 4$ metrika) null-geodézia egyenlet közvetlen numerikus integrálása lokalizált 3D Gauss-lencsén \emph{táguló} FLRW háttéren ($a(\tau) = 1 + 0{,}015\tau$) és \emph{időfüggő} lapse-szel ($\bar{N}(\tau) = 0{,}90 + 0{,}005\tau$) három élő tesztben igazolja a \eqref{eq:exact-disformal-weyl-hu} tételt: (i)~teljes dinamikus próba ($\Phi=\Psi$, $\delta N\neq 0$, oszcilláló $V_u$): $9{,}84\times 10^{-6}$ relatív hiba mindkét szögirányban (null-norma hiba $1{,}74\times 10^{-13}$); (ii)~statikus $V_u$ ($\omega=0$) állandó $\bar{N}$ mellett: $|\alpha_y| = 1{,}50\times 10^{-12}$ ($\mathcal{O}(\varepsilon^2)$ zérus); (iii)~statikus $V_u$ ($\omega=0$) $\partial_\tau\bar{N} = 0{,}005$ mellett: nemzérus $\alpha_y = 1{,}6039\times 10^{-7}$ eltérítés, $9{,}40\times 10^{-6}$ egyezéssel a $(\partial_\tau\bar{N})V_u$ taggal.
-    \item \textbf{Programozott kozmológiai korlátok és feltételek (\texttt{PROVEN NO-GO} a lokális $\delta N$-re):}
-    A \eqref{eq:exact-disformal-weyl-hu} tétel két éles korlátot ad: (a)~$\partial_\tau\bar{N}\neq 0$ esetén a zérus többlet-lencsézéshez virializált halmazokban $V_u \equiv 0$ (zérus térbeli direktor-perturbáció) kell, nem elég $\partial_\tau V_u = 0$; (b)~a lokális, szub-horizont sűrűségkövető $\delta N/\bar{N} = -\alpha_{\mathrm{loc}}\delta_m$ $7\text{--}9$ nagyságrenddel kizárt ($|\alpha_{\mathrm{loc}}| < 2{,}83\times 10^{-7}$ \texttt{ACT DR6} CMB-lencsézésből, $< 6{,}0\times 10^{-9}$ \texttt{X-COP} halmazokból), így $N(\tau)$ kötelezően háttér-/szuperhorizont-átlagolt ($\delta N = 0$ a $k\gg aH$ skálákon). Ha feltételesen $u_i$ a lineáris anyagsebesség-potenciált követi ($V_u = 2f\Phi/(3\mathcal{H}\Omega_m)$; a teljes perturbált \texttt{AeST}-egyenlet nyitott), akkor $1-\bar{N}\in [0{,}005;\; 0{,}015]$ ($z\sim 1{,}5$) $0{,}50\%\text{--}1{,}49\%$-kal tolja $\tilde{\Phi}_W$-t, vagyis $C_L^{\kappa\kappa}\propto\tilde{\Phi}_W^2$-t $1{,}00\%\text{--}2{,}98\%$-kal --- enyhe feszültséget adva az \texttt{ACT DR6} ($2\%$) felső szélén és éles tesztet a Simons Observatory / CMB-S4 számára.
-    \item \textbf{24-cellás rang-4 $W(F_4)$ euklideszi $O(4)$ direktor-izotrópia (híd a Paper~30 \texttt{v1.2.0}-hoz, \texttt{PROVEN}):}
+    A transzformálatlan 3+1D ($4\times 4$ metrika) null-geodézia egyenlet közvetlen integrálása lokalizált 3D Gauss-lencsén \emph{táguló} FLRW háttéren ($a(\tau) = 1 + 0{,}015\tau$) és \emph{időfüggő} lapse-szel ($\bar{N}(\tau) = 0{,}90 + 0{,}005\tau$) három élő tesztben igazolja a \eqref{eq:exact-disformal-weyl-hu} tételt: (i)~teljes dinamikus próba: $9{,}84\times 10^{-6}$ relatív hiba (null-norma $1{,}74\times 10^{-13}$); (ii)~statikus $V_u$ állandó $\bar{N}$-nél: $|\alpha_y| = 1{,}50\times 10^{-12}$; (iii)~statikus $V_u$ $\partial_\tau\bar{N} = 0{,}005$-nél: $\alpha_y = 1{,}6039\times 10^{-7}$ ($9{,}40\times 10^{-6}$ egyezés). A \eqref{eq:exact-disformal-weyl-hu} tétel $7\text{--}9$ nagyságrenddel kizárja (\texttt{PROVEN NO-GO}) a lokális $\delta N/\bar{N} = -\alpha_{\mathrm{loc}}\delta_m$ tagot ($|\alpha_{\mathrm{loc}}| < 2{,}83\times 10^{-7}$ CMB, $< 6{,}0\times 10^{-9}$ \texttt{X-COP}), így $\delta N = 0$ a $k\gg aH$ skálákon, és $\partial_\tau\bar{N}\neq 0$ mellett a zérus halmaz-eltoláshoz $V_u \equiv 0$ szükséges.
+    \item \textbf{Egzakt \texttt{SymPy} kovariáns linearizált \texttt{AeST} direktor-egyenletek skalár $V_u$-ra és transzverzális $u_i^T$-re (\texttt{v2.2.0}, \texttt{PROVEN}):}
+    A kovariáns kvadratikus Einstein--\ae{}ther/\texttt{AeST} hatás ($\mathcal{L}_u = -\frac{1}{2} c_4 a_\mu a^\mu - \frac{1}{2} c_2 (\nabla_\mu u^\mu)^2 - \frac{1}{4} c_V F_{\mu\nu} F^{\mu\nu}$, egzakt $g^{\mu\nu}u_\mu u_\nu = -1$ mellett) variálásával sík FLRW háttéren két pontos, szétcsatolt hullámegyenlet adódik (szimbolikusan igazolva \texttt{SymPy}-ban):
+    \begin{equation}
+        (a V_u)'' + c_S^2 k^2 (a V_u) = -(a\Psi)' - 3 c_S^2 a(\Phi' + \mathcal{H}\Psi), \qquad (a u_i^T)'' + c_V^2 k^2 (a u_i^T) = 0,
+        \label{eq:aest-director-eoms-hu}
+    \end{equation}
+    ahol $c_S^2 \equiv c_2/c_4$, és $u_i^T$-re $\delta(\nabla_\mu u^\mu) \equiv 0$ azonosan. A transzverzális vektormódusnak tehát \emph{zérus} lineáris skalár-anyagforrása van, $\sim 1/a$-val lecseng és nem kelt lineáris $B$-módusú lencsézést --- ezzel lezárva a \texttt{v2.1.1} nyitott $u_i^T$ megkötését. A $c_S \to 0$ por-határesetben a skalár egyenlet $3{,}21\times 10^{-3}$ relatív hibával adja vissza az élő Boltzmann CDM sebességpotenciált ($V_m = -v_d/k$).
+    \item \textbf{Élő csatolt \texttt{AeST} + diszformális lencsézési \texttt{ACT DR6} / \texttt{Planck PR4} Boltzmann-audit (\texttt{v2.2.0}, \texttt{PROVEN}):}
+    Az I.~lépés egzakt $\ell \le 3000$ Boltzmann + Challinor--Lewis görbült-égboltú lencsézési pipeline-jába a rögzített \texttt{vc\_A} üreg-óra ágon ($H_0 = 67{,}0708\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $100\theta_* = 1{,}04090$, ahol $\bar{N}(z)$ $z \approx 1{,}4$-nél keresztezi az $1{,}000$-t: $\bar{N}(0{,}5) = 0{,}9841$, $\bar{N}(3{,}0) = 1{,}0086$) közvetlenül beépítve a \eqref{eq:exact-disformal-weyl-hu}--\eqref{eq:aest-director-eoms-hu} rendszert, a \texttt{v2.1.1} nagyságrendi becslésének enyhe feszültsége teljesen feloldódik (4.~táblázat):
+    (a)~a Tau Core fizikai kovariáns Stueckelberg--Lorenz ágán ($c_S = c = 1{,}0$, Paper~27/28) a szubhorizont akusztikus oszcilláció elnyomja $V_u$-t ($\Delta C_L^{\kappa\kappa}/C_L^{\kappa\kappa} \le +0{,}042\%$ $L=10$-nél, $+0{,}0005\%$ $L=100$-nál): \textbf{$\Delta\chi^2_{\mathrm{ACT108}} = 0{,}000$, $\Delta\chi^2_{\mathrm{KK22}} = +0{,}010$ (\texttt{Presc.~I}) / $0{,}000$ (\texttt{2-Field})};
+    (b)~még a maximálisan eltolt együttmozgó por-határesetben ($c_S = 0{,}0$ / egzakt Boltzmann $V_m = -v_d/k$) is a $\bar{N}(z)$ $z \approx 1{,}4$-es előjelváltása mérsékli a jelet egy jellegzetes $+1{,}85\%$-os csúcsra $L \sim 100$-nál ($\Delta\chi^2_{\mathrm{ACT108}} = +0{,}120$, $\Delta\chi^2_{\mathrm{KK22}} = +1{,}410$ \texttt{Presc.~I}, $+0{,}800$ \texttt{2-Field} --- tisztán túléli az \texttt{ACT DR6 + Planck PR4} méréseket $<1{,}2\sigma$-val, miközben a Simons Observatory / CMB-S4 számára éles megkülönböztető célpontot ad $c_S = 1$ és $c_S \to 0$ között);
+    (c)~az adversariális monoton lapse-próba ($\bar{N}(a) = 1 - 0{,}015 a^{3/2}$) hasonlóan $\Delta\chi^2 = 0{,}000$-t ($c_S = 1{,}0$) és $+1{,}130$ / $+0{,}660$-t ($c_S = 0{,}0$) ad.
+    \item \textbf{24-cellás rang-4 $W(F_4)$ euklideszi $O(4)$ direktor-izotrópia (híd a Paper~30 \texttt{v1.3.0}-hoz, \texttt{PROVEN}):}
     A fenti hatodik-momentumú ranghatárt kiegészítve, mind az $1\,152$ $W(F_4)$-mátrixon vett egzakt Reynolds-karakterátlag igazolja, hogy $\dim(((\mathbb{R}^4)^{\otimes 4})^{W(F_4)}) = 3$ (teljes 4D euklideszi $O(4)$-egyezés minden nem-szimmetrikus rang-4 direktor-tenzorra független $c_1, c_2, c_3$ mellett, kizárva a hiperkockás $\sum_a(\nabla_a u_a)^2$ ellentagokat; gyök-momentum hiba $4{,}44\times 10^{-16}$), míg 6-os rendben $\dim(((\mathbb{R}^4)^{\otimes 6})^{W(F_4)}) = 16 > 15$ hozza be az első $W(F_4)$ rács-anizotrópiát ($c_4$-típusú gyorsulási operátorok).
 \end{enumerate}
+
+\begin{table}[!ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4.0pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+Direktor-ág (\texttt{vc\_A} $H_0=67{,}0708$) & $\Delta C_{40}^{\kappa\kappa}$ & $\Delta C_{100}^{\kappa\kappa}$ & $\Delta C_{1000}^{\kappa\kappa}$ & \texttt{ACT108} (\texttt{P1}) & \texttt{KK13} (\texttt{P1}) & \texttt{KK22} (\texttt{P1}) & \texttt{KK22} (\texttt{2F}) \\
+\midrule
+Alapvonal ($V_u = 0$, Paper 29 I.\ lépés) & $0{,}00\%$ & $0{,}00\%$ & $0{,}00\%$ & $110{,}25$ & $15{,}96$ & $22{,}86$ & $21{,}67$ \\
+\textbf{Kovariáns SL ($c_S = 1{,}0$, Paper 27/28)} & $+0{,}004\%$ & $+0{,}0005\%$ & $0{,}00\%$ & $110{,}25\,(+0{,}00)$ & $15{,}96\,(+0{,}00)$ & $22{,}87\,(+0{,}01)$ & $21{,}67\,(+0{,}00)$ \\
+Köztes ($c_S = 0{,}1$) & $+0{,}085\%$ & $+0{,}012\%$ & $0{,}00\%$ & $110{,}25\,(+0{,}00)$ & $15{,}96\,(+0{,}00)$ & $22{,}95\,(+0{,}09)$ & $21{,}74\,(+0{,}07)$ \\
+Alacsony ($c_S = 0{,}01$) & $+1{,}88\%$ & $+1{,}05\%$ & $-0{,}007\%$ & $110{,}26\,(+0{,}01)$ & $16{,}21\,(+0{,}25)$ & $24{,}18\,(+1{,}32)$ & $22{,}49\,(+0{,}82)$ \\
+Együttmozgó por ($c_S = 0{,}0$) & $+1{,}19\%$ & $+1{,}86\%$ & $+0{,}91\%$ & $110{,}38\,(+0{,}13)$ & $16{,}28\,(+0{,}32)$ & $24{,}29\,(+1{,}43)$ & $22{,}48\,(+0{,}81)$ \\
+Egzakt Boltzmann $V_m = -v_d/k$ & $+1{,}18\%$ & $+1{,}85\%$ & $+0{,}90\%$ & $110{,}37\,(+0{,}12)$ & $16{,}27\,(+0{,}31)$ & $24{,}27\,(+1{,}41)$ & $22{,}47\,(+0{,}80)$ \\
+Adversariális monoton $\bar{N}$ ($1{,}0 / 0{,}0$) & $+0{,}001 / +1{,}64\%$ & $+0{,}0003 / +1{,}04\%$ & $0 / +0{,}83\%$ & $110{,}25 / 110{,}31$ & $15{,}96 / 15{,}94$ & $22{,}86 / 23{,}99$ & $21{,}67 / 22{,}33$ \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Élő csatolt \texttt{AeST} direktor + diszformális Weyl-lencsézési Boltzmann-audit az \texttt{ACT DR6} (108 sáv) és \texttt{ACT DR6 + Planck PR4} lencsézési (13 és 22 sáv) adatokon (\texttt{scripts/\allowbreak verify\_\allowbreak bridge2\_\allowbreak coupled\_\allowbreak aest\_\allowbreak disformal\_\allowbreak boltzmann\_\allowbreak act.py}).}
+\label{tab:v22-boltzmann-hu}
+\end{table}
 
 \begin{thebibliography}{29}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
 \bibitem{Weinberg1976} S.~Weinberg, ``Apparent luminosities in a locally inhomogeneous universe,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{208}, L1 (1976).
