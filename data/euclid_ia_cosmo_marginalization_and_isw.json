@@ -1,0 +1,222 @@
+{
+  "script": "verify_euclid_ia_cosmo_marginalization_and_isw.py",
+  "runtime_seconds": 131.55,
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_ALGEBRAIC": [
+      "Under the Jordan/matter-metric equivalence-principle premise (baryonic galaxies respond to Newtonian tidal shear d_a d_b Psi with W_i^I ~ R_W^0, whereas null rays experience the disformal optical Weyl potential tilde{Phi}_W = R_W Phi_W^{GR} with W_i^G ~ R_W^1), SymPy proves that cosmic shear + NLA Intrinsic Alignments decompose as R_W^2 * GG + R_W^1 * (GI + IG) + R_W^0 * II, breaking exact degeneracy between alpha_disf and (A_IA, eta_IA) alongside scale-dependent k_vir(z) filtering."
+    ],
+    "CONDITIONAL": [
+      "Under full 7-parameter Gaussian tomographic marginalization over (alpha_disf, Omega_{m,0}, sigma_8, n_s, h, A_IA, eta_IA) on Euclid Stage-IV (6 bins, f_sky = 0.3636) with Bridle-King / Blanchard+2020 NLA Intrinsic Alignments (using DES/KiDS pivot z_0 = 0.62 and bracketing A_IA in [0.50, 1.72]), the physical spherical-collapse disformal branch k_vir(z) = (pi/2)/R_L(z) retains 5.44 sigma prior-free detectability from Euclid cosmic shear alone (4.46 sigma at A_IA = 0.50) and 7.36 sigma when combined with diagonal 1D-marginalized Planck 2018 variances on (Omega_{m,0}, sigma_8, n_s, h) (omitting off-diagonal CMB acoustic correlations).",
+      "Exact non-Limber Boltzmann spherical-Bessel integration across ell = 2..30 (retaining both ISW auto-power and primary-SW x late-ISW cross-power on k_cmb >= 8e-5 Mpc^-1, where ultra-low-k < 8e-5 Mpc^-1 affects Delta D_2^{TT} by < 0.1%) shows that the c_S = 0 disformal Weyl shift produces Delta D_ell^{TT} ~ +369, +237, +163, +119 uK^2 at ell = 2, 3, 4, 5 (<= 0.53 sigma_CV against sigma_CV = 693.4..402.1 uK^2) and < 1 uK^2 by ell = 29, yielding cumulative cosmic-variance Delta chi^2_{ISW}(ell=2..29) = 0.93 < 1 (for 28 multipoles on Planck PR3 Commander sky fraction f_sky = 0.86)."
+    ],
+    "OPEN": [
+      "Beyond-NLA tidal-torque (TATT) + baryonic AGN feedback marginalization calibrated directly on hydrodynamical + N-body disformal AeST lightcone mocks."
+    ]
+  },
+  "gate1_benchmarks": {
+    "bridge2c_allk_tilt_SNR_ref": 16.05,
+    "bridge2c_allk_tilt_SNR_reproduced": 16.05,
+    "nla_zero_IA_recovery_max_err": 0.0,
+    "nla_euclid_bin1_ell100_frac_shift": 0.2474,
+    "bessel_quadrature": {
+      "gradshteyn_ryzhik_6_574_2_rel_errs": {
+        "ell_2": 4.57e-05,
+        "ell_3": 2.54e-05,
+        "ell_5": 2.36e-05,
+        "ell_10": 8.58e-05
+      }
+    },
+    "camb_PR3_quadrupole_ISW_upturn_uK2": 199.56,
+    "bessel_LCDM_quadrupole_ISW_upturn_uK2": 195.17
+  },
+  "gate2_sympy": {
+    "nla_disformal_kernel_GG_GI_II_scaling": "R_W^2 * GG + R_W^1 * (GI + IG) + R_W^0 * II",
+    "schur_complement_identity": "F_marg(alpha) = F_{00} - F_{0,perp} F_{perp,perp}^{-1} F_{perp,0} <= F_{00}",
+    "sympy_pass": true
+  },
+  "part1_euclid_7param_fisher_forecasts": {
+    "kvir_pi2_AeST_z_EuclidIA_fid1p72_ell30_1000": {
+      "SNR_1param_fixed_cosmo_zero_IA": 8.64,
+      "SNR_2param_sigma8_marg_tilt_equiv": 8.56,
+      "SNR_3param_NLA_IA_marg_only": 7.88,
+      "SNR_5param_cosmo_marg_zero_IA": 7.27,
+      "SNR_7param_Euclid_alone_full_marg": 5.44,
+      "SNR_7param_Euclid_plus_Planck18_full_marg": 7.36,
+      "sigma_alpha_disf_Euclid_alone": 0.1838,
+      "sigma_alpha_disf_Euclid_plus_Planck18": 0.1359,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.7008,
+        "sigma_8": -0.6962,
+        "n_s": 0.3784,
+        "h": -0.5683,
+        "A_IA": -0.6456,
+        "eta_IA": -0.4371
+      }
+    },
+    "kvir_pi2_AeST_z_lowIA_fid0p50_ell30_1000": {
+      "SNR_1param_fixed_cosmo_zero_IA": 8.21,
+      "SNR_2param_sigma8_marg_tilt_equiv": 8.08,
+      "SNR_3param_NLA_IA_marg_only": 7.23,
+      "SNR_5param_cosmo_marg_zero_IA": 4.82,
+      "SNR_7param_Euclid_alone_full_marg": 4.46,
+      "SNR_7param_Euclid_plus_Planck18_full_marg": 6.58,
+      "sigma_alpha_disf_Euclid_alone": 0.2241,
+      "sigma_alpha_disf_Euclid_plus_Planck18": 0.1521,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.75,
+        "sigma_8": -0.753,
+        "n_s": 0.4475,
+        "h": -0.6161,
+        "A_IA": -0.3792,
+        "eta_IA": -0.3171
+      }
+    },
+    "kvir_0p30_EuclidIA_fid1p72_ell30_1000": {
+      "SNR_1param_fixed_cosmo_zero_IA": 6.41,
+      "SNR_2param_sigma8_marg_tilt_equiv": 6.25,
+      "SNR_3param_NLA_IA_marg_only": 5.89,
+      "SNR_5param_cosmo_marg_zero_IA": 5.36,
+      "SNR_7param_Euclid_alone_full_marg": 4.53,
+      "SNR_7param_Euclid_plus_Planck18_full_marg": 5.46,
+      "sigma_alpha_disf_Euclid_alone": 0.2209,
+      "sigma_alpha_disf_Euclid_plus_Planck18": 0.1832,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.5874,
+        "sigma_8": -0.6012,
+        "n_s": 0.309,
+        "h": -0.3962,
+        "A_IA": -0.5273,
+        "eta_IA": -0.3685
+      }
+    },
+    "strict_linear_k0p15_EuclidIA_fid1p72": {
+      "SNR_1param_fixed_cosmo_zero_IA": 4.33,
+      "SNR_2param_sigma8_marg_tilt_equiv": 4.32,
+      "SNR_3param_NLA_IA_marg_only": 4.06,
+      "SNR_5param_cosmo_marg_zero_IA": 2.88,
+      "SNR_7param_Euclid_alone_full_marg": 1.25,
+      "SNR_7param_Euclid_plus_Planck18_full_marg": 3.86,
+      "sigma_alpha_disf_Euclid_alone": 0.8023,
+      "sigma_alpha_disf_Euclid_plus_Planck18": 0.2592,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.9497,
+        "sigma_8": -0.9201,
+        "n_s": -0.2054,
+        "h": -0.7184,
+        "A_IA": -0.8917,
+        "eta_IA": 0.1064
+      }
+    },
+    "allk_upperbound_EuclidIA_fid1p72_ell30_1000": {
+      "SNR_1param_fixed_cosmo_zero_IA": 21.67,
+      "SNR_2param_sigma8_marg_tilt_equiv": 18.34,
+      "SNR_3param_NLA_IA_marg_only": 18.5,
+      "SNR_5param_cosmo_marg_zero_IA": 12.1,
+      "SNR_7param_Euclid_alone_full_marg": 5.25,
+      "SNR_7param_Euclid_plus_Planck18_full_marg": 12.7,
+      "sigma_alpha_disf_Euclid_alone": 0.1905,
+      "sigma_alpha_disf_Euclid_plus_Planck18": 0.0787,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.8927,
+        "sigma_8": -0.8525,
+        "n_s": 0.8733,
+        "h": -0.8838,
+        "A_IA": -0.8218,
+        "eta_IA": -0.1715
+      }
+    }
+  },
+  "part2_late_time_isw_bessel_audit": {
+    "f_sky_planck_commander": 0.86,
+    "Delta_chi2_ell2_29_Disf_vs_vcAGR": 0.94985,
+    "Delta_chi2_ell2_29_Disf_vs_LCDM": 0.92383,
+    "Delta_chi2_ell2_29_MonotoneN_vs_vcAGR": 0.02621,
+    "multipoles": {
+      "ell_2": {
+        "D_ell_CAMB_PR3_uK2": 1016.73,
+        "sigma_CV_fsky0p86_uK2": 693.4,
+        "D_ell_LCDM_bessel_uK2": 1018.6,
+        "D_ell_vcA_GR_bessel_uK2": 1016.93,
+        "D_ell_vcA_Disf_cS0_uK2": 1386.43,
+        "D_ell_ISW_auto_LCDM_uK2": 339.26,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 680.99,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 369.499,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": 367.832,
+        "frac_of_sigma_CV": 0.5305
+      },
+      "ell_3": {
+        "D_ell_CAMB_PR3_uK2": 963.73,
+        "sigma_CV_fsky0p86_uK2": 555.48,
+        "D_ell_LCDM_bessel_uK2": 977.05,
+        "D_ell_vcA_GR_bessel_uK2": 974.89,
+        "D_ell_vcA_Disf_cS0_uK2": 1213.46,
+        "D_ell_ISW_auto_LCDM_uK2": 235.75,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 471.52,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 238.572,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": 236.411,
+        "frac_of_sigma_CV": 0.4256
+      },
+      "ell_4": {
+        "D_ell_CAMB_PR3_uK2": 912.61,
+        "sigma_CV_fsky0p86_uK2": 463.9,
+        "D_ell_LCDM_bessel_uK2": 924.94,
+        "D_ell_vcA_GR_bessel_uK2": 922.76,
+        "D_ell_vcA_Disf_cS0_uK2": 1087.23,
+        "D_ell_ISW_auto_LCDM_uK2": 176.04,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 349.39,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 164.473,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": 162.287,
+        "frac_of_sigma_CV": 0.3498
+      },
+      "ell_5": {
+        "D_ell_CAMB_PR3_uK2": 874.48,
+        "sigma_CV_fsky0p86_uK2": 402.08,
+        "D_ell_LCDM_bessel_uK2": 886.3,
+        "D_ell_vcA_GR_bessel_uK2": 884.29,
+        "D_ell_vcA_Disf_cS0_uK2": 1004.99,
+        "D_ell_ISW_auto_LCDM_uK2": 137.64,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 270.44,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 120.705,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": 118.696,
+        "frac_of_sigma_CV": 0.2952
+      },
+      "ell_10": {
+        "D_ell_CAMB_PR3_uK2": 817.17,
+        "sigma_CV_fsky0p86_uK2": 271.94,
+        "D_ell_LCDM_bessel_uK2": 823.42,
+        "D_ell_vcA_GR_bessel_uK2": 822.33,
+        "D_ell_vcA_Disf_cS0_uK2": 862.42,
+        "D_ell_ISW_auto_LCDM_uK2": 57.06,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 104.95,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 40.098,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": 38.999,
+        "frac_of_sigma_CV": 0.1434
+      },
+      "ell_20": {
+        "D_ell_CAMB_PR3_uK2": 905.16,
+        "sigma_CV_fsky0p86_uK2": 215.57,
+        "D_ell_LCDM_bessel_uK2": 922.3,
+        "D_ell_vcA_GR_bessel_uK2": 921.8,
+        "D_ell_vcA_Disf_cS0_uK2": 928.45,
+        "D_ell_ISW_auto_LCDM_uK2": 19.04,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 30.1,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 6.646,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": 6.143,
+        "frac_of_sigma_CV": 0.0285
+      },
+      "ell_29": {
+        "D_ell_CAMB_PR3_uK2": 1038.44,
+        "sigma_CV_fsky0p86_uK2": 206.17,
+        "D_ell_LCDM_bessel_uK2": 1038.2,
+        "D_ell_vcA_GR_bessel_uK2": 1037.8,
+        "D_ell_vcA_Disf_cS0_uK2": 1037.97,
+        "D_ell_ISW_auto_LCDM_uK2": 9.3,
+        "D_ell_ISW_auto_Disf_cS0_uK2": 12.89,
+        "Delta_D_ell_Disf_minus_vcAGR_uK2": 0.174,
+        "Delta_D_ell_Disf_minus_LCDM_uK2": -0.224,
+        "frac_of_sigma_CV": -0.0011
+      }
+    }
+  }
+}

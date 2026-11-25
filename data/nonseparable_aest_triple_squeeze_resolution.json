@@ -1,0 +1,176 @@
+{
+  "script": "verify_nonseparable_aest_triple_squeeze_resolution.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_ALGEBRAIC": [
+      "Critical-Point Lemma & Self-Consistent Helmholtz Cure: Purely local algebraic gradient screening d_eff(Y) vanishes at nabla(varphi) = 0 critical points (centers r = 0 and saddle points) and induces an inner-shell radial elliptic instability via -4 Y K_{NS,YY}. Coupling K_NS(sigma_scr, Q) with bounded quartic d_eff(sigma_scr) = d_c + d_max (sigma_scr/sig_c)^4 / [1 + (sigma_scr/sig_c)^4] to a canonical Klein-Gordon-Helmholtz scalar L_sigma = -(1/2) kap_sig [g^{mu nu} nabla_mu sigma_scr nabla_nu sigma_scr + m_sig^2 sigma_scr^2] + kap_sig Lam_sig sigma_scr W_sig(Y) (kap_sig > 0, m_sig = mu_{SZ,0}) keeps the static (varphi, sigma_scr) principal symbol strictly diagonal, decouples 100% from O(eps^2) FRW perturbations (zero tadpole, zero FRW mass shift, Phi == Psi, exact covariant Bianchi residual == 0), and preserves strict Q-convexity via bounded W_tr(Y) = Y / (1 + Y / y_sat).",
+      "First-principles SymPy determinant of the varied FRW sub-horizon (varphi, V_u) operator proves A_q (om^2)^2 - B_q om^2 + C_q = 0 with C_q = k^2 S_chi (a K_Q) and exact sum-of-squares discriminant B_q^2 - 4 A_q C_q > 0; for alpha_lam > 1, S_chi(a) > 0 and both normal-mode squared frequencies om_+/-^2 > 0 hold across all a > 0, with small-Delta_Q UV wave speed plateau c_S^2 -> alpha_lam d_c."
+    ],
+    "CONDITIONAL": [
+      "At fiducial parameters (mu_{SZ,0}^{-1} = 1.5385 Mpc, K_B = 0.05, lam_{s,0} = 50, K_2 = 100, d_c = 2.2e-6 <= 2.41e-6, d_max = 5e-3, alpha_lam = 2, m_sig = 0.65 Mpc^-1, sig_c = 10^{-13}, kap_sig = 5e8, y_{sig,sat} = 2e-11 Mpc^-2), solving the FULL nonlinear coupled sigma_scr Euler-Lagrange integral equation (including (1/kap_sig) d(-F_NS)/dsigma_scr to relative residual < 10^{-13} in <= 20 iterations!) across r in {0} U [10^{-17}, 100] Mpc for a 1 M_sun rogue star, 10^{12} M_sun Milky Way, and 10^{15} M_sun rich cluster cures all three Triple-Squeeze obstructions simultaneously: w_phi <= 2.2e-6 from z = 0 past BBN, S_chi > 0 and 0 < c_S^2 <= 0.877 < 1 everywhere, |Psi|/d_eff <= 0.964, Poisson metric backreaction delta_Psi_sigma / |Psi| < 10^{-6}, and full F_Y > 0, F_Y + 2 Y F_{YY} > 0, -F_{QQ} > 0 hold at ALL radii including r = 0 and r = R_sun (with bounded <= 0.8%-3.8% perturbative shift in F_Y / Elliptic on the QUMOND+Plummer profile)."
+    ],
+    "OPEN": [
+      "Microscopic UV derivation of the Helmholtz auxiliary parameters (sig_c, d_max, kap_sig, alpha_lam) from the non-perturbative 4D 24-cell lattice action and joint 2-field (varphi, sigma_scr) BVP iteration of the <= 3.8% static F_Y / Elliptic shift."
+    ]
+  },
+  "gate1_gate2a_sympy": {
+    "covariant_O_eps2_action_with_quartic_sigma_scr_varied_in_sympy": true,
+    "sigma_scr_FRW_tadpole_mass_shift_and_O_eps2_mixing_zero": true,
+    "plummer_center_greens_identity_exact": "sigma_scr(0) == |Psi(0)|^2 / [2(1 + lam_0)^2] (b -> 0, linear W_sig)",
+    "dispersion_2x2_sympy_C_q_exact": "k^2 * S_chi * (a * K_Q)",
+    "dispersion_discriminant_sum_of_squares_positive": true,
+    "linear_anisotropic_stress_Phi_minus_Psi": 0,
+    "bianchi_identity_nonseparable_residual": 0,
+    "cS2_exact_formula": "c_{S,Mink}^2 / sqrt(1 + u^2) + alpha_lam * d_c * u / [sqrt(1 + u^2) * (1 + d_c * asinh(u))]",
+    "uv_plateau_cS2_small_Delta_exact": "alpha_lam * d_c"
+  },
+  "gate2b_2c_numeric": {
+    "gate1b_yukawa_greens_plummer_r0_rel_err": 1.2087e-05,
+    "fiducial_parameters": {
+      "K_B": 0.05,
+      "lam_s0": 50.0,
+      "K_2": 100.0,
+      "mu_SZ0_inv_Mpc": 1.5385,
+      "d_c": 2.2e-06,
+      "d_max": 0.005,
+      "alpha_lam": 2.0,
+      "m_sig_Mpc_inv": 0.65,
+      "sig_c": 1e-13,
+      "kap_sig": 500000000.0,
+      "y_sig_sat_Mpc_inv2": 2e-11
+    },
+    "cosmic_scan": [
+      {
+        "epoch": "BBN (a=1e-9)",
+        "a": 1e-09,
+        "w_phi": 2.1997e-06,
+        "cs2_adiabatic": 2.1997e-06,
+        "cS2_highk_wave": 4.399428e-06,
+        "S_chi_over_aQ_NS_positive": 9.7423e+21,
+        "S_chi_over_aQ_const_lam_TACHYON": -9.7423e+21,
+        "om2_fast_k10Mpc_H0sq": 16040000000.0,
+        "om2_slow_k10Mpc_H0sq": 4394.8
+      },
+      {
+        "epoch": "Deep Rad (a=1e-5)",
+        "a": 1e-05,
+        "w_phi": 2.1999e-06,
+        "cs2_adiabatic": 2.1998e-06,
+        "cS2_highk_wave": 4.399696e-06,
+        "S_chi_over_aQ_NS_positive": 9742900000.0,
+        "S_chi_over_aQ_const_lam_TACHYON": -9742900000.0,
+        "om2_fast_k10Mpc_H0sq": 1608300.0,
+        "om2_slow_k10Mpc_H0sq": 4383.0
+      },
+      {
+        "epoch": "Equality (z=3410)",
+        "a": 0.00029321,
+        "w_phi": 2.1999e-06,
+        "cs2_adiabatic": 2.1999e-06,
+        "cS2_highk_wave": 4.400793e-06,
+        "S_chi_over_aQ_NS_positive": 386590.0,
+        "S_chi_over_aQ_const_lam_TACHYON": -386390.0,
+        "om2_fast_k10Mpc_H0sq": 59462.0,
+        "om2_slow_k10Mpc_H0sq": 4044.2
+      },
+      {
+        "epoch": "CMB (z=1089)",
+        "a": 0.00091743,
+        "w_phi": 2.1999e-06,
+        "cs2_adiabatic": 2.1999e-06,
+        "cS2_highk_wave": 4.430426e-06,
+        "S_chi_over_aQ_NS_positive": 12717.0,
+        "S_chi_over_aQ_const_lam_TACHYON": -12518.0,
+        "om2_fast_k10Mpc_H0sq": 23122.0,
+        "om2_slow_k10Mpc_H0sq": 3349.3
+      },
+      {
+        "epoch": "Cosmic Noon (z=2)",
+        "a": 0.33333,
+        "w_phi": 6.0753e-07,
+        "cs2_adiabatic": 1.129e-06,
+        "cS2_highk_wave": 0.7531491,
+        "S_chi_over_aQ_NS_positive": 99.45,
+        "S_chi_over_aQ_const_lam_TACHYON": 99.45,
+        "om2_fast_k10Mpc_H0sq": 1522900000.0,
+        "om2_slow_k10Mpc_H0sq": 26.939
+      },
+      {
+        "epoch": "Present (z=0)",
+        "a": 1.0,
+        "w_phi": 2.4356e-08,
+        "cs2_adiabatic": 4.8706e-08,
+        "cS2_highk_wave": 0.877285,
+        "S_chi_over_aQ_NS_positive": 99.45,
+        "S_chi_over_aQ_const_lam_TACHYON": 99.45,
+        "om2_fast_k10Mpc_H0sq": 1916400000.0,
+        "om2_slow_k10Mpc_H0sq": 8.312
+      }
+    ],
+    "static_well_and_elliptic_audit": {
+      "RogueStar_1Msun_Plummer": {
+        "r_core_Mpc": 2.2556e-14,
+        "nonlinear_sigma_BVP_iters": 1,
+        "nonlinear_sigma_BVP_rel_residual": 0.0,
+        "Psi_at_r0": 2.1217e-06,
+        "grad_varphi_at_r0": 0.0,
+        "sigma_scr_at_r0": 5.0931e-23,
+        "d_eff_at_r0": 2.2e-06,
+        "x_Psi_over_deff_at_r0": 0.96439,
+        "max_Psi_over_d_eff_all_r": 0.96439,
+        "max_cosh_minus_1_all_r": 0.5022,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 1.7268e-19,
+        "max_rel_shift_in_F_Y": 9.9192e-06,
+        "max_rel_shift_in_Elliptic": 9.9192e-06,
+        "min_F_Y_tot": 2.03627,
+        "min_Elliptic_operator_tot": 1.9598,
+        "min_minus_F_NS_QQ": 400.0,
+        "principal_symbol_diagonal_and_elliptic_including_r0": true
+      },
+      "MilkyWay_1e12Msun_Plummer": {
+        "r_core_Mpc": 0.001,
+        "nonlinear_sigma_BVP_iters": 17,
+        "nonlinear_sigma_BVP_rel_residual": 1.0379e-14,
+        "Psi_at_r0": 4.7856e-05,
+        "grad_varphi_at_r0": 0.0,
+        "sigma_scr_at_r0": 5.2535e-13,
+        "d_eff_at_r0": 0.0049956,
+        "x_Psi_over_deff_at_r0": 0.0095795,
+        "max_Psi_over_d_eff_all_r": 0.0095795,
+        "max_cosh_minus_1_all_r": 4.5883e-05,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 5.1594e-10,
+        "max_rel_shift_in_F_Y": 0.0080845,
+        "max_rel_shift_in_Elliptic": 0.0094081,
+        "min_F_Y_tot": 2.03598,
+        "min_Elliptic_operator_tot": 1.95978,
+        "min_minus_F_NS_QQ": 400.0,
+        "principal_symbol_diagonal_and_elliptic_including_r0": true
+      },
+      "RichCluster_1e15Msun_Plummer": {
+        "r_core_Mpc": 0.15,
+        "nonlinear_sigma_BVP_iters": 20,
+        "nonlinear_sigma_BVP_rel_residual": 4.2484e-14,
+        "Psi_at_r0": 0.00031904,
+        "grad_varphi_at_r0": 0.0,
+        "sigma_scr_at_r0": 5.9668e-11,
+        "d_eff_at_r0": 0.0050022,
+        "x_Psi_over_deff_at_r0": 0.063779,
+        "max_Psi_over_d_eff_all_r": 0.063779,
+        "max_cosh_minus_1_all_r": 0.0020346,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 4.768e-07,
+        "max_rel_shift_in_F_Y": 0.028554,
+        "max_rel_shift_in_Elliptic": 0.038432,
+        "min_F_Y_tot": 2.01028,
+        "min_Elliptic_operator_tot": 1.95092,
+        "min_minus_F_NS_QQ": 400.0,
+        "principal_symbol_diagonal_and_elliptic_including_r0": true
+      }
+    }
+  },
+  "gate3_limits": {
+    "shift_symmetry_exact": true,
+    "L_sigma_canonical_ghost_and_tachyon_free": true,
+    "separable_limit_sigc_inf_exact": true,
+    "constant_lam_limit_alpha0_exact": true
+  }
+}

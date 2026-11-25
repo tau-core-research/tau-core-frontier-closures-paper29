@@ -1,4 +1,4 @@
-# Tau Core Frontier Closures — Paper 29 (`v3.1.0` — Complete Three-Pillar + Bridge 2D Dynamical AeST + `Q-DEC / T-DEC` Kähler, $\mathbb{C}$ Field Selection, Pointer-Clock & $K_4$ Horizon Entropy Edition)
+# Tau Core Frontier Closures — Paper 29 (`v3.2.0` — Complete Three-Pillar + Bridge 2D Dynamical AeST + `Q-DEC / T-DEC` Kähler & $K_4$ Horizon Entropy + Coupled Helmholtz-Screened AeST, $\xi_H(\mu)$ RG / Spin-2 $a_1$ & 7-Param Euclid + Late-Time ISW Edition)
 
 > **2026-11-25 `v3.0.0` Addendum (Bridge 2D — Hostile-Referee-Certified Dynamical Skordis–Złośnik AeST $\phi$-Backreaction, Triple-Squeeze Theorems & First-Principles $k_{\mathrm{vir}}(z)$):** Adds Bridge 2D (`scripts/verify_bridge2d_dynamical_aest_phi_backreaction_kvir.py`, `python3 -W error`, `rc = 0`, certified `STAGE A CLEAN PASS — 0 CRITICAL, 0 MAJOR` under the 4-Gate `AGENTS.md` audit protocol). Key Bridge 2D closures:
 > (1) **Exact $\mathcal{O}(\varepsilon^2)$ `SymPy` Covariant Variation & Bianchi Identity (`PROVEN`):** Full Skordis–Złośnik AeST action with exact $\mathcal{O}(\varepsilon^2)$ unit-norm constraint $g^{\mu\nu}A_\mu A_\nu = -1$, shift $B$, and shear $E$ reproduces SZ 2021 ($\gamma_{\mathrm{PPN}}=1$, $G_N/\tilde G = (1+1/\lambda_s)/(1-K_B/2)$, $\mu_{\mathrm{SZ}}^2 = 2\mathcal{K}_2\mathcal{Q}_0^2/(2-K_B)$, deep-MOND) & SZ 2022 Minkowski dispersion, proves zero linear FRW anisotropic stress ($\Phi=\Psi$), and proves exact covariant Bianchi residual `== 0` identically;
@@ -41,6 +41,9 @@ python3 -W error scripts/verify_qdec_field_selection_and_pointer_clock.py
 python3 -W error scripts/verify_three_qdec_tdec_bridges.py
 python3 -W error scripts/verify_k4_lattice_entropy_and_vertex.py
 python3 -W error scripts/verify_k4_wald_kabat_gauge_entropy.py
+python3 -W error scripts/verify_nonseparable_aest_triple_squeeze_resolution.py
+python3 -W error scripts/verify_graviton_a1_gauge_and_xiH_rg.py
+python3 -W error scripts/verify_euclid_ia_cosmo_marginalization_and_isw.py
 pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_EN.tex
 pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_HU.tex
 ```
@@ -67,3 +70,4 @@ pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_HU.tex
 | `S3.4` | $64^3$ cosmic-web $N_{\mathrm{clock}}(z)$ homogenization & boundary-layer audit | `PROVEN` / `COND.` | Two-domain unit weight $\equiv 1$; 512-ray err $0.23\%$; smooth/tracker $+0.02\% / +7.63\%$ vs. $\pm 26.5\%$ |
 | `AXIOM-OCC/KMS` | Occupied $|\nu|=1$ $K_4 \to 24$-cell Lorentzian measure & horizon KMS floor | `FOUND. LAW` | Irreducible UV quantum-gravity axioms ($r_{\mathrm{seed}} = 1/4$, $a_0^{\mathrm{KH}}(z)$) + `AXIOM-FRG` ($s\sim 1$) |
 | `v3.1.0 Q-DEC/T-DEC` | UV Kähler split ($\mathbb{CP}^3$), unique $\mathbb{C}$ ($\Delta_{\mathbb{R}}=+36$), $M=12$ pointer clock, 256-site $K_4$ Area Law & Wald–Kabat $\mathrm{SM}+3\nu_R$ ($N_{\mathrm{gen}}=3$ cancellation) | `PROVEN` / `NO-GO` / `COND.` | $\|\omega_{\mathrm{orth}}\|_F/\|g_{\mathrm{orth}}\|_F=1$; $R^2_{\mathrm{area}}=0.999936$; bare $\ell_*$ `NO-GO` ($5.89\times$); $C_{\mathrm{SM}+3\nu_R}=4(1-6\xi_H)$ (`NATURE_LEVEL_CLOSURE = false`) |
+| `v3.2.0 Bottlenecks A–C` | Coupled Helmholtz-screened non-separable `AeST` Triple-Squeeze resolution, 1-loop $\xi_H(\mu)$ RG + spin-2 $a_1$ off-shell audit, & 7-param `Euclid` NLA-IA + Boltzmann low-$\ell$ ISW | `PROVEN` / `COND.` / `OPEN` | $\mu_{\mathrm{SZ},0}^{-1}=1.54\;\mathrm{Mpc}$, BVP res $\le 4.25\times 10^{-14}$, $\min\mathrm{Ellip}\ge 1.951$; $Z_\xi(\Lambda_{\mathrm{UV}})=1.0716$, $a_1^{\mathrm{grav}}/\bar R\in\{-8/3,-23/3,-11/3\}$; prior-free `Euclid` $5.44\sigma$ ($7.36\sigma$ +Planck 1D); $\Delta\chi^2_{\mathrm{ISW}}=0.9238<1$ (`NATURE_LEVEL_CLOSURE = false`) |

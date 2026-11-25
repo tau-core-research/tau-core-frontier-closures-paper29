@@ -1,0 +1,141 @@
+{
+  "script": "verify_graviton_a1_gauge_and_xiH_rg.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_ALGEBRAIC": [
+      "First-principles curved-space O(4) DeWitt Coleman-Weinberg derivation proves (4 pi)^2 beta_{xi_H} = (xi_H - 1/6)(12 lam_H + 6 y_t^2 - 9/2 g_2^2 - 9/10 g_1^2) in the SM and +S_g = 3(g~_{2u}^2 + g~_{2d}^2) + g~_{1u}^2 + g~_{1d}^2 in single-Higgs Split-SUSY (with exact gauge betas (9/2, -7/6, -5)). Multiplicative linearity around xi_H = 1/6 makes zero-crossing strictly impossible in any single-Higgs EFT; above a scalar SUSY threshold M_S << Lambda_UV, the active MSSM+3nu_R species sum shifts from 4(1 - 6 xi_H) to C_{MSSM+3nu_R} = 16 + 104(1 - 6 bar{xi}_scalar) = 120 - 624 bar{xi}_scalar > 0 <=> bar{xi}_scalar < 5/26 = 0.19231.",
+      "First-principles orthonormal-vierbein SymPy expansion of Euclidean S_EH + S_gf on S^2(r_1) x S^2(r_2) derives the exact 10D spin-2 Lichnerowicz + 4D Faddeev-Popov vector-ghost heat-kernel traces (reproducing -8/3 R_bar on Einstein shell, -23/3 R_bar at Lam = 0 linear parameterization, and -11/3 R_bar exponential parameterization) and proves two continuum off-shell obstructions: (B1) non-minimal principal symbol for (alpha_gf, beta_gf) != (1, 1/2), and (B2) explicit off-shell metric-parameterization shift +4(R_bar - 4 Lam) omega_param vanishing identically on Einstein shell."
+    ],
+    "CONDITIONAL": [
+      "In a pure SM+3nu_R desert up to Lambda_UV = ell_*^{-1} = 1.41e18 GeV (acknowledging 1-loop pure-SM vacuum metastability lam_H < 0 above ~8.74e6 GeV and gamma_{m^2} < 0 above ~1.28e9 GeV), the net integrated anomalous dimension remains positive (Z_xi = 1.07163 > 1), driving minimal xi_H(M_t) = 0 to xi_H(Lambda_UV) = -0.011938 and C_{SM+3nu_R}(Lambda_UV) = 4.2865 > 4. In Paper 30's Low-tan(beta) Split-SUSY (tan(beta) = 2.3, M_{gaugino} = 1.5 TeV, M_S = 150 TeV), lam_H > 0 holds across [M_t, M_S] with Z_xi(M_S) = 1.176657 > 1 (xi_H(0 -> M_S) = -0.029443); above M_S, inhomogeneous stop-portal running ~ y_t^2(xi_{stop} - 1/6) enters beta_{xi} while C_{MSSM+3nu_R} remains positive for all bar{xi}_scalar < 5/26."
+    ],
+    "OPEN": [
+      "Unique non-perturbative determination of the off-shell spin-2 graviton measure / contact contribution directly from the discrete 4D 24-cell lattice path integral (or Vilkovisky-DeWitt geometric completion)."
+    ]
+  },
+  "part1_xiH_rg_stability": {
+    "gate1_O4_beta_lam_scalar": "24 * lam_H^2",
+    "gate1_O4_beta_xi_scalar": "12 * lam_H * (xi_H - 1/6)",
+    "gate1_SplitSUSY_1loop_gauge_betas": "(9/2, -7/6, -5)",
+    "gate3_conformal_fixed_point_max_drift": 0.0,
+    "Lambda_ell_star_inv_GeV": 1.40603e+18,
+    "sign_preservation_theorem": "xi_H(mu) - 1/6 = (xi_H(M_t) - 1/6) * exp(int gamma_{m^2}/(16 pi^2) d ln mu) => zero-crossing strictly impossible in any single-Higgs EFT",
+    "pure_SM_1loop_diagnostics": {
+      "mu_lam_H_crosses_zero_GeV": 8735000.0,
+      "mu_gamma_m2_crosses_zero_GeV": 1277000000.0,
+      "xi_H_extremum_for_minimal_Mt0": -0.029616,
+      "note": "In 1-loop Pure SM, lam_H < 0 above ~8.7e6 GeV and gamma_{m^2} < 0 above ~1.3e9 GeV, but the net integral int_{Mt}^{Lambda_UV} gamma_{m^2} d ln mu > 0 yields net amplification Z_xi(Lambda_UV) = 1.07163 > 1."
+    },
+    "above_MS_MSSM_3nuR_UV_threshold_theorem": {
+      "active_UV_species_above_MS": "N_W = 64 Weyl fermions, N_V = 12 gauge bosons, N_S = 104 real scalars",
+      "C_MSSM_3nuR_formula": "16 + 104 * (1 - 6 * bar{xi}_scalar) = 120 - 624 * bar{xi}_scalar",
+      "C_MSSM_3nuR_at_conformal_scalars_xi_1_6": 16,
+      "positivity_bound_bar_xi_scalar_max": "5/26 = 0.192308 (> 1/6!)",
+      "portal_running_note": "Above mu = M_S, active stop/Higgs scalars add inhomogeneous portal terms ~ y_t^2 (xi_{stop} - 1/6) to beta_{xi} while preserving the joint conformal fixed point xi_all = 1/6."
+    },
+    "rg_flows": {
+      "Pure_SM_3nuR_Desert_Mt_to_LambdaUV": [
+        {
+          "xi_H_Mt": -1.0,
+          "xi_H_at_2p80e17GeV": -1.097884,
+          "xi_H_at_ell_star_inv_1p41e18GeV": -1.083569,
+          "C_SM_3nuR_Mt": 28.0,
+          "C_SM_3nuR_UV": 30.0057,
+          "net_amplification_Z_xi_UV": 1.07163,
+          "lam_H_1loop_UV": -0.05686
+        },
+        {
+          "xi_H_Mt": 0.0,
+          "xi_H_at_2p80e17GeV": -0.013983,
+          "xi_H_at_ell_star_inv_1p41e18GeV": -0.011938,
+          "C_SM_3nuR_Mt": 4.0,
+          "C_SM_3nuR_UV": 4.2865,
+          "net_amplification_Z_xi_UV": 1.07163,
+          "lam_H_1loop_UV": -0.05686
+        },
+        {
+          "xi_H_Mt": 0.05,
+          "xi_H_at_2p80e17GeV": 0.040212,
+          "xi_H_at_ell_star_inv_1p41e18GeV": 0.041643,
+          "C_SM_3nuR_Mt": 2.8,
+          "C_SM_3nuR_UV": 3.0006,
+          "net_amplification_Z_xi_UV": 1.07163,
+          "lam_H_1loop_UV": -0.05686
+        },
+        {
+          "xi_H_Mt": 0.1,
+          "xi_H_at_2p80e17GeV": 0.094407,
+          "xi_H_at_ell_star_inv_1p41e18GeV": 0.095225,
+          "C_SM_3nuR_Mt": 1.6,
+          "C_SM_3nuR_UV": 1.7146,
+          "net_amplification_Z_xi_UV": 1.07163,
+          "lam_H_1loop_UV": -0.05686
+        },
+        {
+          "xi_H_Mt": 0.25,
+          "xi_H_at_2p80e17GeV": 0.256992,
+          "xi_H_at_ell_star_inv_1p41e18GeV": 0.255969,
+          "C_SM_3nuR_Mt": -2.0,
+          "C_SM_3nuR_UV": -2.1433,
+          "net_amplification_Z_xi_UV": 1.07163,
+          "lam_H_1loop_UV": -0.05686
+        }
+      ],
+      "Split_SUSY_EFT_Mt_to_MS_150TeV": [
+        {
+          "xi_H_Mt": -1.0,
+          "xi_H_at_MS_150TeV": -1.206099,
+          "C_eff_singleHiggs_at_MS": 32.9464,
+          "amplification_Z_xi_at_MS": 1.176657,
+          "lam_H_at_MS_positive": 0.02738
+        },
+        {
+          "xi_H_Mt": 0.0,
+          "xi_H_at_MS_150TeV": -0.029443,
+          "C_eff_singleHiggs_at_MS": 4.7066,
+          "amplification_Z_xi_at_MS": 1.176657,
+          "lam_H_at_MS_positive": 0.02738
+        },
+        {
+          "xi_H_Mt": 0.05,
+          "xi_H_at_MS_150TeV": 0.02939,
+          "C_eff_singleHiggs_at_MS": 3.2946,
+          "amplification_Z_xi_at_MS": 1.176657,
+          "lam_H_at_MS_positive": 0.02738
+        },
+        {
+          "xi_H_Mt": 0.1,
+          "xi_H_at_MS_150TeV": 0.088223,
+          "C_eff_singleHiggs_at_MS": 1.8827,
+          "amplification_Z_xi_at_MS": 1.176657,
+          "lam_H_at_MS_positive": 0.02738
+        },
+        {
+          "xi_H_Mt": 0.25,
+          "xi_H_at_MS_150TeV": 0.264721,
+          "C_eff_singleHiggs_at_MS": -2.3533,
+          "amplification_Z_xi_at_MS": 1.176657,
+          "lam_H_at_MS_positive": 0.02738
+        }
+      ]
+    }
+  },
+  "part2_spin2_a1_and_gauge_obstruction": {
+    "deDonder_kinetic_norms_9TL_plus1_4_trace_minus1_4": true,
+    "r2_cancellation_universal_4D_scalar_check": true,
+    "obstruction_B1_nonminimal_away_from_deDonder": true,
+    "Tr9_E2_traceless_offshell": "-18*Lam*omega_param + 18*Lam + 9*R_bar*omega_param/2 - 6*R_bar",
+    "Tr1_E2_conformal_trace_offshell": "2*Lam*omega_param + 2*Lam - R_bar*omega_param/2",
+    "Tr10_E2_offshell_general": "-16*Lam*omega_param + 20*Lam + 4*R_bar*omega_param - 6*R_bar",
+    "Tr9_E2_onshell_Einstein": "-3*R_bar/2",
+    "Tr1_E2_onshell_Einstein": "R_bar/2",
+    "Tr10_E2_onshell_Einstein": "-R_bar",
+    "Tr4_E_ghost_exact": "R_bar",
+    "a1_ghost_with_minus2_exact": "-10*R_bar/3",
+    "a1_grav_tot_offshell_general": "-16*Lam*omega_param + 20*Lam + 4*R_bar*omega_param - 23*R_bar/3",
+    "a1_grav_tot_onshell_Einstein_exact": "-8*R_bar/3",
+    "a1_grav_tot_Lam0_linear_param_omega0": "-23*R_bar/3",
+    "a1_grav_tot_Lam0_exponential_param_omega1": "-11*R_bar/3",
+    "obstruction_B2_offshell_param_shift_d_domega_at_Lam0": "4*R_bar"
+  }
+}
