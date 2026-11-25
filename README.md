@@ -1,4 +1,4 @@
-# Tau Core Frontier Closures — Paper 29 (`v3.0.0` — Complete Three-Pillar + Dynamical Skordis–Złośnik AeST $\phi$-Backreaction, Triple-Squeeze Stability Theorems & First-Principles Spherical-Collapse $k_{\mathrm{vir}}(z)$ Edition)
+# Tau Core Frontier Closures — Paper 29 (`v3.1.0` — Complete Three-Pillar + Bridge 2D Dynamical AeST + `Q-DEC / T-DEC` Kähler, $\mathbb{C}$ Field Selection, Pointer-Clock & $K_4$ Horizon Entropy Edition)
 
 > **2026-11-25 `v3.0.0` Addendum (Bridge 2D — Hostile-Referee-Certified Dynamical Skordis–Złośnik AeST $\phi$-Backreaction, Triple-Squeeze Theorems & First-Principles $k_{\mathrm{vir}}(z)$):** Adds Bridge 2D (`scripts/verify_bridge2d_dynamical_aest_phi_backreaction_kvir.py`, `python3 -W error`, `rc = 0`, certified `STAGE A CLEAN PASS — 0 CRITICAL, 0 MAJOR` under the 4-Gate `AGENTS.md` audit protocol). Key Bridge 2D closures:
 > (1) **Exact $\mathcal{O}(\varepsilon^2)$ `SymPy` Covariant Variation & Bianchi Identity (`PROVEN`):** Full Skordis–Złośnik AeST action with exact $\mathcal{O}(\varepsilon^2)$ unit-norm constraint $g^{\mu\nu}A_\mu A_\nu = -1$, shift $B$, and shear $E$ reproduces SZ 2021 ($\gamma_{\mathrm{PPN}}=1$, $G_N/\tilde G = (1+1/\lambda_s)/(1-K_B/2)$, $\mu_{\mathrm{SZ}}^2 = 2\mathcal{K}_2\mathcal{Q}_0^2/(2-K_B)$, deep-MOND) & SZ 2022 Minkowski dispersion, proves zero linear FRW anisotropic stress ($\Phi=\Psi$), and proves exact covariant Bianchi residual `== 0` identically;
@@ -36,6 +36,11 @@ python3 -W error scripts/verify_bridge2_perturbed_disformal_optics_lensing.py
 python3 -W error scripts/verify_bridge2_coupled_aest_disformal_boltzmann_act.py
 python3 -W error scripts/verify_bridge2c_lowz_weak_lensing_des_kids_euclid.py
 python3 -W error scripts/verify_bridge2d_dynamical_aest_phi_backreaction_kvir.py
+python3 -W error scripts/verify_qdec_tdec_kahler_split.py
+python3 -W error scripts/verify_qdec_field_selection_and_pointer_clock.py
+python3 -W error scripts/verify_three_qdec_tdec_bridges.py
+python3 -W error scripts/verify_k4_lattice_entropy_and_vertex.py
+python3 -W error scripts/verify_k4_wald_kabat_gauge_entropy.py
 pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_EN.tex
 pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_HU.tex
 ```
