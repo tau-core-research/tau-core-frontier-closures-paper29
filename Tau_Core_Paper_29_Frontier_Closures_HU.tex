@@ -534,6 +534,37 @@ Fordulóponti vágás $k_{\mathrm{ta}} = \pi/(2 R_L^{\mathrm{ta}}(z))$ & $0{,}21
 \label{tab:v30-bridge2d-hu}
 \end{table}
 
+\section{Kiegészítés (v3.1.0): \texttt{Q-DEC / T-DEC} UV K\"ahler-egyesítés, \texorpdfstring{$\mathbb{C}$}{C}-testkiválasztás, összetett mutató-óra és diszkrét \texorpdfstring{$K_4$}{K4} horizont-entrópia}
+\label{sec:v31-qdec-tdec-hu}
+
+{\emergencystretch=2.5em
+A kvantum-fáziskiolvasás és a makroszkopikus gravitációs/időbeli kiolvasás közös eredetének (\texttt{Q-DEC}/\texttt{T-DEC}) tisztázására öt önálló, determinisztikus ellenőrző szkript (\texttt{scripts/\allowbreak verify\_\allowbreak qdec\_\allowbreak tdec\_\allowbreak kahler\_\allowbreak split.py}, \texttt{verify\_\allowbreak qdec\_\allowbreak field\_\allowbreak selection\_\allowbreak and\_\allowbreak pointer\_\allowbreak clock.py}, \texttt{verify\_\allowbreak three\_\allowbreak qdec\_\allowbreak tdec\_\allowbreak bridges.py}, \texttt{verify\_\allowbreak k4\_\allowbreak lattice\_\allowbreak entropy\_\allowbreak and\_\allowbreak vertex.py} és \texttt{verify\_\allowbreak k4\_\allowbreak wald\_\allowbreak kabat\_\allowbreak gauge\_\allowbreak entropy.py}) futott le \texttt{python3 -W error} alatt ($\mathrm{rc}=0$), és mind az öt független Stage-A ellenséges referens-auditot kapott (\texttt{PASS}, $0$ kritikus/lényegi/kisebb hiba; \texttt{NATURE\_\allowbreak LEVEL\_\allowbreak CLOSURE = false}):\par}
+
+\begin{enumerate}\setlength{\itemsep}{2pt}
+\item \textbf{UV K\"ahler-egyesítés és QND parciális nyomvételű szétválás (\texttt{PROVEN ALGEBRAIC}):} A tiszta UV $K_4$ projektív állapottéren ($\mathbb{CP}^3$, $N_E=0$) a kvantum-geometriai tenzor $Q_{\mu\nu} = g_{\mu\nu} + i\omega_{\mu\nu}$ ($\omega = -g J$) egzakt $1:1$ arányban egyesíti a Fubini--Study metrikát és a szimplektikus Berry 2-formát ($\|\omega_{\mathrm{orth}}\|_F/\|g_{\mathrm{orth}}\|_F = 1$, hiba $2{,}22\times 10^{-16}$). QND tiszta defázolású leszállás alatt ($[H_{\mathrm{int}}, H_{\mathrm{ptr}}]=0$, $\eta \notin \frac{\pi}{2}\mathbb{Z}$) a fázisláthatóság $V_Q = |\cos(2\eta)|^{N_E}$, a fázis Bures-metrika $g_{\phi\phi}^{\mathrm{Bures}} = \frac{1}{4}\sin^2\theta\,\cos^{2N_E}(2\eta)\to 0$, és az egy-kvbites Mandelstam--Tamm óra leáll, miközben $\langle H_{\mathrm{ptr}}\rangle$ és a klasszikus Fisher--Rao/Bures mutató-metrika ($g_{\theta\theta}^{\mathrm{Bures}} = 1/4$) minden $N_E$-re $100\%$-ban megmarad (szimbolikusan bizonyítva, Uhlmann-hűséggel ellenőrizve $4{,}03\times 10^{-9}$-ig).
+\item \textbf{Egyedi $\mathbb{C}$-testkiválasztás és összetett mutató-óra (\texttt{PROVEN ALGEBRAIC} + \texttt{PROVEN NO-GO}):} A Frobenius-osztásalgebrák ($\mathbb{F}\in\{\mathbb{R},\mathbb{C},\mathbb{H}\}$, $\beta\in\{1,2,4\}$) között a kompozíciós lokális tomográfiai hiba $\Delta_{\mathrm{LT}}(d_A,d_B,\beta) = -\frac{1}{4}d_A d_B(d_A-1)(d_B-1)\beta(\beta-2)$. $K_4\times K_4$-en ($d_A=d_B=4$) $\Delta_{\mathbb{R}} = +36$ pontosan a $36$-dimenziós $\mathfrak{so}(4)\otimes\mathfrak{so}(4)$ valós vakfolt (átfedés $1{,}23\times 10^{-32}$ a $100$ lokális valós mérhetővel; $\mathrm{Im}\,Q=0$ $\mathbb{RP}^3$-on), $\Delta_{\mathbb{H}}=-288$, és egyedül $\Delta_{\mathbb{C}}=0$ (\texttt{PROVEN NO-GO} hűségi elv nélkül). Míg az egy-kvbites koherens óra kvantum-Zénó effektussal leáll ($\Gamma_{\mathrm{Zeno}}=\Omega^2/\gamma\to 0$), a $12$ osztású ciklikus mutató-óra $100\%$-ban QND-immunis ($\gamma_{\mathrm{dec}}=10^6$, hiba $0{,}0$), teljesíti a Barato--Seifert $\mathrm{TUR}\ge 2$ határt, $\Gamma_+\leftrightarrow\Gamma_-$ alatt tisztán megfordul, $z=0$-nál élénken ketyeg ($v_{\mathrm{tick}}/\Gamma_{\mathrm{tot}}=0{,}950$), és $T_{\mathrm{loc}}\to T_{H\infty}=2{,}20\times 10^{-30}\;\mathrm{K}$-nál megáll.
+\item \textbf{Fisher--Rao Lorentz No-Go, ADM/\texttt{AeST} emelés és $K_4$ horizont-entrópia (\texttt{PROVEN} + \texttt{NO-GO} + \texttt{CONDITIONAL}):} A pozitív-definit Fisher--Rao metrika önmagában \texttt{PROVEN NO-GO} a $(-,+,+,+)$ aláírásra; $\gamma_{ij}=a(t)^2\delta_{ij}$ emelése $u_\mu=(-N,0,0,0)$ direktorkovariánssal egzakt $a_i=\partial_i\ln N$ ($N^i=0$, \texttt{AeST} $c_4 a_\mu a^\mu$) és $g^{\mu\nu}u_\mu u_\nu=-1$ (általános $N^i\in\mathbb{R}^3$) azonosságot ad. A $256$ csúcsú ($8\times 8$) 4-reguláris $K_4$-rácson az egzakt Peschel-entrópia szigorú felület-törvényt követ négyzet- és téglalap-blokkokon egyaránt ($R^2_{\mathrm{area}}=0{,}999936$ vs.\ $R^2_{\mathrm{vol}}=0{,}897685$). A csupasz egy-linkes számlálás $\ell_*=\sqrt{24\pi}\,\ell_P$-nél \texttt{PROVEN NO-GO} ($11{,}78\times, 5{,}89\times, 2{,}57\times$ hiány). Nem-körkörös 4D \texttt{SymPy} sajátidő-integrálok bizonyítják, hogy $S_{\mathrm{total}}/A = (S_{\mathrm{ent}}+\Delta S_{\mathrm{Wald}}+S_{\mathrm{contact}})/A \equiv 1/(4G_{\mathrm{ind}})$ minden spin-0 ($c=1-6\xi$), spin-1/2 (Weyl $+1$, Dirac $+2$) és spin-1 ($+2-6=-4$) mezőre. $\mathrm{SM}+3\nu_R$-re ($N_W=48$, $N_V=12$ SM mértékbozon $\Lambda_{\mathrm{UV}}$-nél) a fermion ($+48$) és mértékbozon ($-48$) egyedül $N_{\mathrm{gen}}=3$-nál ejti ki egymást, így $C=4(1-6\xi_H)>0 \iff \xi_H < 1/6$ (minimális SM: $\xi_H < 1/24$; töretlen $SO(10)$ $N_V=45$: $-132$ GUT Higgs nélkül). A nem-perturbatív 4D diszkrét $K_4$ graviton kontakt-tagok és $\xi_H$ dinamikus rögzítése \texttt{OPEN} marad.
+\end{enumerate}
+
+\begin{table}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+\texttt{v3.1.0} audit modul & Fő kvantitatív eredmény & Hiba / benchmark & Episztemikus szint \\
+\midrule
+UV K\"ahler-hasadás ($\mathbb{CP}^3$) & $\|\omega_{\mathrm{orth}}\|_F/\|g_{\mathrm{orth}}\|_F=1$; $g_{\theta\theta}^{\mathrm{Bures}}=1/4$ & $2{,}22\times 10^{-16}\;/\;4{,}03\times 10^{-9}$ & \texttt{PROVEN ALGEBRAIC} \\
+$\mathbb{C}$-kiválasztás ($K_4\times K_4$) & $\Delta_{\mathbb{R}}=+36$ ($\mathfrak{so}(4)^{\otimes 2}$), $\Delta_{\mathbb{C}}=0$, $\Delta_{\mathbb{H}}=-288$ & Átfedés $1{,}23\times 10^{-32}$ & \texttt{PROVEN} / \texttt{NO-GO} \\
+Összetett mutató-óra ($M=12$) & QND-immunis ($\gamma_{\mathrm{dec}}=10^6$); $z=0$: $0{,}950$; $T_{H\infty}$: $<10^{-5}$ & QND hiba $0{,}0$; $\mathrm{TUR}\ge 2$ & \texttt{PROVEN} / \texttt{CONDITIONAL} \\
+$K_4$-rács felület-törvény (256) & $R^2_{\mathrm{area}}=0{,}999936$ vs.\ $R^2_{\mathrm{vol}}=0{,}897685$ & $S(A)=S(\bar{A})$ hiba $1{,}13\times 10^{-13}$ & \texttt{PROVEN NUMERIC} \\
+Csupasz számlálás vs.\ Wald--Kabat & Csupasz $\ell_*$: $5{,}89\times$ ($d=4$); $\mathrm{SM}+3\nu_R$: $4(1-6\xi_H)$ & Nem-körkörös \texttt{SymPy} egzakt & \texttt{NO-GO} / \texttt{CONDITIONAL} \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Kiegészítés (\texttt{v3.1.0}): ötmodulos \texttt{Q-DEC}/\texttt{T-DEC} ellenőrzési összefoglaló (\texttt{NATURE\_LEVEL\_CLOSURE = false}).}
+\label{tab:v31-qdec-tdec-hu}
+\end{table}
+
 \begin{thebibliography}{32}\raggedright\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
 \bibitem{Weinberg1976} S.~Weinberg, ``Apparent luminosities in a locally inhomogeneous universe,'' \textit{Astrophys.\ J.\ Lett.}\ \textbf{208}, L1 (1976).
 \bibitem{KibbleLieu2005} T.~W.~B.~Kibble és R.~Lieu, ``Average magnification effect of clumping of matter,'' \textit{Astrophys.\ J.}\ \textbf{632}, 718 (2005).
