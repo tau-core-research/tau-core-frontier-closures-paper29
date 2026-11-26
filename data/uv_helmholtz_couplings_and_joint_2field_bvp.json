@@ -1,0 +1,277 @@
+{
+  "script": "verify_uv_helmholtz_couplings_and_joint_2field_bvp.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_ALGEBRAIC": [
+      "First-principles SymPy variation of the static AeST action w.r.t. (Psi', s = varphi') derives the exact modified-Poisson Schur-complement flux equation [F_{eff,Y} - (2 - K_B)] s = (2 - K_B)[lam_0/(1 + lam_0)] g_{grav} and proves det(H_{2x2}) == (2 - K_B)[Ellip_{tot} - (2 - K_B)].",
+      "Theorem F1 (Minimal Quartic Power p = 4): Quadratic screening p = 2 induces Delta m_{sigma,FRW}^2 > 10^{37} Mpc^{-2} at BBN, collapses the z = 0 cosmological screening range by > 25x to < 55 kpc, and traps sigma_scr -> 0 inside galactic/cluster cores (PROVEN NO-GO for p = 2), uniquely selecting p = 4 as the minimal analytic even integer power with exact linear, quadratic, and cubic FRW decoupling.",
+      "Theorem F2 (Isolated Void-Star NO-GO for Cold d_c = c_{acc} = 1.722e-10): An isolated intergalactic 1 M_sun rogue star in a cosmic void has sigma_scr(0) = 3.05e-23 << sig_c = 1e-13 and |Psi(0)| = 2.1217e-6, driving |Psi(0)|/d_eff(0) = 12,321 >> 1 at cold d_c = 1.722e-10 (PROVEN NO-GO), which combined with the Bridge-2D cosmic-Jeans bound d_c <= 2.41e-6 pins bare d_c into [1.5e-6, 2.41e-6]."
+    ],
+    "PROVEN_NUMERIC": [
+      "Exact Self-Consistent 3-Field (Psi(r), varphi'(r), sigma_scr(r)) Schur-Complement BVP Closure: Fixing c_IR = (10^{-5} a_0)^2 / s_M and solving all three coupled nonlinear static equations simultaneously across 4,001 radial shells r in {0} U [10^{-17}, 100] Mpc to < 10^{-13} relative residual eliminates the perturbative static QUMOND approximation of v3.2.0 across RogueStar_1Msun_Void, MilkyWay_6e10Msun_Baryons, and RichCluster_1e15Msun_TotalGrav (with max |Delta Psi / Psi| <= 0.22%, halo-domain |Delta s / s| <= 0.24%, smooth linear center regularization s ~ r as r -> 0, strict 2x2 Schur ellipticity J_{Schur} > 0 everywhere, -F_{QQ} > 0, and Poisson delta_Psi / |Psi| < 3.5e-6).",
+      "Theorem F3 & K_4 Geometric Parameter Reduction: Establishes a natural, fine-tuning-free > 5-decade self-consistent Schur-elliptic stiffness window kap_sig in [10^3, 3.0e8] across RichCluster (fiducial kap_sig = 2.0e8) and verifies that the K_4 geometric candidate (d_max = u^2 = 1/192, d_c = u^4/(4 pi) = 2.1587e-6, alpha_lam = 2, m_sig = mu_{SZ,0}) passes all three astrophysical regimes with |Psi_*|/d_c = 0.9829 < 1.0."
+    ],
+    "OPEN": [
+      "First-principles non-perturbative 24-cell lattice coarse-graining derivation of the auxiliary threshold scale sig_c ~ 10^{-13} and stiffness kap_sig in [10^3, 3.0e8] (and microscopic origin of the K_4 candidate identifications d_max = u^2, d_c = u^4/(4 pi))."
+    ]
+  },
+  "gate1_and_schur_sympy": {
+    "sympy_2x2_Psi_varphi_Schur_det_exact": "(2 - K_B) * [Ellip_tot - (2 - K_B)]",
+    "gate1a_decoupled_SZ_QUMOND_root_max_rel_err": 3.829e-16,
+    "gate1a_deep_MOND_and_Newtonian_asymptotics_verified": true,
+    "gate1b_saturated_MOND_center_log_identity_exact": "C_Y * ln(1 + R_max^2 / r_sat^2)"
+  },
+  "gate2_theorems_and_3field_schur_bvp": {
+    "theorem_F1_p2_vs_p4": {
+      "p2_FRW_d2K_dsigma2_nonzero": "4 K_2 Q_0^2 d_c d_max / sig_c^2 * [2(cosh x_bg - 1) - x_bg sinh x_bg] < 0",
+      "p2_BBN_Delta_m_sigma_sq_Mpc_inv2": 2.2899e+37,
+      "p2_BBN_Delta_m_sq_over_H_BBN_sq": 4920700000000.0,
+      "p2_z0_Delta_m_sigma_sq_Mpc_inv2": 363.107,
+      "p2_z0_collapsed_screening_range_kpc": 52.448,
+      "p2_MW_core_trapping_mass_sq_Mpc_inv2": 61124000000.0,
+      "PROVEN_NOGO_quadratic_p2": true,
+      "p4_FRW_derivatives_1_2_3_identically_zero": true,
+      "unique_minimal_analytic_even_power_p": 4
+    },
+    "theorem_F2_isolated_void_star_cold_dc_nogo": {
+      "tested_cold_d_c": 1.722e-10,
+      "isolated_void_1Msun_Psi_at_r0": 2.12171e-06,
+      "isolated_void_1Msun_sigma_scr_at_r0": 3.0538e-23,
+      "isolated_void_1Msun_Psi_over_deff_at_r0": 12321.2,
+      "note_galactic_embedded_stars": "Stars inside galaxies (e.g. the Sun at r ~ 8 kpc in the Milky Way, where ambient sigma_scr ~ 5e-13 > sig_c) are environmentally screened; isolated intergalactic void stars enforce the bare d_c lower bound directly at r = 0 - R_sun!",
+      "PROVEN_NOGO_single_sigma_cold_dc": true,
+      "allowed_bare_dc_band": [
+        1.5e-06,
+        2.41e-06
+      ],
+      "strict_subunity_void_star_dc_band": [
+        2.12e-06,
+        2.41e-06
+      ]
+    },
+    "theorem_F3_5p5_decade_schur_kapsig_window": [
+      {
+        "kap_sig": 100.0,
+        "RichCluster_3field_Schur_healthy": false,
+        "failure_mode": "Static cosh argument overflow max(x)=1.831e+02"
+      },
+      {
+        "kap_sig": 1000.0,
+        "RichCluster_3field_Schur_healthy": true,
+        "max_Psi_over_d_eff": 0.0805349,
+        "min_Schur_2x2_Jacobian": 0.044171,
+        "max_rel_Poisson_dPsi": 1.6407e-11
+      },
+      {
+        "kap_sig": 100000.0,
+        "RichCluster_3field_Schur_healthy": true,
+        "max_Psi_over_d_eff": 0.0805349,
+        "min_Schur_2x2_Jacobian": 0.044171,
+        "max_rel_Poisson_dPsi": 1.6408e-09
+      },
+      {
+        "kap_sig": 10000000.0,
+        "RichCluster_3field_Schur_healthy": true,
+        "max_Psi_over_d_eff": 0.080535,
+        "min_Schur_2x2_Jacobian": 0.0441712,
+        "max_rel_Poisson_dPsi": 1.6445e-07
+      },
+      {
+        "kap_sig": 200000000.0,
+        "RichCluster_3field_Schur_healthy": true,
+        "max_Psi_over_d_eff": 0.0805355,
+        "min_Schur_2x2_Jacobian": 0.0186534,
+        "max_rel_Poisson_dPsi": 3.4339e-06
+      },
+      {
+        "kap_sig": 300000000.0,
+        "RichCluster_3field_Schur_healthy": true,
+        "max_Psi_over_d_eff": 0.0805358,
+        "min_Schur_2x2_Jacobian": 0.00481711,
+        "max_rel_Poisson_dPsi": 5.2727e-06
+      },
+      {
+        "kap_sig": 500000000.0,
+        "RichCluster_3field_Schur_healthy": false,
+        "failure_mode": "Loss of 2x2 Schur ellipticity min(J_Schur)=-2.4731e-02"
+      }
+    ],
+    "self_consistent_3field_Schur_BVP_fiducial": {
+      "RogueStar_1Msun_Void": {
+        "outer_3field_iters": 23,
+        "schur_varphi_flux_rel_residual": 6.0606e-16,
+        "psi_integral_rel_residual": 0.0,
+        "sigma_helmholtz_rel_residual": 0.0,
+        "Psi_at_r0": 2.121714e-06,
+        "max_rel_dev_Psi_vs_1field_SZ_all_r": 3.3968e-06,
+        "max_rel_dev_s_halo_1kpc_to_3Mpc": 3.9615e-06,
+        "s_at_r0": 0.0,
+        "sigma_center_flatness_r1_vs_r0": 1.7322e-15,
+        "sigma_scr_at_r0": 3.0538464268e-23,
+        "d_eff_at_r0": 2.2e-06,
+        "max_Psi_over_d_eff_all_r": 0.964416,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 8.4903e-23,
+        "min_F_eff_Y": 1.95004,
+        "min_Elliptic_tot": 1.95,
+        "min_Schur_2x2_Jacobian": 2.85306e-06,
+        "min_minus_F_NS_QQ": 400.0
+      },
+      "MilkyWay_6e10Msun_Baryons": {
+        "outer_3field_iters": 31,
+        "schur_varphi_flux_rel_residual": 6.4767e-16,
+        "psi_integral_rel_residual": 0.0,
+        "sigma_helmholtz_rel_residual": 9.6041e-15,
+        "Psi_at_r0": 5.090871e-06,
+        "max_rel_dev_Psi_vs_1field_SZ_all_r": 0.0011901,
+        "max_rel_dev_s_halo_1kpc_to_3Mpc": 0.001289,
+        "s_at_r0": 0.0,
+        "sigma_center_flatness_r1_vs_r0": 0.0,
+        "sigma_scr_at_r0": 5.2568384072e-13,
+        "d_eff_at_r0": 0.004995661,
+        "max_Psi_over_d_eff_all_r": 0.00101906,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 3.5189e-09,
+        "min_F_eff_Y": 1.95017,
+        "min_Elliptic_tot": 1.95034,
+        "min_Schur_2x2_Jacobian": 0.000340735,
+        "min_minus_F_NS_QQ": 400.0
+      },
+      "RichCluster_1e15Msun_TotalGrav": {
+        "outer_3field_iters": 34,
+        "schur_varphi_flux_rel_residual": 6.4881e-16,
+        "psi_integral_rel_residual": 0.0,
+        "sigma_helmholtz_rel_residual": 2.7808e-15,
+        "Psi_at_r0": 0.0004028546,
+        "max_rel_dev_Psi_vs_1field_SZ_all_r": 0.000154,
+        "max_rel_dev_s_halo_1kpc_to_3Mpc": 0.00018602,
+        "s_at_r0": 0.0,
+        "sigma_center_flatness_r1_vs_r0": 1.8539e-15,
+        "sigma_scr_at_r0": 8.3659841904e-11,
+        "d_eff_at_r0": 0.0050022,
+        "max_Psi_over_d_eff_all_r": 0.0805355,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 3.4339e-06,
+        "min_F_eff_Y": 1.97211,
+        "min_Elliptic_tot": 1.96865,
+        "min_Schur_2x2_Jacobian": 0.0186534,
+        "min_minus_F_NS_QQ": 400.0
+      },
+      "RichCluster_1p5e14Msun_Baryons_ConservativeEnv": {
+        "outer_3field_iters": 48,
+        "schur_varphi_flux_rel_residual": 6.4518e-16,
+        "psi_integral_rel_residual": 0.0,
+        "sigma_helmholtz_rel_residual": 2.4264e-14,
+        "Psi_at_r0": 0.0003190374,
+        "max_rel_dev_Psi_vs_1field_SZ_all_r": 0.0,
+        "max_rel_dev_s_halo_1kpc_to_3Mpc": 0.0051243,
+        "s_at_r0": 0.0,
+        "sigma_center_flatness_r1_vs_r0": 2.1594e-15,
+        "sigma_scr_at_r0": 5.9853908788e-11,
+        "d_eff_at_r0": 0.0050022,
+        "max_Psi_over_d_eff_all_r": 0.0637794,
+        "max_rel_Poisson_dPsi_sigma_over_Psi": 1.975e-07,
+        "min_F_eff_Y": 1.95865,
+        "min_Elliptic_tot": 1.96712,
+        "min_Schur_2x2_Jacobian": 0.0171234,
+        "min_minus_F_NS_QQ": 400.0
+      }
+    },
+    "self_consistent_3field_Schur_BVP_K4_geometric_candidate": {
+      "K4_parameters": {
+        "d_max_eq_u_sq_1_over_192": 0.00520833,
+        "d_c_eq_u4_over_4pi": 2.158677e-06,
+        "alpha_lam_minimal_integer": 2,
+        "m_sig_eq_mu_SZ0_Mpc_inv": 0.65,
+        "natural_kapsig_window_decades": 5.5,
+        "remaining_UV_matching_inputs": [
+          "sig_c",
+          "kap_sig in [1e3, 3e8]"
+        ]
+      },
+      "systems": {
+        "RogueStar_1Msun_Void": {
+          "outer_3field_iters": 23,
+          "schur_varphi_flux_rel_residual": 6.2594e-16,
+          "psi_integral_rel_residual": 0.0,
+          "sigma_helmholtz_rel_residual": 0.0,
+          "Psi_at_r0": 2.121714e-06,
+          "max_rel_dev_Psi_vs_1field_SZ_all_r": 3.3968e-06,
+          "max_rel_dev_s_halo_1kpc_to_3Mpc": 3.9615e-06,
+          "s_at_r0": 0.0,
+          "sigma_center_flatness_r1_vs_r0": 9.6231e-16,
+          "sigma_scr_at_r0": 3.0538464273e-23,
+          "d_eff_at_r0": 2.158677e-06,
+          "max_Psi_over_d_eff_all_r": 0.982877,
+          "max_rel_Poisson_dPsi_sigma_over_Psi": 8.4814e-23,
+          "min_F_eff_Y": 1.95004,
+          "min_Elliptic_tot": 1.95,
+          "min_Schur_2x2_Jacobian": 2.85306e-06,
+          "min_minus_F_NS_QQ": 400.0
+        },
+        "MilkyWay_6e10Msun_Baryons": {
+          "outer_3field_iters": 31,
+          "schur_varphi_flux_rel_residual": 6.4769e-16,
+          "psi_integral_rel_residual": 0.0,
+          "sigma_helmholtz_rel_residual": 9.604e-15,
+          "Psi_at_r0": 5.090874e-06,
+          "max_rel_dev_Psi_vs_1field_SZ_all_r": 0.0011906,
+          "max_rel_dev_s_halo_1kpc_to_3Mpc": 0.0012894,
+          "s_at_r0": 0.0,
+          "sigma_center_flatness_r1_vs_r0": 2.305e-15,
+          "sigma_scr_at_r0": 5.2568737374e-13,
+          "d_eff_at_r0": 0.005203681,
+          "max_Psi_over_d_eff_all_r": 0.000978322,
+          "max_rel_Poisson_dPsi_sigma_over_Psi": 3.5189e-09,
+          "min_F_eff_Y": 1.95017,
+          "min_Elliptic_tot": 1.95034,
+          "min_Schur_2x2_Jacobian": 0.000340735,
+          "min_minus_F_NS_QQ": 400.0
+        },
+        "RichCluster_1e15Msun_TotalGrav": {
+          "outer_3field_iters": 34,
+          "schur_varphi_flux_rel_residual": 6.8317e-16,
+          "psi_integral_rel_residual": 0.0,
+          "sigma_helmholtz_rel_residual": 2.8195e-15,
+          "Psi_at_r0": 0.0004028546,
+          "max_rel_dev_Psi_vs_1field_SZ_all_r": 0.000154,
+          "max_rel_dev_s_halo_1kpc_to_3Mpc": 0.00018603,
+          "s_at_r0": 0.0,
+          "sigma_center_flatness_r1_vs_r0": 1.0814e-15,
+          "sigma_scr_at_r0": 8.3659842937e-11,
+          "d_eff_at_r0": 0.005210492,
+          "max_Psi_over_d_eff_all_r": 0.077316,
+          "max_rel_Poisson_dPsi_sigma_over_Psi": 3.434e-06,
+          "min_F_eff_Y": 1.97211,
+          "min_Elliptic_tot": 1.96791,
+          "min_Schur_2x2_Jacobian": 0.0179139,
+          "min_minus_F_NS_QQ": 400.0
+        },
+        "RichCluster_1p5e14Msun_Baryons_ConservativeEnv": {
+          "outer_3field_iters": 44,
+          "schur_varphi_flux_rel_residual": 5.8889e-16,
+          "psi_integral_rel_residual": 0.0,
+          "sigma_helmholtz_rel_residual": 2.2736e-14,
+          "Psi_at_r0": 0.0003190374,
+          "max_rel_dev_Psi_vs_1field_SZ_all_r": 0.0,
+          "max_rel_dev_s_halo_1kpc_to_3Mpc": 0.0051247,
+          "s_at_r0": 0.0,
+          "sigma_center_flatness_r1_vs_r0": 2.3753e-15,
+          "sigma_scr_at_r0": 5.985395965e-11,
+          "d_eff_at_r0": 0.005210492,
+          "max_Psi_over_d_eff_all_r": 0.0612298,
+          "max_rel_Poisson_dPsi_sigma_over_Psi": 1.9751e-07,
+          "min_F_eff_Y": 1.95865,
+          "min_Elliptic_tot": 1.96712,
+          "min_Schur_2x2_Jacobian": 0.0171231,
+          "min_minus_F_NS_QQ": 400.0
+        }
+      }
+    }
+  },
+  "gate3_invariances_and_limits": {
+    "decoupled_SZ_limit_varphi_residual": 6.5702e-16,
+    "decoupled_SZ_limit_Psi_dev": 2.3644e-16,
+    "center_regularity_s0_exact_zero": true,
+    "center_flatness_sigma_r1_vs_r0": 0.0,
+    "radial_grid_convergence_2k_vs_4k_rel_diff": 5.991e-05,
+    "radial_grid_convergence_4k_vs_8k_rel_diff": 1.497e-05
+  }
+}

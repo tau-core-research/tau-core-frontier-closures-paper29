@@ -1,4 +1,4 @@
-# Tau Core Frontier Closures — Paper 29 (`v3.2.0` — Complete Three-Pillar + Bridge 2D Dynamical AeST + `Q-DEC / T-DEC` Kähler & $K_4$ Horizon Entropy + Coupled Helmholtz-Screened AeST, $\xi_H(\mu)$ RG / Spin-2 $a_1$ & 7-Param Euclid + Late-Time ISW Edition)
+# Tau Core Frontier Closures — Paper 29 (`v3.3.0` — Complete Three-Pillar + Bridge 2D Dynamical AeST + `Q-DEC / T-DEC` Kähler & $K_4$ Horizon Entropy + Coupled Helmholtz-Screened AeST, $\xi_H(\mu)$ RG / Spin-2 $a_1$, 7-Param Euclid + ISW & Deep-UV Chiral SMG / 24-Cell Vilkovisky–DeWitt / 3-Field Schur BVP Edition)
 
 > **2026-11-25 `v3.0.0` Addendum (Bridge 2D — Hostile-Referee-Certified Dynamical Skordis–Złośnik AeST $\phi$-Backreaction, Triple-Squeeze Theorems & First-Principles $k_{\mathrm{vir}}(z)$):** Adds Bridge 2D (`scripts/verify_bridge2d_dynamical_aest_phi_backreaction_kvir.py`, `python3 -W error`, `rc = 0`, certified `STAGE A CLEAN PASS — 0 CRITICAL, 0 MAJOR` under the 4-Gate `AGENTS.md` audit protocol). Key Bridge 2D closures:
 > (1) **Exact $\mathcal{O}(\varepsilon^2)$ `SymPy` Covariant Variation & Bianchi Identity (`PROVEN`):** Full Skordis–Złośnik AeST action with exact $\mathcal{O}(\varepsilon^2)$ unit-norm constraint $g^{\mu\nu}A_\mu A_\nu = -1$, shift $B$, and shear $E$ reproduces SZ 2021 ($\gamma_{\mathrm{PPN}}=1$, $G_N/\tilde G = (1+1/\lambda_s)/(1-K_B/2)$, $\mu_{\mathrm{SZ}}^2 = 2\mathcal{K}_2\mathcal{Q}_0^2/(2-K_B)$, deep-MOND) & SZ 2022 Minkowski dispersion, proves zero linear FRW anisotropic stress ($\Phi=\Psi$), and proves exact covariant Bianchi residual `== 0` identically;
@@ -12,7 +12,7 @@
 > **Publication review, 2026-11-23 — major revision.** The older `ACCEPT AS IS` labels below are historical internal labels, not journal acceptance or this review's verdict. The optical identity is conditional, the unit slope is a matching input, the mesh evidence is finite and the archival scores are calibrated diagnostics. See the revised manuscripts.
 
 **Author:** Jozsef Olcsak (ORCID: [0009-0003-7311-6522](https://orcid.org/0009-0003-7311-6522))  
-**Date:** 25 November 2026  
+**Date:** 26 November 2026  
 **Repository Visibility Policy:** Strictly `PRIVATE` until Zenodo DOI minting.
 
 ## Scope and Three-Pillar Architecture
@@ -44,6 +44,9 @@ python3 -W error scripts/verify_k4_wald_kabat_gauge_entropy.py
 python3 -W error scripts/verify_nonseparable_aest_triple_squeeze_resolution.py
 python3 -W error scripts/verify_graviton_a1_gauge_and_xiH_rg.py
 python3 -W error scripts/verify_euclid_ia_cosmo_marginalization_and_isw.py
+python3 -W error scripts/verify_4d_spin10_chiral_smg_and_ep_obstruction.py
+python3 -W error scripts/verify_24cell_spin2_measure_and_vilkovisky_a1.py
+python3 -W error scripts/verify_uv_helmholtz_couplings_and_joint_2field_bvp.py
 pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_EN.tex
 pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_HU.tex
 ```
@@ -71,3 +74,4 @@ pdflatex -interaction=nonstopmode Tau_Core_Paper_29_Frontier_Closures_HU.tex
 | `AXIOM-OCC/KMS` | Occupied $|\nu|=1$ $K_4 \to 24$-cell Lorentzian measure & horizon KMS floor | `FOUND. LAW` | Irreducible UV quantum-gravity axioms ($r_{\mathrm{seed}} = 1/4$, $a_0^{\mathrm{KH}}(z)$) + `AXIOM-FRG` ($s\sim 1$) |
 | `v3.1.0 Q-DEC/T-DEC` | UV Kähler split ($\mathbb{CP}^3$), unique $\mathbb{C}$ ($\Delta_{\mathbb{R}}=+36$), $M=12$ pointer clock, 256-site $K_4$ Area Law & Wald–Kabat $\mathrm{SM}+3\nu_R$ ($N_{\mathrm{gen}}=3$ cancellation) | `PROVEN` / `NO-GO` / `COND.` | $\|\omega_{\mathrm{orth}}\|_F/\|g_{\mathrm{orth}}\|_F=1$; $R^2_{\mathrm{area}}=0.999936$; bare $\ell_*$ `NO-GO` ($5.89\times$); $C_{\mathrm{SM}+3\nu_R}=4(1-6\xi_H)$ (`NATURE_LEVEL_CLOSURE = false`) |
 | `v3.2.0 Bottlenecks A–C` | Coupled Helmholtz-screened non-separable `AeST` Triple-Squeeze resolution, 1-loop $\xi_H(\mu)$ RG + spin-2 $a_1$ off-shell audit, & 7-param `Euclid` NLA-IA + Boltzmann low-$\ell$ ISW | `PROVEN` / `COND.` / `OPEN` | $\mu_{\mathrm{SZ},0}^{-1}=1.54\;\mathrm{Mpc}$, BVP res $\le 4.25\times 10^{-14}$, $\min\mathrm{Ellip}\ge 1.951$; $Z_\xi(\Lambda_{\mathrm{UV}})=1.0716$, $a_1^{\mathrm{grav}}/\bar R\in\{-8/3,-23/3,-11/3\}$; prior-free `Euclid` $5.44\sigma$ ($7.36\sigma$ +Planck 1D); $\Delta\chi^2_{\mathrm{ISW}}=0.9238<1$ (`NATURE_LEVEL_CLOSURE = false`) |
+| `v3.3.0 Deep-UV & 3-Field BVP (D–F)` | 4D chiral $\mathrm{Spin}(10)$ nodeless $S^9$ SMG (`dim=65,536` Weyl Lanczos + Golterman–Petcher $k=0$ & $P_R$-projected BZ doubler Tamm $y_M\to\infty$ `NO-GO`), 24-cell Vilkovisky–DeWitt spin-2 $a_1^{\mathrm{VDW}}(S^4)$ ($c_{\mathrm{DW}}=-1\implies c_{\mathrm{grav}}=-12$, minimal-$\xi_H$ SM `NO-GO` vs. Split-SUSY $+4.0>0$), & exact 3-field $(|\Psi|,s,\sigma_{\mathrm{scr}})$ modified-Poisson Schur BVP ($p=2$ & void-star cold-$d_c$ `NO-GO`s, $5.5$-decade $\kappa_\sigma$ window, $K_4$ $(u^2, u^4/(4\pi))$) | `PROVEN` / `NO-GO` / `COND.` / `OPEN` | $M(n)^\dagger M(n)=|n|^2 I_{16}$, $G_{D_4}^{\mathrm{phys}}(0)=0.2765\,\ell_0^{-2}$, $y_M\in[1,15]$; $\partial_{\omega_{\mathrm{param}}}\mathcal{L}_{\mathrm{VDW}}^{(2)}\equiv 0$, $C_{\mathrm{tot}}^{\mathrm{SM}}=-7.71<0$ vs. $C_{\mathrm{tot}}^{\mathrm{MSSM}}(\bar\xi=1/6)=+4.0>0$; 3-field BVP res $<2.5\times 10^{-14}$, $|\Delta\Psi/\Psi|\le 0.22\%$, $\kappa_\sigma\in[2\times 10^4,3\times 10^8]$ (`NATURE_LEVEL_CLOSURE = false`) |
