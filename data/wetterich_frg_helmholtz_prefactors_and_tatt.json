@@ -1,0 +1,151 @@
+{
+  "script": "verify_wetterich_frg_helmholtz_prefactors_and_tatt.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_NO_GO": [
+      "Unbounded polynomial gradient coupling W_sig^{poly}(Y) = Y / Y_{sat} triggers BOTH a classical varphi-kinetic ghost flip above sigma_crit = Z_0 Y_{sat} / (2 kap_sig) AND a quartically UV-divergent Wetterich loop mass shift dt m_sigma^2 = kap_sig k^4 / (8 pi^2 Z_0^2 Y_{sat}^2) -> Lambda_UV^4.",
+      "Single-channel 4D scalar 1-loop threshold d_c^{(1-ch 1L)} = u^4 / (16 pi^2) = 1.7178e-7 violates the isolated intergalactic 1 M_sun void-star bound (|Psi_*(0)| / d_c = 12.36 >> 1, cosh > 1.1e5)."
+    ],
+    "PROVEN_THEOREMS": [
+      "Theorem J1 (Wetterich FRG Radiative Stability of Bounded W_sig(Y)): For Tau Core's bounded coupling W_sig(Y) = Y / (1 + Y / y_{sig,sat}) (with normal-ordered vacuum tadpole <W_sig(Y)>_vac = 0), W_sig'(Y) = (1 + Y / y_{sig,sat})^{-2} ~ (y_{sig,sat} / Y)^2 -> 0 decouples UV varphi-loops above k_{sat} = (M_Pl^2 Z_varphi y_{sig,sat})^{1/4} = 0.8334 meV, cancelling M_Pl^2 identically in |Delta m_sigma^2| = kap_sig y_{sig,sat} / (12 pi^2 Z_varphi) = 3.40e-7 Mpc^{-2} (|Delta m_sigma^2| / m_sigma^2 = 8.04e-7 << 1), while p = 4 quartic screening K_{NS} ~ sigma_scr^4 / (sigma_scr^4 + sig_c^4) has identically zero 1st, 2nd, and 3rd derivatives at sigma_scr = 0."
+    ],
+    "PROVEN_NUMERIC": [
+      "Exact 4,001-shell self-consistent 3-field Schur-complement BVP verification at (d_c = [3 / (4 pi^2)] u^4 = 2.06138e-6, d_max = u^2 = 1/192) confirms machine-precision convergence (< 10^{-15} Schur residual), strict 2x2 Schur ellipticity J_{Schur} > 0, and astrophysical safety across IsolatedVoidStar_1Msun (max |Psi|/d_eff = 1.030), MilkyWay_6e10Msun, and RichCluster_1e15Msun."
+    ],
+    "CONDITIONAL": [
+      "Motivated 12-link 24-cell multiplicity / breathing-mode matching ansatz: identifying d_max = u^2 = 1/192 and weighting the 4D 1-loop threshold u^4 / (16 pi^2) by the N_{links} = 12 undirected links of the 24-cell gives d_c = 12 * u^4 / (16 pi^2) = [3 / (4 pi^2)] u^4 = 2.06138e-6 (within 4.5% of u^4 / (4 pi) via 3/pi = 0.9549); meanwhile y_{sig,sat} ~ a_0^2 and sig_c ~ 10^{-13} remain matched to the macroscopic MOND / de Sitter scale a_0.",
+      "Under simultaneous 10-parameter Euclid Stage-IV Fisher marginalization over (alpha_disf, Omega_{m,0}, sigma_8, n_s, h, A_1, eta_1, A_2, eta_2, theta_AGN) using analytic Pad\u00e9 1-loop TATT mode-coupling templates with exact Blazek et al. (2019) D(z)^2 / D(z)^0 growth scalings (0.35 loop factor, k_{TT} = 0.18 Mpc^{-1}, b_{TA} omitted), 1-parameter Pad\u00e9 baryonic AGN suppression (k_{bary} = 0.35 Mpc^{-1}), and diagonal 1D Planck priors in the +Planck18 combination, the k_{vir}(z)-screened disformal Weyl boost retains strong Stage-IV falsifiability."
+    ],
+    "OPEN": [
+      "First-principles microscopic 24-cell effective-action derivation of the 12-link multiplicity matching ansatz (projecting 12_{links} = 1 (+) 9 (+) 2 onto (Q - Q_0)/Q_0), full non-perturbative multi-field Wetterich PDE integration beyond LPA', and full FAST-PT + HMcode-2020 + hydrodynamical lightcone mock calibration."
+    ]
+  },
+  "gate1a_wetterich_litim_benchmarks": {
+    "d4_1loop_beta_lambda": "lam**2*(N_on + 8)/(16*pi**2)",
+    "d3_largeN_nu_exact": 1.0,
+    "d3_litim_lpa_N1_ising": {
+      "kap_star": 1.8148746047035242,
+      "c1_star": 0.1261707005761313,
+      "nu_LPA": 0.6495185568261875
+    },
+    "d3_litim_lpa_N1_benchmark": 0.64956,
+    "d3_litim_lpa_N4_o4": {
+      "kap_star": 4.320985065834066,
+      "c1_star": 0.08742097597409015,
+      "nu_LPA": 0.8043791660803173
+    },
+    "d3_litim_lpa_N4_benchmark": 0.8043
+  },
+  "gate2ab_helmholtz_frg_and_12link_prefactors": {
+    "unbounded_Wpoly_ghost_threshold": "Y_sat*Z_0/(2*kap_sig)",
+    "unbounded_Wpoly_uv_quartic_flow": "k_rg**4*kap_sig/(8*pi**2*Y_sat**2*Z_0**2)",
+    "bounded_Wsig_modf_formula": "Y / (1 + Y / Y_sat)",
+    "bounded_Wsig_uv_decoupling_Wprime_asymptotics": "1 / (1 + Y / Y_sat)^2 -> (Y_sat / Y)^2 -> 0",
+    "integrated_Delta_msig2_exact_sympy": "Y_sat*kap_sig/(12*pi**2*Z_0)",
+    "M_Pl2_cancels_identically": true,
+    "k_sat_meV_fiducial": 0.8334091083155956,
+    "Delta_msig2_Mpc_inv2_fiducial": 3.3960510689571907e-07,
+    "rel_Delta_msig2_over_msig2_fiducial": 8.037990695756664e-07,
+    "p4_frw_vacuum_loop_vanishing_orders_1_to_3": true,
+    "k4_24cell_u_sq": 0.005208333333333333,
+    "d_max_matching_ansatz_1_over_192": 0.005208333333333333,
+    "single_channel_1loop_dc": 1.7178206319569528e-07,
+    "single_channel_void_star_Psi_over_dc": 12.356522913465573,
+    "single_channel_void_star_cosh": 116235.74972490621,
+    "single_channel_1loop_PROVEN_NO_GO": true,
+    "twelve_link_24cell_matching_ansatz_dc": 2.0613847583483434e-06,
+    "previous_heuristic_u4_over_4pi": 2.1586770710163754e-06,
+    "twelve_link_to_4pi_ratio_3_over_pi": 0.954929658551372,
+    "bvp_3field_12link_verification": {
+      "IsolatedVoidStar_1Msun": {
+        "Psi_at_r0": 2.122629e-06,
+        "max_Psi_over_d_eff_all_r": 1.02971,
+        "schur_rel_residual": 6.193e-16,
+        "max_rel_Poisson_dPsi": 8.492e-23
+      },
+      "MilkyWay_6e10Msun": {
+        "sigma_scr_at_r0": 5.2569593394e-13,
+        "max_Psi_over_d_eff_all_r": 0.000978341,
+        "min_Schur_Jacobian": 0.000340735,
+        "schur_rel_residual": 6.5919e-16
+      },
+      "RichCluster_1e15Msun": {
+        "sigma_scr_at_r0": 8.360592925e-11,
+        "max_Psi_over_d_eff_all_r": 0.0495775,
+        "min_Schur_Jacobian": 0.0244893,
+        "schur_rel_residual": 7.1376e-16
+      }
+    }
+  },
+  "gate1b_2c_euclid_10param_tatt_and_agn": {
+    "gate1b_7param_subblock_regression": {
+      "computed_SNR_7param_Euclid_alone": 5.4395,
+      "module_c_SNR_7param_Euclid_alone": 5.44,
+      "computed_SNR_7param_Euclid_plus_Planck18": 7.3591,
+      "module_c_SNR_7param_Euclid_plus_Planck18": 7.36
+    },
+    "euclid_10param_TATT_plus_AGN_ell30_1000_EuclidHighIA": {
+      "SNR_1param_fixed": 8.43,
+      "SNR_7param_cosmo_plus_NLA": 5.89,
+      "SNR_8param_cosmo_plus_NLA_plus_AGN": 5.79,
+      "SNR_9param_cosmo_plus_TATT": 5.39,
+      "SNR_10param_Euclid_alone_TATT_plus_AGN": 4.21,
+      "SNR_10param_Euclid_plus_Planck18_TATT_plus_AGN": 6.81,
+      "sigma_alpha_disf_10param_Euclid_alone": 0.2373,
+      "sigma_alpha_disf_10param_Euclid_plus_Planck18": 0.1468,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.7928,
+        "sigma_8": -0.7911,
+        "n_s": -0.5844,
+        "h": 0.1047,
+        "A_1_TA": -0.7311,
+        "eta_1_TA": -0.3616,
+        "A_2_TT": 0.4549,
+        "eta_2_TT": -0.2518,
+        "theta_AGN": -0.6227
+      }
+    },
+    "euclid_10param_TATT_plus_AGN_ell30_1500_EuclidHighIA": {
+      "SNR_1param_fixed": 8.89,
+      "SNR_7param_cosmo_plus_NLA": 6.48,
+      "SNR_8param_cosmo_plus_NLA_plus_AGN": 6.33,
+      "SNR_9param_cosmo_plus_TATT": 5.88,
+      "SNR_10param_Euclid_alone_TATT_plus_AGN": 4.93,
+      "SNR_10param_Euclid_plus_Planck18_TATT_plus_AGN": 7.02,
+      "sigma_alpha_disf_10param_Euclid_alone": 0.2027,
+      "sigma_alpha_disf_10param_Euclid_plus_Planck18": 0.1425,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.7159,
+        "sigma_8": -0.734,
+        "n_s": -0.5225,
+        "h": 0.1058,
+        "A_1_TA": -0.6304,
+        "eta_1_TA": -0.2964,
+        "A_2_TT": 0.4356,
+        "eta_2_TT": -0.2151,
+        "theta_AGN": -0.5449
+      }
+    },
+    "euclid_10param_TATT_plus_AGN_ell30_1000_DESlikeIA": {
+      "SNR_1param_fixed": 8.14,
+      "SNR_7param_cosmo_plus_NLA": 5.23,
+      "SNR_8param_cosmo_plus_NLA_plus_AGN": 5.16,
+      "SNR_9param_cosmo_plus_TATT": 4.64,
+      "SNR_10param_Euclid_alone_TATT_plus_AGN": 3.6,
+      "SNR_10param_Euclid_plus_Planck18_TATT_plus_AGN": 6.09,
+      "sigma_alpha_disf_10param_Euclid_alone": 0.2776,
+      "sigma_alpha_disf_10param_Euclid_plus_Planck18": 0.1642,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.8077,
+        "sigma_8": -0.8057,
+        "n_s": -0.5989,
+        "h": 0.1145,
+        "A_1_TA": -0.4954,
+        "eta_1_TA": -0.2149,
+        "A_2_TT": 0.4934,
+        "eta_2_TT": -0.2578,
+        "theta_AGN": -0.631
+      }
+    }
+  }
+}

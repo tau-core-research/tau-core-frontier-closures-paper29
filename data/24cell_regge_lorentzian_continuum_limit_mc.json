@@ -1,0 +1,158 @@
+{
+  "script": "verify_24cell_regge_lorentzian_continuum_limit_mc.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_NO_GO": [
+      "Unstabilized pure Euclidean Einstein-Hilbert action has negative-definite conformal kinetic kernel -(3/16) M_Pl^2 k^2 phi^2 < 0 for all k > 0 (Gibbons-Hawking-Perry conformal unboundedness).",
+      "Flipping the Euclidean R^2 sign to +(M_Pl^2 / (12 M_inf^2))(R^{(1)})^2 to force raw Jordan-frame conformal positivity creates a Euclidean divergence <R^{(1)}(k) R^{(1)}(-k)>_E = +6 M_inf^2 k^2 / [M_Pl^2 (k^2 - M_inf^2)] at k^2 = +M_inf^2 corresponding to a Lorentzian spin-0 tachyon m_scalaron^2 = -M_inf^2 < 0."
+    ],
+    "PROVEN_THEOREMS": [
+      "Theorem I1 (Hawking-Luttrell Physical Scalaron Positivity, Weyl-Ghost Absence & AeST Foliation Constraint): Physical Wick-rotated Starobinsky -(M_Pl^2 / (12 M_inf^2))(R^{(1)})^2 gives smooth <R^{(1)}(k) R^{(1)}(-k)>_E = -6 M_inf^2 k^2 / [M_Pl^2 (k^2 + M_inf^2)] for all k^2 >= 0 (healthy massive pole at k^2 = -M_inf^2), and under Hawking-Luttrell auxiliary-scalaron diagonalization phi = phi_E - [2 / (3 M_inf^2)] chi splits into a strictly positive-definite Euclidean scalaron +[M_Pl^2 / (12 M_inf^4)](k^2 + M_inf^2) chi^2 > 0 plus the non-propagating Einstein-frame conformal mode -(3/16) M_Pl^2 k^2 phi_E^2 (constrained in Lorentzian signature by ADM / AeST causal foliation or GHP contour rotation), while R^{(1)}[h^{TT}] == 0 guarantees zero spin-2 Weyl k^{-4} ghost.",
+      "Theorem I2 (24-Cell O(a^4) Rotational Isotropy, W(F_4) Triality & O(a^2) Continuum Convergence): Because the 24-cell (D_4) links form an exact 4D spherical 4-design, BOTH the scalar link Laplacian and vector link-divergence are 100% O(4) rotationally invariant through O(a^2), suppressing spin-2 rotational Lorentz/O(4) breaking to O(a^4) (16.004x reduction per doubling of N, ~9,100x more isotropic than hypercubic Z^4 at N = 32, with exact W(F_4) Hadamard triality invariance), while fixed-momentum TT propagators converge as O(a^2) (4.02x ratio, Richardson error 2.18e-5)."
+    ],
+    "PROVEN_NUMERIC": [
+      "On a 4D periodic D_4 cluster (L_box = 4, V = 128, N_links = 1,536), Metropolis MCMC of a Gaussian-pinned fixed-connectivity Regge-inspired link model with logarithmic link-positivity barrier and cubic/quartic interactions confirms positive-definite supermetric stability c_{DW}^{eff} < 0 across g_grav^2 in [0.0025, 0.25] (consistent with c_{DW} = -1 within jackknife uncertainty) and smooth 4D torus-normalized spectral dimension d_S^{norm} in [3.82, 4.00] (complementing the exact Lb = 20 continuum-window benchmark d_S = 4.041 and UV Starobinsky d_S^{UV} = 2.07; flat L_box = 4 raw peak 4.9518 reflects the discrete D_4 Van Hove overshoot)."
+    ],
+    "OPEN": [
+      "Unpinned Euclidean Regge / Lorentzian Causal Dynamical Triangulations (CDT) topology-changing 24-cell path-integral Monte Carlo beyond Gaussian-pinned fixed-connectivity D_4 link-length models."
+    ]
+  },
+  "gate1_and_2a_conformal_starobinsky_sympy": {
+    "pure_eh_conformal_kernel": "-3*M_Pl2*phi**2*(k1**2 + k2**2 + k3**2 + k4**2)/16",
+    "starobinsky_conformal_kernel_physical_wick": "-3*M_Pl2*phi**2*(k1**2 + k2**2 + k3**2 + k4**2)**2/(16*M_inf2)",
+    "combined_jordan_conformal_kernel": "-3*M_Pl2*phi**2*(k1**2 + k2**2 + k3**2 + k4**2)*(M_inf2 + k1**2 + k2**2 + k3**2 + k4**2)/(16*M_inf2)",
+    "hawking_luttrell_diagonalized_kernel": "M_Pl2*(-9*M_inf2**2*phi_E**2*(k1**2 + k2**2 + k3**2 + k4**2) + 4*M_inf2*chi_scal**2 + 4*chi_scal**2*(k1**2 + k2**2 + k3**2 + k4**2))/(48*M_inf2**2)",
+    "gauge_invariant_R1_correlator_physical": "-6*M_inf2*k_p**2/(M_Pl2*(M_inf2 + k_p**2))",
+    "wrong_sign_tachyonic_R1_correlator": "-6*M_inf2*k_p**2/(M_Pl2*(M_inf2 - k_p**2))",
+    "tt_spin2_trace_dof": 5,
+    "tt_propagator_independent_of_alpha_cDW_Minf": true,
+    "spin2_weyl_ghost_absent": true,
+    "d4_laplacian_o_a2_isotropic": "k^2 - (a^2 / 24) * (k^2)^2 + O(a^4)",
+    "z4_laplacian_o_a2_anisotropic": "k^2 - (a^2 / 12) * sum_mu k_mu^4 + O(a^4)",
+    "tau_core_Minf_in_lattice_units": 0.000114,
+    "nyquist_over_Minf_sq_scalaron_dominance": 759434010.5485808
+  },
+  "gate2b_continuum_refinement_and_isotropy": {
+    "fixed_p_continuum_refinement": [
+      {
+        "N_grid": 4,
+        "a_spacing": 0.7853981633974483,
+        "g_tt_lattice": 2.4591689497818354,
+        "g_tt_continuum": 2.0,
+        "rel_err": 0.2295844748909177
+      },
+      {
+        "N_grid": 8,
+        "a_spacing": 0.39269908169872414,
+        "g_tt_lattice": 2.1056358126023422,
+        "g_tt_continuum": 2.0,
+        "rel_err": 0.052817906301171114
+      },
+      {
+        "N_grid": 16,
+        "a_spacing": 0.19634954084936207,
+        "g_tt_lattice": 2.0258763195092997,
+        "g_tt_continuum": 2.0,
+        "rel_err": 0.012938159754649847
+      },
+      {
+        "N_grid": 32,
+        "a_spacing": 0.09817477042468103,
+        "g_tt_lattice": 2.0064363743726297,
+        "g_tt_continuum": 2.0,
+        "rel_err": 0.003218187186314836
+      }
+    ],
+    "o_a2_convergence_ratio_N16_to_N32": 4.020325420991252,
+    "richardson_extrapolated_g_tt": 1.9999563926604065,
+    "richardson_continuum_rel_err": 2.1803669796760516e-05,
+    "wf4_triality_exact_invariance_err_a0p25": 0.0,
+    "rotational_isotropy_d4_vs_z4": [
+      {
+        "N_grid": 4,
+        "a_spacing": 0.25,
+        "d4_tt_rotational_anisotropy": 4.1440574471219905e-05,
+        "z4_tt_rotational_anisotropy": 0.0058525085381717695
+      },
+      {
+        "N_grid": 8,
+        "a_spacing": 0.125,
+        "d4_tt_rotational_anisotropy": 2.578694257927499e-06,
+        "z4_tt_rotational_anisotropy": 0.0014644145965309915
+      },
+      {
+        "N_grid": 16,
+        "a_spacing": 0.0625,
+        "d4_tt_rotational_anisotropy": 1.6099148355272393e-07,
+        "z4_tt_rotational_anisotropy": 0.0003661841154096056
+      },
+      {
+        "N_grid": 32,
+        "a_spacing": 0.03125,
+        "d4_tt_rotational_anisotropy": 1.0059204671514598e-08,
+        "z4_tt_rotational_anisotropy": 9.155105799438037e-05
+      }
+    ],
+    "d4_o_a4_anisotropy_ratio_N16_to_N32": 16.004394861217563,
+    "z4_o_a2_anisotropy_ratio_N16_to_N32": 3.9997802694107905
+  },
+  "gate1b_and_2c_4d_link_mcmc_and_spectral_dim": {
+    "branched_polymer_benchmark_dS": 1.3332000133320001,
+    "d4_ir_diffusion_benchmark_dS_Lb20": 4.041358647098806,
+    "d4_uv_starobinsky_spectral_dimension_dS": 2.0732804685233126,
+    "gaussian_equipartition_ratio": 0.9969081088910511,
+    "flat_L4_cluster_vanhove_peak_dS": 4.951789517918682,
+    "gaussian_pinned_4d_d4_link_mcmc_scan": [
+      {
+        "g_grav_sq": 0.25,
+        "acceptance_rate": 0.6383463541666666,
+        "stiffness_ratio_K00_over_KTL": 2.817861337106364,
+        "c_DW_eff": -0.9089306685531819,
+        "c_DW_eff_jackknife_stderr": 0.1172935980333153,
+        "spectral_dimension_raw_L4_vanhove": 4.73605103621937,
+        "spectral_dimension_torus_normalized_4d": 3.8257288756570653,
+        "positive_definite_supermetric": true
+      },
+      {
+        "g_grav_sq": 0.1,
+        "acceptance_rate": 0.630859375,
+        "stiffness_ratio_K00_over_KTL": 2.8330522077503146,
+        "c_DW_eff": -0.9165261038751573,
+        "c_DW_eff_jackknife_stderr": 0.11860869342266622,
+        "spectral_dimension_raw_L4_vanhove": 4.869488344991608,
+        "spectral_dimension_torus_normalized_4d": 3.9335180361529853,
+        "positive_definite_supermetric": true
+      },
+      {
+        "g_grav_sq": 0.04,
+        "acceptance_rate": 0.6474609375,
+        "stiffness_ratio_K00_over_KTL": 2.505899080035118,
+        "c_DW_eff": -0.752949540017559,
+        "c_DW_eff_jackknife_stderr": 0.09859973230955382,
+        "spectral_dimension_raw_L4_vanhove": 4.9248006931114805,
+        "spectral_dimension_torus_normalized_4d": 3.9781987302089163,
+        "positive_definite_supermetric": true
+      },
+      {
+        "g_grav_sq": 0.01,
+        "acceptance_rate": 0.6373697916666666,
+        "stiffness_ratio_K00_over_KTL": 3.0269348674368612,
+        "c_DW_eff": -1.0134674337184306,
+        "c_DW_eff_jackknife_stderr": 0.08143403194543797,
+        "spectral_dimension_raw_L4_vanhove": 4.945588037317985,
+        "spectral_dimension_torus_normalized_4d": 3.994990513568272,
+        "positive_definite_supermetric": true
+      },
+      {
+        "g_grav_sq": 0.0025,
+        "acceptance_rate": 0.6481119791666666,
+        "stiffness_ratio_K00_over_KTL": 3.167813910824546,
+        "c_DW_eff": -1.083906955412273,
+        "c_DW_eff_jackknife_stderr": 0.22136101768966468,
+        "spectral_dimension_raw_L4_vanhove": 4.950344798310432,
+        "spectral_dimension_torus_normalized_4d": 3.9988329717141475,
+        "positive_definite_supermetric": true
+      }
+    ]
+  }
+}

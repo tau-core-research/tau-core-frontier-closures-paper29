@@ -1,0 +1,498 @@
+{
+  "status": "PASS_STAGE_A_V2_POST_REFEREE",
+  "NATURE_LEVEL_CLOSURE": false,
+  "caveats": {
+    "scalar_transition": "Sudden-jump z''/z = a''/a is exact for tensor modes; smooth scalar transition over Delta N ~ 1 shifts overshoot O(10-20%) and damps UV ringing.",
+    "planck_likelihood": "Diagonal bin errors, fixed LCDM parameters, top-hat bin averages; full Plik covariance + Commander low-l likelihood required for formal parameter inference.",
+    "low_ell_EE_BB": "Reionization-shell distance proxy (chi_reion = 9000 Mpc = 0.649 chi_LSS) used for ell <= 12; full spin-2 Boltzmann transfer functions remain OPEN."
+  },
+  "candidate1_paper26_axion_birefringence": {
+    "verdict": "PROVEN_NO_GO",
+    "m_a_meV": 0.2585,
+    "f_a_GeV": 22018000000.0,
+    "c_agamma_Spin10": 0.7467,
+    "adiabatic_damping_at_rec_upper_bound": 9.5248266877851e-16,
+    "beta_max_deg": 2.366257175256238e-17,
+    "observed_hint_deg": 0.3
+  },
+  "candidate2_subplaquette_single_field_kination_nogo": {
+    "verdict": "PROVEN_NO_GO_FOR_SINGLE_FIELD_SUBPLAQUETTE_KINATION",
+    "phi_E_subplaquette_domain_MPl": [
+      -0.00016,
+      8.2514
+    ],
+    "N_max_subplaquette_efolds": 626.3,
+    "rho_bounce_over_rho_inf": 7937177975.355479,
+    "Delta_N_kination_efolds": 3.799,
+    "Delta_phi_E_kination_MPl": 9.306,
+    "phi_E_0_at_Ntot_56.33_MPl": 5.3803,
+    "Phi_0_at_Ntot_56.33_over_Mstar": 0.308,
+    "rolling_down_Phi_bounce_over_Mstar": 13.84,
+    "rolling_up_Omega2_bounce": 0.0405,
+    "physical_implication": "Pure w=+1 kination from Paper 21 Big Bounce to Paper 24 Starobinsky plateau cannot be carried solely by phi_E inside Phi <= M_*; requires an extra stiff degree of freedom (e.g. Paper 28 psi_kin or bounce shear) or intermediate dilution."
+  },
+  "planck2018_TT_bounds_83bins": {
+    "baseline_chi2_TT_83bins": 65.122,
+    "kination_Bessel_95pct_CL": {
+      "ell_0": 20.0,
+      "k_0_Mpc_inv": 0.001442,
+      "N_tot_efolds": 54.958,
+      "dchi2_TT_kin_Bessel": 7.78,
+      "dchi2_TT_kin_Limber": 12.427,
+      "dchi2_TT_mink_Bessel": 3.528
+    },
+    "kination_Bessel_3sigma": {
+      "ell_0": 21.0,
+      "k_0_Mpc_inv": 0.001514,
+      "N_tot_efolds": 54.909,
+      "dchi2_TT_kin_Bessel": 9.565,
+      "dchi2_TT_kin_Limber": 15.456,
+      "dchi2_TT_mink_Bessel": 4.126
+    },
+    "kination_Limber_95pct_CL_diagnostic": {
+      "ell_0": 15.0,
+      "k_0_Mpc_inv": 0.001081,
+      "N_tot_efolds": 55.246,
+      "dchi2_TT_kin_Bessel": 1.157,
+      "dchi2_TT_kin_Limber": 5.263,
+      "dchi2_TT_mink_Bessel": 0.556
+    },
+    "minkowski_Bessel_95pct_CL": {
+      "ell_0": 21.0,
+      "k_0_Mpc_inv": 0.001514,
+      "N_tot_efolds": 54.909,
+      "dchi2_TT_kin_Bessel": 9.565,
+      "dchi2_TT_kin_Limber": 15.456,
+      "dchi2_TT_mink_Bessel": 4.126
+    }
+  },
+  "quadrupole_match_r2_0.222_with_ISW_band": {
+    "pure_SW_ell_0": 5.086,
+    "pure_SW_N_tot": 56.327,
+    "with_ISW25_ell_0": 10.309,
+    "with_ISW25_N_tot": 55.621,
+    "reion_shell_ell_0_at_pure_SW": 3.3,
+    "dchi2_TT_83bins_Bessel_at_pure_SW": 0.0264,
+    "r_BB_recombination_ell80_Bessel": 1.00036
+  },
+  "low_ell_profile_at_ell0_5.086": [
+    {
+      "ell": 2,
+      "r_TT_pure_SW": 0.222,
+      "r_TT_with_ISW25": 0.4244,
+      "r_reion_shell_EE_BB_proxy": 0.4207,
+      "r_tensor_BB_reion_proxy": 0.001792
+    },
+    {
+      "ell": 3,
+      "r_TT_pure_SW": 0.3761,
+      "r_TT_with_ISW25": 0.4637,
+      "r_reion_shell_EE_BB_proxy": 0.6582,
+      "r_tensor_BB_reion_proxy": 0.002804
+    },
+    {
+      "ell": 4,
+      "r_TT_pure_SW": 0.5338,
+      "r_TT_with_ISW25": 0.575,
+      "r_reion_shell_EE_BB_proxy": 0.8569,
+      "r_tensor_BB_reion_proxy": 0.00365
+    },
+    {
+      "ell": 5,
+      "r_TT_pure_SW": 0.683,
+      "r_TT_with_ISW25": 0.7032,
+      "r_reion_shell_EE_BB_proxy": 0.9985,
+      "r_tensor_BB_reion_proxy": 0.004254
+    },
+    {
+      "ell": 6,
+      "r_TT_pure_SW": 0.8149,
+      "r_TT_with_ISW25": 0.8238,
+      "r_reion_shell_EE_BB_proxy": 1.0797,
+      "r_tensor_BB_reion_proxy": 0.004599
+    },
+    {
+      "ell": 7,
+      "r_TT_pure_SW": 0.9241,
+      "r_TT_with_ISW25": 0.927,
+      "r_reion_shell_EE_BB_proxy": 1.108,
+      "r_tensor_BB_reion_proxy": 0.00472
+    },
+    {
+      "ell": 8,
+      "r_TT_pure_SW": 1.0079,
+      "r_TT_with_ISW25": 1.0076,
+      "r_reion_shell_EE_BB_proxy": 1.0978,
+      "r_tensor_BB_reion_proxy": 0.004677
+    },
+    {
+      "ell": 9,
+      "r_TT_pure_SW": 1.066,
+      "r_TT_with_ISW25": 1.0643,
+      "r_reion_shell_EE_BB_proxy": 1.0662,
+      "r_tensor_BB_reion_proxy": 0.004542
+    },
+    {
+      "ell": 10,
+      "r_TT_pure_SW": 1.1002,
+      "r_TT_with_ISW25": 1.098,
+      "r_reion_shell_EE_BB_proxy": 1.0288,
+      "r_tensor_BB_reion_proxy": 0.004383
+    },
+    {
+      "ell": 11,
+      "r_TT_pure_SW": 1.1136,
+      "r_TT_with_ISW25": 1.1114,
+      "r_reion_shell_EE_BB_proxy": 0.9974,
+      "r_tensor_BB_reion_proxy": 0.004249
+    },
+    {
+      "ell": 12,
+      "r_TT_pure_SW": 1.1104,
+      "r_TT_with_ISW25": 1.1085,
+      "r_reion_shell_EE_BB_proxy": 0.9782,
+      "r_tensor_BB_reion_proxy": 0.004167
+    },
+    {
+      "ell": 15,
+      "r_TT_pure_SW": 1.0473,
+      "r_TT_with_ISW25": 1.0467,
+      "r_reion_shell_EE_BB_proxy": 0.9895,
+      "r_tensor_BB_reion_proxy": 0.004215
+    },
+    {
+      "ell": 20,
+      "r_TT_pure_SW": 0.9707,
+      "r_TT_with_ISW25": 0.9709,
+      "r_reion_shell_EE_BB_proxy": 1.0071,
+      "r_tensor_BB_reion_proxy": 0.00429
+    },
+    {
+      "ell": 30,
+      "r_TT_pure_SW": 1.0125,
+      "r_TT_with_ISW25": 1.0124,
+      "r_reion_shell_EE_BB_proxy": 1.0031,
+      "r_tensor_BB_reion_proxy": 0.004273
+    }
+  ],
+  "wishart_low_ell_forecast": [
+    {
+      "ell_0": 2.0,
+      "N_tot_efolds": 57.261,
+      "r2_TT_pure_SW": 0.7622,
+      "r2_TT_with_ISW25": 0.8223,
+      "r2_EE_BB_reion_proxy": 1.0067,
+      "E_true_dchi2_TT_fsky1": 0.24,
+      "E_null_dchi2_TT_fsky1": 0.27,
+      "SNR_disc_TT_fsky070": 0.41,
+      "SNR_disc_TT_ISW25_fsky070": 0.33,
+      "SNR_disc_TT_plus_EEproxy_fsky070": 0.42
+    },
+    {
+      "ell_0": 4.0,
+      "N_tot_efolds": 56.567,
+      "r2_TT_pure_SW": 0.3199,
+      "r2_TT_with_ISW25": 0.4954,
+      "r2_EE_BB_reion_proxy": 0.5741,
+      "E_true_dchi2_TT_fsky1": 4.53,
+      "E_null_dchi2_TT_fsky1": 7.93,
+      "SNR_disc_TT_fsky070": 1.78,
+      "SNR_disc_TT_ISW25_fsky070": 1.38,
+      "SNR_disc_TT_plus_EEproxy_fsky070": 1.96
+    },
+    {
+      "ell_0": 5.086,
+      "N_tot_efolds": 56.327,
+      "r2_TT_pure_SW": 0.222,
+      "r2_TT_with_ISW25": 0.4244,
+      "r2_EE_BB_reion_proxy": 0.4207,
+      "E_true_dchi2_TT_fsky1": 9.32,
+      "E_null_dchi2_TT_fsky1": 18.93,
+      "SNR_disc_TT_fsky070": 2.55,
+      "SNR_disc_TT_ISW25_fsky070": 2.01,
+      "SNR_disc_TT_plus_EEproxy_fsky070": 2.89
+    },
+    {
+      "ell_0": 6.0,
+      "N_tot_efolds": 56.162,
+      "r2_TT_pure_SW": 0.1706,
+      "r2_TT_with_ISW25": 0.3796,
+      "r2_EE_BB_reion_proxy": 0.3328,
+      "E_true_dchi2_TT_fsky1": 14.62,
+      "E_null_dchi2_TT_fsky1": 32.83,
+      "SNR_disc_TT_fsky070": 3.2,
+      "SNR_disc_TT_ISW25_fsky070": 2.56,
+      "SNR_disc_TT_plus_EEproxy_fsky070": 3.7
+    },
+    {
+      "ell_0": 10.0,
+      "N_tot_efolds": 55.651,
+      "r2_TT_pure_SW": 0.0722,
+      "r2_TT_with_ISW25": 0.2304,
+      "r2_EE_BB_reion_proxy": 0.1501,
+      "E_true_dchi2_TT_fsky1": 50.8,
+      "E_null_dchi2_TT_fsky1": 152.24,
+      "SNR_disc_TT_fsky070": 5.96,
+      "SNR_disc_TT_ISW25_fsky070": 5.08,
+      "SNR_disc_TT_plus_EEproxy_fsky070": 7.03
+    },
+    {
+      "ell_0": 14.0,
+      "N_tot_efolds": 55.315,
+      "r2_TT_pure_SW": 0.0398,
+      "r2_TT_with_ISW25": 0.1479,
+      "r2_EE_BB_reion_proxy": 0.0852,
+      "E_true_dchi2_TT_fsky1": 103.95,
+      "E_null_dchi2_TT_fsky1": 378.57,
+      "SNR_disc_TT_fsky070": 8.53,
+      "SNR_disc_TT_ISW25_fsky070": 7.54,
+      "SNR_disc_TT_plus_EEproxy_fsky070": 10.36
+    }
+  ],
+  "washout_control_Ntot_70": {
+    "ell_0_washout": 5.86652108328627e-06,
+    "r2_quadrupole": 0.9999999999895715
+  },
+  "planck_scan_curve": [
+    {
+      "ell_0": 1.0,
+      "k_0_Mpc_inv": 7.2e-05,
+      "N_tot_efolds": 57.954,
+      "dchi2_TT_kin_Bessel": -0.0,
+      "dchi2_TT_kin_Limber": 0.001,
+      "dchi2_TT_mink_Bessel": -0.0
+    },
+    {
+      "ell_0": 2.0,
+      "k_0_Mpc_inv": 0.000144,
+      "N_tot_efolds": 57.261,
+      "dchi2_TT_kin_Bessel": -0.002,
+      "dchi2_TT_kin_Limber": 0.005,
+      "dchi2_TT_mink_Bessel": -0.001
+    },
+    {
+      "ell_0": 3.0,
+      "k_0_Mpc_inv": 0.000216,
+      "N_tot_efolds": 56.855,
+      "dchi2_TT_kin_Bessel": -0.003,
+      "dchi2_TT_kin_Limber": 0.001,
+      "dchi2_TT_mink_Bessel": -0.002
+    },
+    {
+      "ell_0": 4.0,
+      "k_0_Mpc_inv": 0.000288,
+      "N_tot_efolds": 56.567,
+      "dchi2_TT_kin_Bessel": -0.043,
+      "dchi2_TT_kin_Limber": -0.015,
+      "dchi2_TT_mink_Bessel": -0.029
+    },
+    {
+      "ell_0": 5.0,
+      "k_0_Mpc_inv": 0.00036,
+      "N_tot_efolds": 56.344,
+      "dchi2_TT_kin_Bessel": 0.018,
+      "dchi2_TT_kin_Limber": 0.03,
+      "dchi2_TT_mink_Bessel": 0.013
+    },
+    {
+      "ell_0": 6.0,
+      "k_0_Mpc_inv": 0.000433,
+      "N_tot_efolds": 56.162,
+      "dchi2_TT_kin_Bessel": -0.006,
+      "dchi2_TT_kin_Limber": -0.193,
+      "dchi2_TT_mink_Bessel": -0.011
+    },
+    {
+      "ell_0": 7.0,
+      "k_0_Mpc_inv": 0.000505,
+      "N_tot_efolds": 56.008,
+      "dchi2_TT_kin_Bessel": -0.05,
+      "dchi2_TT_kin_Limber": 0.143,
+      "dchi2_TT_mink_Bessel": -0.029
+    },
+    {
+      "ell_0": 8.0,
+      "k_0_Mpc_inv": 0.000577,
+      "N_tot_efolds": 55.874,
+      "dchi2_TT_kin_Bessel": 0.029,
+      "dchi2_TT_kin_Limber": 0.169,
+      "dchi2_TT_mink_Bessel": 0.03
+    },
+    {
+      "ell_0": 9.0,
+      "k_0_Mpc_inv": 0.000649,
+      "N_tot_efolds": 55.757,
+      "dchi2_TT_kin_Bessel": 0.044,
+      "dchi2_TT_kin_Limber": 0.177,
+      "dchi2_TT_mink_Bessel": 0.04
+    },
+    {
+      "ell_0": 10.0,
+      "k_0_Mpc_inv": 0.000721,
+      "N_tot_efolds": 55.651,
+      "dchi2_TT_kin_Bessel": 0.111,
+      "dchi2_TT_kin_Limber": 0.138,
+      "dchi2_TT_mink_Bessel": 0.074
+    },
+    {
+      "ell_0": 11.0,
+      "k_0_Mpc_inv": 0.000793,
+      "N_tot_efolds": 55.556,
+      "dchi2_TT_kin_Bessel": 0.272,
+      "dchi2_TT_kin_Limber": 0.218,
+      "dchi2_TT_mink_Bessel": 0.155
+    },
+    {
+      "ell_0": 12.0,
+      "k_0_Mpc_inv": 0.000865,
+      "N_tot_efolds": 55.469,
+      "dchi2_TT_kin_Bessel": 0.057,
+      "dchi2_TT_kin_Limber": 0.356,
+      "dchi2_TT_mink_Bessel": -0.008
+    },
+    {
+      "ell_0": 13.0,
+      "k_0_Mpc_inv": 0.000937,
+      "N_tot_efolds": 55.389,
+      "dchi2_TT_kin_Bessel": -0.042,
+      "dchi2_TT_kin_Limber": 1.164,
+      "dchi2_TT_mink_Bessel": -0.101
+    },
+    {
+      "ell_0": 14.0,
+      "k_0_Mpc_inv": 0.001009,
+      "N_tot_efolds": 55.315,
+      "dchi2_TT_kin_Bessel": 1.027,
+      "dchi2_TT_kin_Limber": 3.419,
+      "dchi2_TT_mink_Bessel": 0.571
+    },
+    {
+      "ell_0": 15.0,
+      "k_0_Mpc_inv": 0.001081,
+      "N_tot_efolds": 55.246,
+      "dchi2_TT_kin_Bessel": 1.157,
+      "dchi2_TT_kin_Limber": 5.263,
+      "dchi2_TT_mink_Bessel": 0.556
+    },
+    {
+      "ell_0": 16.0,
+      "k_0_Mpc_inv": 0.001154,
+      "N_tot_efolds": 55.181,
+      "dchi2_TT_kin_Bessel": 1.831,
+      "dchi2_TT_kin_Limber": 8.472,
+      "dchi2_TT_mink_Bessel": 0.74
+    },
+    {
+      "ell_0": 17.0,
+      "k_0_Mpc_inv": 0.001226,
+      "N_tot_efolds": 55.121,
+      "dchi2_TT_kin_Bessel": 1.078,
+      "dchi2_TT_kin_Limber": 9.536,
+      "dchi2_TT_mink_Bessel": -0.146
+    },
+    {
+      "ell_0": 18.0,
+      "k_0_Mpc_inv": 0.001298,
+      "N_tot_efolds": 55.063,
+      "dchi2_TT_kin_Bessel": 1.116,
+      "dchi2_TT_kin_Limber": 9.08,
+      "dchi2_TT_mink_Bessel": -0.653
+    },
+    {
+      "ell_0": 19.0,
+      "k_0_Mpc_inv": 0.00137,
+      "N_tot_efolds": 55.009,
+      "dchi2_TT_kin_Bessel": 2.206,
+      "dchi2_TT_kin_Limber": 8.12,
+      "dchi2_TT_mink_Bessel": 0.145
+    },
+    {
+      "ell_0": 20.0,
+      "k_0_Mpc_inv": 0.001442,
+      "N_tot_efolds": 54.958,
+      "dchi2_TT_kin_Bessel": 7.78,
+      "dchi2_TT_kin_Limber": 12.427,
+      "dchi2_TT_mink_Bessel": 3.528
+    },
+    {
+      "ell_0": 21.0,
+      "k_0_Mpc_inv": 0.001514,
+      "N_tot_efolds": 54.909,
+      "dchi2_TT_kin_Bessel": 9.565,
+      "dchi2_TT_kin_Limber": 15.456,
+      "dchi2_TT_mink_Bessel": 4.126
+    },
+    {
+      "ell_0": 22.0,
+      "k_0_Mpc_inv": 0.001586,
+      "N_tot_efolds": 54.863,
+      "dchi2_TT_kin_Bessel": 11.64,
+      "dchi2_TT_kin_Limber": 21.384,
+      "dchi2_TT_mink_Bessel": 5.233
+    },
+    {
+      "ell_0": 23.0,
+      "k_0_Mpc_inv": 0.001658,
+      "N_tot_efolds": 54.818,
+      "dchi2_TT_kin_Bessel": 11.197,
+      "dchi2_TT_kin_Limber": 26.339,
+      "dchi2_TT_mink_Bessel": 4.944
+    },
+    {
+      "ell_0": 24.0,
+      "k_0_Mpc_inv": 0.00173,
+      "N_tot_efolds": 54.776,
+      "dchi2_TT_kin_Bessel": 7.459,
+      "dchi2_TT_kin_Limber": 28.312,
+      "dchi2_TT_mink_Bessel": 2.864
+    },
+    {
+      "ell_0": 25.0,
+      "k_0_Mpc_inv": 0.001802,
+      "N_tot_efolds": 54.735,
+      "dchi2_TT_kin_Bessel": 6.395,
+      "dchi2_TT_kin_Limber": 32.55,
+      "dchi2_TT_mink_Bessel": 2.934
+    },
+    {
+      "ell_0": 26.0,
+      "k_0_Mpc_inv": 0.001875,
+      "N_tot_efolds": 54.696,
+      "dchi2_TT_kin_Bessel": 13.634,
+      "dchi2_TT_kin_Limber": 44.629,
+      "dchi2_TT_mink_Bessel": 8.485
+    },
+    {
+      "ell_0": 27.0,
+      "k_0_Mpc_inv": 0.001947,
+      "N_tot_efolds": 54.658,
+      "dchi2_TT_kin_Bessel": 22.158,
+      "dchi2_TT_kin_Limber": 57.945,
+      "dchi2_TT_mink_Bessel": 14.756
+    },
+    {
+      "ell_0": 28.0,
+      "k_0_Mpc_inv": 0.002019,
+      "N_tot_efolds": 54.622,
+      "dchi2_TT_kin_Bessel": 29.553,
+      "dchi2_TT_kin_Limber": 70.647,
+      "dchi2_TT_mink_Bessel": 20.039
+    },
+    {
+      "ell_0": 29.0,
+      "k_0_Mpc_inv": 0.002091,
+      "N_tot_efolds": 54.586,
+      "dchi2_TT_kin_Bessel": 29.088,
+      "dchi2_TT_kin_Limber": 76.488,
+      "dchi2_TT_mink_Bessel": 20.278
+    },
+    {
+      "ell_0": 30.0,
+      "k_0_Mpc_inv": 0.002163,
+      "N_tot_efolds": 54.553,
+      "dchi2_TT_kin_Bessel": 28.583,
+      "dchi2_TT_kin_Limber": 83.553,
+      "dchi2_TT_mink_Bessel": 20.977
+    }
+  ]
+}
