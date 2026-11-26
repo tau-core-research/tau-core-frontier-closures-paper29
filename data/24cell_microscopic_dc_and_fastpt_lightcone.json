@@ -1,0 +1,239 @@
+{
+  "module": "Paper 29 v3.6.0 \u2014 Module K (Rev 2): Microscopic 4D 24-Cell (D_4) Lattice Audit of (d_max, d_c), Complete 1-Loop FAST-PT 11-Parameter TATT Forecast & Coles-Jones Lightcone Mocks",
+  "NATURE_LEVEL_CLOSURE": false,
+  "epistemic_tiers": {
+    "PROVEN": [
+      "Luscher-Weisz / Capitani (2003) 4D Z^4 massless tadpole Z_0(Z^4) = 0.15493339023106021 reproduced to < 10^{-15}, and Hasenfratz-Karsch (1983) O(a^{-2}) vacuum UV-divergence cancellation proven on both Z^4 and 24-cell (D_4).",
+      "Discrete K_4 subset 24-cell transverse SO(2) spatial director quadratic Casimir d_max = (1/2) Tr(Pi_perp T_def^2) == u^2 = 1/192, 12-link seed identity 12 u^2 == r_seed^2 = 1/16, Hasenfratz-Karsch link-reversal parity generating 2 K_2 Q_0^2 d_eff^2 [cosh(Delta_Q / d_eff) - 1], and exact Voronoi V_0 = 1/2 continuum tadpole Jacobian G_{D_4}(0; a) == 2 Z_0(D_4) / a^2.",
+      "Exact 4D 24-cell (D_4) Watson integral Z_0(D_4) = 0.138230474737 cross-verified by Richardson BZ extrapolation and 1D Hubbard-Stratonovich proper-time integration (< 10^{-9}), with W(F_4)-transitive per-link resolvent Pi_{mm}^{(D_4)} == (1/4) Z_0(D_4).",
+      "Algebraic Watson-Constant Cancellation Identity: if hat{D} couples to 12 independent canonical link modes and the lattice spacing is matched via G_lat(0; a) = M_*^2 / (16 pi^2) (a M_* = 6.607342, Debye Lambda_{BZ} = 0.7587 M_* on D_4), Z_0 cancels algebraically to yield d_c = (3 / (4 pi^2)) u^4 = (m_R / M_*) d_max.",
+      "First-principles SymPy derivation of ALL Blazek et al. (2019) 1-loop FAST-PT TATT mode-coupling AND 1PR propagator kernels (including both B_{0|0E} and 4 B_{0|E2}) + Makino-Sasaki-Suto (1992) P_{22} + P_{13} == 55/784 benchmark, proving exact Galilean IR pole cancellations (5816/2205, 251/105, 32/315) and k -> 0 E/B parity."
+    ],
+    "PROVEN_NO_GO": [
+      "Naive unmatched bare edge identification a = l_* = M_*^{-1} (a M_* = 1) on the 24-cell lattice violates the Bridge-2D Cosmic-Jeans upper bound d_c <= 2.41e-6 for BOTH the 12-link sum (d_c = 24 Z_0(D_4) u^4 = 8.9994e-5, 37.34x violation) AND even the single W(F_4)-invariant radial-breathing singlet (d_c = 2 Z_0(D_4) u^4 = 7.4995e-6, 3.11x violation; and 2.4998e-6 at a M_* = sqrt(3)).",
+      "Naive linear chemical-potential lattice coupling (omitting Hasenfratz-Karsch link exponentials) generates a spurious O(a^{-2}) vacuum susceptibility UV divergence on both Z^4 and D_4."
+    ],
+    "CONDITIONAL": [
+      "Candidate A (12-link quadratic strain + heat-kernel tadpole matching G_{D_4}(0; a) = M_*^2 / (16 pi^2), a M_* = 6.607342): yields d_c = (3 / (4 pi^2)) u^4 = 2.061385e-6; Candidate B (1-mode W(F_4) radial-breathing singlet at 24-cell circumdiameter scale a = 2 l_* = 2 M_*^{-1}, inside viable window a M_* in [1.7641, 2.2359]): yields d_c = (1/2) Z_0(D_4) u^4 = 1.874871e-6 (verified across all 4,001 radial shells of Module F's 3-field Schur BVP), alongside auxiliary threshold sig_c = 10^{-13}.",
+      "Simultaneous 11-parameter Stage-IV Euclid nonlocal FAST-PT TATT (including b_TA and complete 4 B_{0|E2}) + AGN Fisher forecast and 64-realization 24-shell Coles-Jones log-normal + resolution-independent FFT-TATT lightcone shear mock validation."
+    ],
+    "OPEN": [
+      "Non-perturbative 24-cell Regge / spin-foam derivation fixing the UV scale matching ratio a M_* and composite operator hat{D}[sigma_scr, hat{xi}] (and sig_c) without continuum heat-kernel or circumdiameter matching, plus N-body hydrodynamical Euclid Flagship lightcone mocks and external human peer review."
+    ]
+  },
+  "gate1a_2a_24cell_microscopic_dc": {
+    "gate1a_capitani2003_Z0_Z4_exact": 0.1549333902310602,
+    "gate1a_capitani2003_Z0_Z4_computed": 0.15493339023106015,
+    "gate1a_capitani2003_abs_err": 5.551115123125783e-17,
+    "gate1a_hasenfratz_karsch_Z4_susceptibility": -1.452830911130576e-17,
+    "gate1a_naive_linear_Z4_divergence": 0.013164723252449504,
+    "gate1a_hasenfratz_karsch_D4_susceptibility": 9.42496948541649e-16,
+    "gate1a_naive_linear_D4_divergence": 0.010869880382655751,
+    "theorem_K1_dmax_transverse_SO2_Casimir": 0.005208333333333333,
+    "theorem_K1_12link_seed_identity_12u2_eq_rseed2": true,
+    "theorem_K1_HK_cosh_prefactor": "2*K_2*Q_0**2*d_eff**2",
+    "theorem_K1_Voronoi_V0_Jacobian_tadpole_formula": "2*Z_0_D4/(M_star**2*a_lat**2)",
+    "Z0_D4_richardson_m24_to_96": 0.13823047473730263,
+    "Z0_D4_proper_time_hubbard_stratonovich": 0.13823047468911018,
+    "Z0_D4_two_method_rel_diff": 3.486383890543147e-10,
+    "W_D4_continuum_norm_tadpole_2Z0": 0.27646094947460526,
+    "WF4_12link_resolvent_Pi_mm_max_spread": 4.163336342344337e-17,
+    "proven_nogo_bare_edge_a_eq_lstar": {
+      "d_c_bare_12link_24Z0_u4": 8.999379865709806e-05,
+      "bare_12link_jeans_violation_factor": 37.34182516892036,
+      "d_c_bare_singlet_2Z0_u4": 7.499483221424839e-06,
+      "bare_singlet_jeans_violation_factor": 3.111818764076697,
+      "d_c_sqrt3_singlet_2over3_Z0_u4": 2.4998277404749462e-06,
+      "cosmic_jeans_upper_bound": 2.41e-06,
+      "PROVEN_NO_GO": true
+    },
+    "conditional_candidate_A_12link_heat_kernel_matched": {
+      "a_times_M_star": 6.607341618126197,
+      "Debye_Lambda_BZ_over_M_star": 0.7587403284111909,
+      "d_c_3_over_4pi2_u4": 2.061384758348343e-06,
+      "equals_mR_over_Mstar_times_dmax": true,
+      "finite_mR_threshold_factor": 0.9999975454636402,
+      "epistemic_status": "CONDITIONAL (algebraic Z_0 cancellation exact given 12-link strain coupling + G_{D_4}(0;a) == M_*^2/(16 pi^2) matching)"
+    },
+    "conditional_candidate_B_singlet_circumdiameter_a_eq_2lstar": {
+      "viable_a_times_Mstar_band": [
+        1.764,
+        2.236
+      ],
+      "a_times_M_star_circumdiameter": 2.0,
+      "d_c_half_Z0D4_u4": 1.8748708053562097e-06,
+      "IsolatedVoidStar_Psi_over_dc": 1.13215,
+      "IsolatedVoidStar_cosh": 1.7123294012816155,
+      "MilkyWay_max_Psi_over_deff": 0.000978379,
+      "RichCluster_max_Psi_over_deff": 0.0495793,
+      "max_3field_Schur_rel_residual": 6.5596e-16,
+      "epistemic_status": "CONDITIONAL (1-mode W(F_4) radial singlet at 24-cell circumdiameter scale a = 2 l_*)"
+    }
+  },
+  "gate1b_2b_sympy_fastpt_benchmarks": {
+    "makino_sasaki_suto_1992_n_minus2_exact": 0.07015306122448979,
+    "makino_sasaki_suto_1992_n_minus2_computed": 0.07015172592941023,
+    "makino_sasaki_suto_rel_err": 1.9034024406862993e-05,
+    "spt_galilean_IR_pole_cancelled_constant": "5816/2205",
+    "tatt_P0_0E_galilean_IR_pole_cancelled_constant": "251/105",
+    "tatt_P0_E2_galilean_IR_pole_cancelled_constant": "32/315",
+    "blazek2015_eq_A8_B0_0E_identity_exact": true,
+    "blazek2019_4B0_E2_propagator_identity_exact": true,
+    "prop_0_0E_r_to_inf_C1_renorm_const": "58/105",
+    "prop_0_E2_r_to_inf_C1_renorm_const": "58/315",
+    "k_to_0_2A0_E2_mc_exact_zero": true,
+    "k_to_0_EB_parity_E2_B2": "8/135",
+    "k_to_0_EB_parity_0E_0B": "8/15",
+    "k_to_0_0E_E2_limit": "8/45"
+  },
+  "gate2bc_11param_fastpt_and_lightcone_mocks": {
+    "gate1b_7param_nla_benchmark_check": {
+      "computed_SNR_Euclid_alone": 5.44,
+      "module_C_reference_Euclid_alone": 5.44,
+      "computed_SNR_Euclid_plus_Planck18": 7.359,
+      "module_C_reference_Euclid_plus_Planck18": 7.36
+    },
+    "fastpt_1loop_basis_summary_at_k0p2_Mpc_inv": {
+      "I_wn0_white_noise_integral": 11522.436087381138,
+      "P_0_0E_tot_ren_k0p2": 4122.580848251137,
+      "P_0_E2_mc_only_k0p2": -124.01859723501917,
+      "P_0_E2_tot_ren_with_4B_k0p2": -506.7426062507965,
+      "P_0E_0E_raw_k0p2": 1849.1084571142928,
+      "P_E2_E2_raw_k0p2": 270.79686209374944
+    },
+    "eleven_param_fastpt_names": [
+      "alpha_disf",
+      "Omega_m0",
+      "sigma_8",
+      "n_s",
+      "h",
+      "A_1_TA",
+      "eta_1_TA",
+      "b_TA",
+      "A_2_TT",
+      "eta_2_TT",
+      "theta_AGN"
+    ],
+    "high_IA_bTA1_TT_AGN_ell_le_1500": {
+      "SNR_1param_fixed": 8.76,
+      "SNR_7param_cosmo_plus_NLA": 6.95,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_alone": 6.04,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_plus_Planck18": 7.33,
+      "SNR_11param_FASTPT_full_Euclid_alone": 5.42,
+      "SNR_11param_FASTPT_full_Euclid_plus_Planck18": 6.63,
+      "sigma_alpha_disf_11param_Euclid_alone": 0.1846,
+      "sigma_alpha_disf_11param_Euclid_plus_Planck18": 0.1508,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.5645,
+        "sigma_8": -0.5243,
+        "n_s": 0.2784,
+        "h": -0.4512,
+        "A_1_TA": -0.6172,
+        "eta_1_TA": -0.0797,
+        "b_TA": 0.4417,
+        "A_2_TT": -0.0278,
+        "eta_2_TT": 0.1703,
+        "theta_AGN": 0.1398
+      }
+    },
+    "high_IA_bTA1_TT_AGN_ell_le_1000_conservative": {
+      "SNR_1param_fixed": 8.28,
+      "SNR_7param_cosmo_plus_NLA": 6.38,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_alone": 5.23,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_plus_Planck18": 6.98,
+      "SNR_11param_FASTPT_full_Euclid_alone": 4.81,
+      "SNR_11param_FASTPT_full_Euclid_plus_Planck18": 6.33,
+      "sigma_alpha_disf_11param_Euclid_alone": 0.2081,
+      "sigma_alpha_disf_11param_Euclid_plus_Planck18": 0.158,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.6423,
+        "sigma_8": -0.5465,
+        "n_s": 0.3515,
+        "h": -0.5385,
+        "A_1_TA": -0.651,
+        "eta_1_TA": -0.165,
+        "b_TA": 0.3944,
+        "A_2_TT": 0.046,
+        "eta_2_TT": 0.1782,
+        "theta_AGN": 0.213
+      }
+    },
+    "high_IA_bTA1_TT_AGN_ell_le_1000_ir_highpass_filter_check": {
+      "SNR_1param_fixed": 8.29,
+      "SNR_7param_cosmo_plus_NLA": 6.39,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_alone": 5.25,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_plus_Planck18": 6.99,
+      "SNR_11param_FASTPT_full_Euclid_alone": 4.84,
+      "SNR_11param_FASTPT_full_Euclid_plus_Planck18": 6.35,
+      "sigma_alpha_disf_11param_Euclid_alone": 0.2068,
+      "sigma_alpha_disf_11param_Euclid_plus_Planck18": 0.1575,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.6393,
+        "sigma_8": -0.5419,
+        "n_s": 0.3506,
+        "h": -0.5369,
+        "A_1_TA": -0.6469,
+        "eta_1_TA": -0.1639,
+        "b_TA": 0.3891,
+        "A_2_TT": 0.0467,
+        "eta_2_TT": 0.1729,
+        "theta_AGN": 0.2128
+      }
+    },
+    "DES_like_IA_bTA1_TT_AGN_ell_le_1000": {
+      "SNR_1param_fixed": 7.86,
+      "SNR_7param_cosmo_plus_NLA": 4.9,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_alone": 4.1,
+      "SNR_10param_FASTPT_bTA_fixed_Euclid_plus_Planck18": 5.58,
+      "SNR_11param_FASTPT_full_Euclid_alone": 3.55,
+      "SNR_11param_FASTPT_full_Euclid_plus_Planck18": 5.06,
+      "sigma_alpha_disf_11param_Euclid_alone": 0.2817,
+      "sigma_alpha_disf_11param_Euclid_plus_Planck18": 0.1977,
+      "correlations_with_alpha_disf_Euclid_alone": {
+        "Omega_m0": 0.6998,
+        "sigma_8": -0.4978,
+        "n_s": 0.2964,
+        "h": -0.5288,
+        "A_1_TA": -0.6782,
+        "eta_1_TA": -0.1413,
+        "b_TA": 0.5001,
+        "A_2_TT": 0.0153,
+        "eta_2_TT": 0.2416,
+        "theta_AGN": 0.1603
+      }
+    },
+    "lightcone_3d_coles_jones_tatt_mocks_64": {
+      "n_test_mocks_per_hypothesis": 64,
+      "n_noiseless_template_pairs": 64,
+      "n_independent_gr_calibration_mocks": 192,
+      "n_radial_shells": 24,
+      "grid_pixels": "160x160",
+      "patch_area_deg2": 144.0,
+      "euclid_area_boost_factor": 104.167,
+      "ell_bandpower_centers": [
+        42.4,
+        64.7,
+        96.8,
+        143.7,
+        222.3,
+        344.7,
+        537.7,
+        836.9
+      ],
+      "sigma_3D_IA_Lagrangian_z0": 1.74,
+      "max_rel_diff_lambda_Npix128_vs_160": 0.002231,
+      "coles_jones_shell10_power_max_rel_err": 0.03885,
+      "max_spurious_EB_lensing_leakage": 4.2856853864461685e-20,
+      "mean_alpha_hat_tau_core_mocks": 0.6559,
+      "mean_alpha_hat_null_GR_mocks": 0.25691,
+      "se_sample_mean_including_calibration": 0.25456,
+      "std_alpha_hat_single_patch_LN_TATT": 1.7636,
+      "std_alpha_hat_single_patch_Gaussian_control": 1.3657,
+      "non_gaussian_variance_inflation_vs_gaussian_control": 1.2914,
+      "SNR_unmarginalized_lightcone_mocks_full_Euclid": 5.787,
+      "SNR_unmarginalized_analytic_Fisher_ell_le_1000": 8.284,
+      "SNR_mock_calibrated_11param_Euclid_alone": 3.36,
+      "SNR_mock_calibrated_11param_Euclid_plus_Planck18": 4.422
+    }
+  }
+}

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Generate publication-grade bilingual (EN / HU) 4-panel figures for Paper 29 (v3.5.0):
+Generate publication-grade bilingual (EN / HU) 4-panel figures for Paper 29 (v3.6.0):
   figures/fig_continuum_limit_a_to_0_en.pdf
   figures/fig_continuum_limit_a_to_0_hu.pdf
 
-Reads directly from Stage-A verified JSON outputs (Modules H, I, J).
+Reads directly from Stage-A verified JSON outputs (Modules H, I, J, K).
 Zero hardcoded machine-specific paths; passes `python3 -W error` cleanly.
 """
 
@@ -28,7 +28,7 @@ def hu_fmt(val: float, decimals: int = 2) -> str:
     return f"{val:.{decimals}f}".replace(".", ",")
 
 
-def build_figure(lang: str, mod_h: dict, mod_i: dict, mod_j: dict, out_path: pathlib.Path) -> None:
+def build_figure(lang: str, mod_h: dict, mod_i: dict, mod_j: dict, mod_k: dict, out_path: pathlib.Path) -> None:
     is_hu = lang == "hu"
     plt.rcParams.update({
         "font.family": "serif",
@@ -314,69 +314,79 @@ def build_figure(lang: str, mod_h: dict, mod_i: dict, mod_j: dict, out_path: pat
     )
 
     # ------------------------------------------------------------------
-    # Panel (d): Module J — Wetterich FRG Shield & 10-Param Euclid TATT+AGN Ladder
+    # Panel (d): Modules J & K — 24-Cell (d_c, a M_*), 11p FAST-PT & 64-Mock Lightcones
     # ------------------------------------------------------------------
-    f1000 = mod_j["gate1b_2c_euclid_10param_tatt_and_agn"]["euclid_10param_TATT_plus_AGN_ell30_1000_EuclidHighIA"]
-    f1500 = mod_j["gate1b_2c_euclid_10param_tatt_and_agn"]["euclid_10param_TATT_plus_AGN_ell30_1500_EuclidHighIA"]
+    fk = mod_k["gate2bc_11param_fastpt_and_lightcone_mocks"]
+    k1000 = fk["high_IA_bTA1_TT_AGN_ell_le_1000_conservative"]
+    k1500 = fk["high_IA_bTA1_TT_AGN_ell_le_1500"]
+    lc64 = fk["lightcone_3d_coles_jones_tatt_mocks_64"]
 
     stages = (
         [
             "1p\nrögzített",
             "7p\n+NLA",
-            "8p\n+AGN",
-            "9p\n+TATT",
-            "10p TATT+AGN\n(Euclid)",
-            "10p TATT+AGN\n(+Planck18)",
+            "10p\nFAST-PT",
+            "11p +$b_{\\mathrm{TA}}$\n(Euclid)",
+            "11p +$b_{\\mathrm{TA}}$\n(+Planck18)",
+            "64 fénykúp\n(+Planck18)",
         ]
         if is_hu
         else [
             "1p\nfixed",
             "7p\n+NLA",
-            "8p\n+AGN",
-            "9p\n+TATT",
-            "10p TATT+AGN\n(Euclid)",
-            "10p TATT+AGN\n(+Planck18)",
+            "10p\nFAST-PT",
+            "11p +$b_{\\mathrm{TA}}$\n(Euclid)",
+            "11p +$b_{\\mathrm{TA}}$\n(+Planck18)",
+            "64-mock LC\n(+Planck18)",
         ]
     )
     vals_1000 = [
-        f1000["SNR_1param_fixed"],
-        f1000["SNR_7param_cosmo_plus_NLA"],
-        f1000["SNR_8param_cosmo_plus_NLA_plus_AGN"],
-        f1000["SNR_9param_cosmo_plus_TATT"],
-        f1000["SNR_10param_Euclid_alone_TATT_plus_AGN"],
-        f1000["SNR_10param_Euclid_plus_Planck18_TATT_plus_AGN"],
+        k1000["SNR_1param_fixed"],
+        k1000["SNR_7param_cosmo_plus_NLA"],
+        k1000["SNR_10param_FASTPT_bTA_fixed_Euclid_alone"],
+        k1000["SNR_11param_FASTPT_full_Euclid_alone"],
+        k1000["SNR_11param_FASTPT_full_Euclid_plus_Planck18"],
     ]
     vals_1500 = [
-        f1500["SNR_1param_fixed"],
-        f1500["SNR_7param_cosmo_plus_NLA"],
-        f1500["SNR_8param_cosmo_plus_NLA_plus_AGN"],
-        f1500["SNR_9param_cosmo_plus_TATT"],
-        f1500["SNR_10param_Euclid_alone_TATT_plus_AGN"],
-        f1500["SNR_10param_Euclid_plus_Planck18_TATT_plus_AGN"],
+        k1500["SNR_1param_fixed"],
+        k1500["SNR_7param_cosmo_plus_NLA"],
+        k1500["SNR_10param_FASTPT_bTA_fixed_Euclid_alone"],
+        k1500["SNR_11param_FASTPT_full_Euclid_alone"],
+        k1500["SNR_11param_FASTPT_full_Euclid_plus_Planck18"],
     ]
+    val_lc_mock = lc64["SNR_mock_calibrated_11param_Euclid_plus_Planck18"]
 
-    x = np.arange(len(stages), dtype=float)
+    x5 = np.arange(5, dtype=float)
+    x_all = np.arange(len(stages), dtype=float)
     w = 0.36
     b1 = ax_d.bar(
-        x - 0.5 * w,
+        x5 - 0.5 * w,
         vals_1000,
         width=w,
         color="#2874a6",
         edgecolor="#1b4f72",
-        label=r"$\ell \in [30,\,1000]$ (High-IA)",
+        label=r"$\ell \in [30,\,1000]$ (FAST-PT)",
     )
     b2 = ax_d.bar(
-        x + 0.5 * w,
+        x5 + 0.5 * w,
         vals_1500,
         width=w,
         color="#5dade2",
         edgecolor="#1b4f72",
-        label=r"$\ell \in [30,\,1500]$ (High-IA)",
+        label=r"$\ell \in [30,\,1500]$ (FAST-PT)",
+    )
+    b3 = ax_d.bar(
+        [5.0],
+        [val_lc_mock],
+        width=0.46,
+        color="#1e8449",
+        edgecolor="#145a32",
+        label=r"Coles–Jones 64 fénykúp ($\ell \leq 1000$)" if is_hu else r"Coles–Jones 64-mock LC ($\ell \leq 1000$)",
     )
     ax_d.axhline(5.0, color="#b03a2e", ls="--", lw=1.3, label=r"$5\sigma$ / $3\sigma$ küszöb" if is_hu else r"$5\sigma$ / $3\sigma$ thresholds")
     ax_d.axhline(3.0, color="#ca6f1e", ls=":", lw=1.3)
 
-    for rect in list(b1) + list(b2):
+    for rect in list(b1) + list(b2) + list(b3):
         h_v = rect.get_height()
         txt = hu_fmt(h_v, 2) if is_hu else f"{h_v:.2f}"
         ax_d.text(
@@ -385,30 +395,30 @@ def build_figure(lang: str, mod_h: dict, mod_i: dict, mod_j: dict, out_path: pat
             txt,
             ha="center",
             va="bottom",
-            fontsize=7.1,
+            fontsize=7.0,
         )
 
-    ax_d.set_xticks(x)
-    ax_d.set_xticklabels(stages, fontsize=7.9)
-    ax_d.set_ylim(0.0, 12.6)
+    ax_d.set_xticks(x_all)
+    ax_d.set_xticklabels(stages, fontsize=7.5)
+    ax_d.set_ylim(0.0, 14.2)
     ax_d.grid(True, axis="y", ls=":", alpha=0.45)
     ax_d.set_ylabel(r"Diszformális $\alpha_{\mathrm{disf}}$ SNR [$\sigma$]" if is_hu else r"Disformal $\alpha_{\mathrm{disf}}$ SNR [$\sigma$]")
     ax_d.set_title(
-        r"(d) J modul: Wetterich-pajzs és 10p Euclid TATT+AGN SNR"
+        r"(d) J–K modul: 24-cellás $d_c$, 11p FAST-PT és 64 fénykúp"
         if is_hu
-        else r"(d) Module J: Wetterich Shield & 10p Euclid TATT+AGN SNR",
+        else r"(d) Modules J–K: 24-Cell $d_c$, 11p FAST-PT & 64 Lightcones",
         fontweight="bold",
     )
-    ax_d.legend(loc="upper right", framealpha=0.94, fontsize=7.6)
+    ax_d.legend(loc="upper right", framealpha=0.94, fontsize=7.0)
 
     note_d = (
         "Korlátos $W_\\sigma$: $|\\Delta m_\\sigma^2|/m_\\sigma^2 = 8{,}04\\times 10^{-7}$\n"
-        "1-csat. $u^4/(16\\pi^2)$: NO-GO ($12{,}36\\times$)\n"
-        "12-él ansatz $d_c=\\frac{3}{4\\pi^2}u^4$: PASS"
+        "Csupasz $a=\\ell_*$: NO-GO ($3{,}11\\times$–$37{,}3\\times$)\n"
+        "A/B $d_c$: $2{,}06\\cdot 10^{-6}$ ($aM_*=6{,}61$) / $1{,}87\\cdot 10^{-6}$ ($2\\ell_*$)"
         if is_hu
         else "Bounded $W_\\sigma$: $|\\Delta m_\\sigma^2|/m_\\sigma^2 = 8.04\\times 10^{-7}$\n"
-        "1-ch $u^4/(16\\pi^2)$: NO-GO ($12.36\\times$)\n"
-        "12-link ansatz $d_c=\\frac{3}{4\\pi^2}u^4$: PASS"
+        "Bare $a=\\ell_*$: NO-GO ($3.11\\times$–$37.3\\times$)\n"
+        "Cand. A/B $d_c$: $2.06\\cdot 10^{-6}$ ($aM_*=6.61$) / $1.87\\cdot 10^{-6}$ ($2\\ell_*$)"
     )
     ax_d.text(
         0.02,
@@ -417,8 +427,8 @@ def build_figure(lang: str, mod_h: dict, mod_i: dict, mod_j: dict, out_path: pat
         transform=ax_d.transAxes,
         va="top",
         ha="left",
-        fontsize=7.3,
-        bbox=dict(boxstyle="round,pad=0.28", facecolor="white", edgecolor="#cccccc", alpha=0.94),
+        fontsize=6.9,
+        bbox=dict(boxstyle="round,pad=0.26", facecolor="white", edgecolor="#cccccc", alpha=0.94),
     )
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -430,11 +440,12 @@ def main() -> None:
     mod_h = json.loads((DATA_DIR / "spin10_dynamical_link_mc_and_continuum_scaling.json").read_text(encoding="utf-8"))
     mod_i = json.loads((DATA_DIR / "24cell_regge_lorentzian_continuum_limit_mc.json").read_text(encoding="utf-8"))
     mod_j = json.loads((DATA_DIR / "wetterich_frg_helmholtz_prefactors_and_tatt.json").read_text(encoding="utf-8"))
+    mod_k = json.loads((DATA_DIR / "24cell_microscopic_dc_and_fastpt_lightcone.json").read_text(encoding="utf-8"))
 
     en_pdf = FIG_DIR / "fig_continuum_limit_a_to_0_en.pdf"
     hu_pdf = FIG_DIR / "fig_continuum_limit_a_to_0_hu.pdf"
-    build_figure("en", mod_h, mod_i, mod_j, en_pdf)
-    build_figure("hu", mod_h, mod_i, mod_j, hu_pdf)
+    build_figure("en", mod_h, mod_i, mod_j, mod_k, en_pdf)
+    build_figure("hu", mod_h, mod_i, mod_j, mod_k, hu_pdf)
     print(f"Generated: {en_pdf.name}, {hu_pdf.name}")
 
 
