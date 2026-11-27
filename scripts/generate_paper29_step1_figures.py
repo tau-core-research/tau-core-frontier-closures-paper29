@@ -467,9 +467,9 @@ def build_fig2(res: Dict, lang: str) -> None:
     ax.set_ylim(-26.0, 3.5)
     ax.set_ylabel(r"$\Delta\chi^2$ ($\alpha_{\mathrm{OCSR}}$ mínusz homogén $\theta_*$)" if lang == "hu" else r"$\Delta\chi^2$ ($\alpha_{\mathrm{OCSR}}$ minus homog. $\theta_*$)")
     ax.set_title(
-        "D. Paramétermentes javulás mind az 5 késői adatsoron ($\\Delta k = 0$)"
+        "D. Rögzített szótárú javulás mind az 5 késői adatsoron ($\\Delta k_{\\mathrm{add}} = 0$, D1: $a_0$ illesztett)"
         if lang == "hu"
-        else "D. Parameter-Free $\\Delta\\chi^2 < 0$ Across All 5 Late-Time Probes ($\\Delta k = 0$)"
+        else "D. Locked-Dictionary $\\Delta\\chi^2 < 0$ Across All 5 Late-Time Probes ($\\Delta k_{\\mathrm{add}} = 0$, D1)"
     )
     for rb, vd in zip(bars_d, dchi_vs_hom_th):
         ax.text(rb.get_x() + rb.get_width() / 2.0, vd - 1.55, fmt_plain(vd, 2, lang), ha="center", fontsize=8.0, fontweight="bold", color="#0f172a")

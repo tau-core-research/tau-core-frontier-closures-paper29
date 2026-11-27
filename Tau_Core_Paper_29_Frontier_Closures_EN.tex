@@ -33,6 +33,14 @@
 We report conditional tests of an adopted optical metric, finite-resolution cluster models and finite-rank lattice invariants. The background Sachs identity does not establish the full perturbed photon or director dynamics. The cluster and mesh diagnostics apply to the stated implementations. The finite-group tensor identity does not prove positivity of an interacting measure, a scaling limit or gravitational closure. We separate mathematical consequences from imposed inputs and finite numerical outputs.
 \end{abstract}
 
+\begin{center}\fbox{\begin{minipage}{0.94\linewidth}\small
+\textbf{Revision note (27 November 2026).} After an independent audit, two corpus-wide decisions apply to this manuscript.
+(i)~The galactic acceleration scale $a_0$ is \emph{one fitted parameter} ($k=1$). The SPARC value $a_0=(1.20\pm0.02_{\rm stat}\pm0.15_{\rm sys})\times10^{-10}\,\mathrm{m\,s^{-2}}$ replaces the formerly ``derived'' values $a_0^{\rm KH}(0)=0.90\times10^{-10}\,\mathrm{m\,s^{-2}}$ and $(5\sqrt{3}/48)\,cH_0=1.18\times10^{-10}\,\mathrm{m\,s^{-2}}$; the latter is quoted only as a numerical coincidence. Only the redshift \emph{shape} $E(z)\,|1-\frac{3}{4}\Omega_m(z)|/|1-\frac{3}{4}\Omega_{m,0}|$ is retained as a conditional prediction. The inversion SPARC\,$\to H_0$ is withdrawn as circular, and clock anomalies computed with $a_0^{\rm KH}(0)$ scale by $(a_0/a_0^{\rm KH}(0))^2\simeq1.77$ (all remain null-test passes).
+(ii)~The early-Universe history is an LQC-type bounce followed by Starobinsky $R^2$ inflation (Paper~24). The post-bounce thermal-reheating branch ($T_{\rm reh}\simeq10^{18}$\,GeV) and its thermal leptogenesis are withdrawn; the bounce supplies pre-inflationary initial conditions only (cf.\ Ashtekar \& Sloan, Phys.\ Lett.\ B \textbf{694}, 108 (2010); Agullo, Ashtekar \& Nelson, Phys.\ Rev.\ Lett.\ \textbf{109}, 251301 (2012); Bonga \& Gupt, Gen.\ Rel.\ Grav.\ \textbf{48}, 71 (2016)).
+Table and figure entries that depend on the superseded choices have not yet been regenerated.
+\end{minipage}}\end{center}
+
+
 \paragraph{Publication audit: assumptions versus tested consequences.}
 The homogeneous Sachs identity is conditional on the supplied optical metric
 and the optical-clock redshift convention. A general director
@@ -325,7 +333,7 @@ Gate & Physical Test / Theorem & Epistemic Tag & Key Verified Quantitative Resul
 
 \section{Finite 24-cell Tensor Invariants and Lattice Diagnostics}
 \label{sec:step3-isotropy}
-Parts~I and~II used the covariant \texttt{AeST}--QUMOND--Helmholtz effective action and the macroscopic void-clock coupling $\alpha_{\mathrm{OCSR}} = 5\sqrt{3}/24$ at zero free parameters. However, a mathematical-physics referee auditing any discrete pre-geometric substrate must confront four severe microscopic challenges:
+Parts~I and~II used the covariant \texttt{AeST}--QUMOND--Helmholtz effective action (following Skordis \& Z{\l}o{\'s}nik, Phys.\ Rev.\ Lett.\ \textbf{127}, 161302 (2021)) and the frozen void-clock coupling $\alpha_{\mathrm{OCSR}} = 5\sqrt{3}/24$, which is not re-tuned here. However, a mathematical-physics referee auditing any discrete pre-geometric substrate must confront four severe microscopic challenges:
 (i)~the Collins--Perez--Sudarsky--Urrutia--Vucetich (CPSUV) radiative fine-tuning problem \cite{Collins2004}, whereby generic discrete lattices generate percent-level $d = 4$ or Planck-Linear/Quadratic ($d = 5, 6$) Lorentz-invariance violation (LIV) through Standard Model loop integrals unless protected by exact point-group identities;
 (ii)~the Planck-stiffness freezing hierarchy, whereby a naive order-unity lattice exchange coupling $\kappa_{\mathrm{dir}}^{\mathrm{bare}}(\nabla u)^2$ between neighboring spatial directors creates an $8.6\times 10^4\;\mathrm{Mpc}$ healing length that freezes galactic QUMOND polarization to zero;
 (iii)~whether the logarithmic QUMOND interpolation $F_{\mathrm{OD}}(s)$ and two-channel Noether reaction flux emerge rigorously under functional renormalization and 3D simplicial mesh refinement; and
